@@ -1,0 +1,33 @@
+<%= render layout: "layouts/base" do %>
+  <%= render partial: "layouts/side_menu" %>
+
+  <div class="main-content">
+    <%= render partial: 'layouts/dashboard_top_nav' %>
+
+    <% if content_for?(:description) || content_for(:actions) %>
+      <div class="scaffold page-header d-flex align-items-center mb-3">
+        <div class='container'>
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+              <% if content_for?(:description) %>
+                <h2 class='m-0 tracking-tighter'><%= @title %></h2>
+                <%= yield :description %>
+              <% end %>
+            </div>
+            <div class="col-12 col-md-6">
+              <% if content_for?(:actions) %>
+                <%= yield :actions %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.page-header -->
+    <% end %>
+
+    <div class="container pt-4">
+      <%= render "layouts/flashes" %>
+      <%= yield %>
+    </div>
+
+  </div>
+<% end %>

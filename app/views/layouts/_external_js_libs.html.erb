@@ -1,0 +1,30 @@
+<% @js_libs = yield :js_libs %>
+
+<% content_for :external_js_libs do %>
+  <%= javascript_include_tag "vendor/modernizr/modernizr.2.8.3.min" %>
+<% end %>
+
+<% if @js_libs.include? 'gmaps' %>
+  <% content_for :javascript do %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyB-cfYp0VsRHQZCPk6Q6RCAkiqTI22ICqY&libraries=places" %>
+    <%= javascript_include_tag "vendor/gmaps/gmaps" %>
+  <% end %>
+<% end %>
+
+<% if @js_libs.include? 'flot' %>
+  <% content_for :javascript do %>
+    <%= javascript_include_tag "vendor/flot/flot-chart" %>
+    <%= javascript_include_tag "vendor/flot/flot-chart-resize" %>
+    <%= javascript_include_tag "vendor/flot/flot-chart-time" %>
+    <%= javascript_include_tag "vendor/flot/flot-chart-stack" %>
+  <% end %>
+<% end %>
+
+<% if @js_libs.include? 'chartjs' %>
+  <% content_for :javascript do %>
+    <%= javascript_include_tag "vendor/chartjs/Chart.bundle.min" %>
+    <%= javascript_include_tag "vendor/chartjs/Chart.min" %>
+  <% end %>
+<% end %>
+
+

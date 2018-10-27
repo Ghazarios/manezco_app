@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= @title || message.subject %></title>
+    <style type="text/css">
+
+      /* Take care of image borders and formatting */
+      img     { max-width:600px !important; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; }
+      a img   { border:none; }
+
+      /* Fix Apple contact links and hide the preheader */
+      .applefix a           {color:#888888; text-decoration: none;}
+      span[class="preheader"] { display:none; }
+
+      /* Responsive Styles */
+      @media only screen and (max-width:600px) {
+        img                             { width:100% !important; height:auto !important; }
+        img[class="columnImage"]        { height:auto !important; max-width:480px !important; width:100% !important; }
+        table[id="emailContainer"]      { width:100% !important; }
+        table[class="columnContainer"]  { width:100% !important; }
+        table[class="mobileButton"]     { width:60% !important; }
+        td[class="columnSingle"]        { display:block !important; width:100% !important; }
+      }
+
+    </style>
+  </head>
+
+  <body bgcolor="#efefef" style="background-color:#efefef; -webkit-text-size-adjust: none;">
+
+    <span class="preheader" style="display:none; color:#efefef;"><%= @title || message.subject %></span>
+
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" id="emailContainer" style="display:block; max-width:600px; background-color:#efefef;">
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+            <tr>
+              <td>
+                <%= render partial: 'emails/email_header', locals: { title: message.subject } %>
+              </td>
+            </tr>
+            <%= yield %>
+            <tr>
+              <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                  <tr>
+                    <td align="center" valign="top">
+                      <%= render partial: 'emails/email_footer' %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>

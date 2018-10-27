@@ -1,0 +1,102 @@
+<div class="row is-flex">
+  <div class="col-12 col-md-5 animate-fade-in-1000">
+    <div class="card card-default inspectable">
+      <!-- component-title: Flot Realtime Graph -->
+      <div class="card-header">
+        <h6>MASTER SERVER</h6>
+      </div>
+      <div class="card-body">
+        <div class='flot-realtime' style="height: 315px; width: 100%; display: block;"></div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="server-status-details clearfix">
+              <h5 class="text-center">Memory Stats</h5>
+              <div class="row stat-list text-center">
+                <dl class="col-xs-6 col-sm-6 col-md-3">
+                  <dt>In use</dt>
+                  <dd>2.5 GB</dd>
+                </dl>
+                <dl class="col-xs-6 col-sm-6 col-md-3">
+                  <dt>Total</dt>
+                  <dd>4 GB</dd>
+                </dl>
+                <dl class="col-xs-6 col-sm-6 col-md-3">
+                  <dt>Available</dt>
+                  <dd>500 MB</dd>
+                </dl>
+                <dl class="col-xs-6 col-sm-6 col-md-3">
+                  <dt>Swap</dt>
+                  <dd>360 MB</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-7 animate-fade-in-1000">
+    <div class="card card-default inspectable">
+      <!-- component-title: Tabbed Card -->
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h6>RECENT ACTIVITY</h6>
+        <ul class="nav nav-tabs nav-tabs-xs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#dashboard-recent-comments" data-toggle="tab">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dashboard-recent-threads" data-toggle="tab">Forum threads</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane fade active show" style='height: 444px; overflow-y: auto;' id='dashboard-recent-comments'>
+          <ul class="list-group list-group-flush">
+            <% (1..5).each do |index|%>
+              <li class='list-group-item'>
+                <div class="media">
+                  <a class="d-flex mr-3" href="#">
+                    <%= random_avatar 40, "rounded-circle" %>
+                  </a>
+                  <div class="media-body">
+                    <strong><a href="#" title="">Samreid Manez</a> commented on <a href="#" title="">Article Name</a></strong>
+                    <p class='small'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae atque, dolore quo voluptatum sed voluptas incidunt aspernatur natus iste dolor neque porro quos illo quia iusto minima, nesciunt animi architecto.</p>
+                    <ul class="nav small">
+                      <li class="nav-item"><a href="#" class="mr-3 btn btn-circle btn-primary"><%= theme_icon_tag "pencil-alt" %> Edit</a></li>
+                      <li class="nav-item"><a href="#" class="btn btn-circle btn-secondary"><%= theme_icon_tag "close" %> Remove</a></li>
+                      <li class="ml-auto">
+                        <span class="text-muted"><%= index %> hour ago</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="tab-pane fade" id="dashboard-recent-threads">
+          <div style="overflow-y: auto; width: auto; height: 444px;">
+            <ul class="list-group list-group-flush">
+              <% (1..10).each do |index|%>
+                <li class="list-group-item">
+                  <div class="media">
+                    <a class="d-flex mr-3" href="#">
+                      <%= random_avatar 40, "rounded-circle" %>
+                    </a>
+                    <div class="media-body">
+                      <h6 class="media-header"><a href="#" title="">Lorem ipsum dolor sit amet</a></h6>
+                      <div class="small d-flex">Started by <a href="#" title="">Fill Murray</a> in <a href="#" title="">Forum name</a><span class="ml-auto">3h ago</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <%end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

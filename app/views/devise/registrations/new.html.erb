@@ -1,0 +1,48 @@
+<% @title = "Sign up" %>
+
+<div id="main" class="devise-1">
+  <div class="container-fluid">
+    <div class="row">
+      <header class="text-center">
+        <h1><%=app_name%></h1>
+        <p class="p-0 m-0 text-uppercase">Sign Up</p>
+      </header>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-md-6 mr-auto ml-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="container">
+              <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+                html: { class: "form-horizontal", novalidate: true } do |f| %>
+                <%= f.error_notification %>
+
+                <%= f.form_group :email, class: "row" do |f| %>
+                  <%= f.label :email, class: "form-label" %>
+                  <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                  <%= f.error_messages %>
+                <% end %>
+
+                <%= f.form_group :password, class: "row" do |f| %>
+                  <%= f.label :password, class: "form-label" %>
+                  <%= f.password_field :password, class: "form-control" %>
+                  <%= f.error_messages %>
+                <% end %>
+
+                <%= f.form_group :password_confirmation, class: "row" do |f| %>
+                  <%= f.label :password_confirmation, class: "form-label" %>
+                  <%= f.password_field :password_confirmation, class: "form-control" %>
+                  <%= f.error_messages %>
+                <% end %>
+
+                <div class="row d-flex align-items-center mt-5">
+                  <%= link_to "Log in?", new_session_path(resource_name) %>
+                  <%= f.submit "Sign up", class: "btn btn-primary ml-auto" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

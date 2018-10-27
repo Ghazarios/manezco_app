@@ -1,0 +1,31 @@
+/*
+ * Pick one style by placing the `=` sign in front the the style you want. ** Just one, now. **
+ *
+ *= require rrt/orion/blue
+ * require rrt/orion/purple
+ * require rrt/orion/green
+ * require rrt/orion/orange
+ *
+ *
+ *  require rrt/auriga/blue
+ *  require rrt/auriga/green
+ *  require rrt/auriga/red
+ *  require rrt/auriga/yellow
+ *
+ *  require rrt/gemini/blue
+ *  require rrt/gemini/amber
+ *  require rrt/gemini/granite
+ *  require rrt/gemini/ocean
+ *
+ *  require rrt/lyra/azure
+ *  require rrt/lyra/charcoal
+ *  require rrt/lyra/lime
+ *  require rrt/lyra/raspberry
+ *
+ * To fully customize your theme, run: `rails generate rrt:customize`.
+ *
+ *
+ * NOTE: DO NOT PLACE ANY CUSTOM CSS IN THIS FILE - IT COULD BE OVERWRITTEN IN FUTURE
+ * UPDATES!
+ */
+

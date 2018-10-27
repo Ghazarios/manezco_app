@@ -1,0 +1,54 @@
+<div class="row equal-cols">
+  <div class="col-12 col-md-9 animate-fade-in-1000">
+    <div class="card card-full-height inspectable">
+      <!-- component-title: Graph -->
+      <div class="card-header d-flex align-items-center">
+        <h6 class="mr-auto">SALES VS REFUNDS LAST 7 DAYS</h6>
+
+        <div class="d-flex">
+          <div class="dropdown">
+            <button class="nav-link btn btn-icon " type="button" id="salesAndRefundButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= theme_icon_tag "more" %>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-badgeledby="salesAndRefundButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body position-relative">
+        <canvas class="sales-vs-refunds"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-3 animate-fade-in-1000">
+    <div class="card card-full-height d-flex inspectable">
+      <!-- component-title: Timeline Card -->
+      <div class="card-header">
+        <h6>SALES ACTIVITY</h6>
+      </div>
+      <div class="card-body">
+        <div class="timeline" style="height: 450px">
+          <ul class="left-timeline">
+            <% types = [ { klass: 'refund', css_class: 'badge badge-danger'},  { klass: 'purchase', css_class: 'badge badge-success'}, { klass: 'cancellation', css_class: 'badge badge-light'}] %>
+            <% (1..8).each do |index|%>
+              <li class="timeline-item">
+                <% instance = types[Random.rand(types.length)] %>
+                <time class='<%= instance[:css_class]%>'>
+                  <strong>$<%=Random.rand(120) %></strong>
+                </time>
+                <div class="activity-text">
+                  <strong>Internet Genie</strong>
+                  <small class="text-muted"><%=instance[:klass].upcase %> - <%=time_ago_in_words( DateTime.now-(index.minutes) ) %></small>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

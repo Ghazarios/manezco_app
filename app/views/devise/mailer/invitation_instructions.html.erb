@@ -1,0 +1,20 @@
+<%= email_message_section do %>
+  <%= email_message_spacer 2 %>
+
+  <%= email_message_body_text do %>
+    <%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %>
+  <% end %>
+
+  <%= email_message_button do %>
+    <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token), style: 'color: #fff;' %>
+  <% end %>
+
+
+  <%= email_message_spacer 2 %>
+
+  <%= email_message_small_text do %>
+    <%= t("devise.mailer.invitation_instructions.ignore").html_safe %>
+  <% end %>
+
+  <%= email_message_spacer 2 %>
+<% end %>

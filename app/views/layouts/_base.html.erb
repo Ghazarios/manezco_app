@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<%= html_tag :lang => "en" do %>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%# Turbolinks... sigh. If you're going to remove this line, please make sure you know what
+      you're doing. Please read very carefully: https://github.com/turbolinks/turbolinks %>
+    <meta name="turbolinks-cache-control" content="no-cache">
+
+    <title><%= [@title, app_name].compact.join(" - ") %></title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': 'reload'%>
+    <%= yield :styles %>
+
+    <%= favicon_link_tag %>
+    <%# favicon_link_tag "apple-touch-icon.png", :rel => "apple-touch-icon" %>
+
+    <%= render 'layouts/external_js_libs' %>
+    <%= yield :external_js_libs %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
+
+    <%= yield :javascript %>
+    <%= yield :head %>
+  </head>
+  <body class='<%= @body_class %>' data-js-libs='bootstrap fitie metis forms sidenav prism clipboard bs-switch <%= yield :js_libs %>'>
+
+    <%= yield %>
+
+  </body>
+<% end %>

@@ -1,0 +1,41 @@
+<% @title = "Activate your Invite" %>
+
+<div id="main" class='devise-1'>
+  <div class="container-fluid">
+    <div class="row">
+      <header class="text-center">
+        <h1><%=app_name%></h1>
+        <p class="p-0 m-0 text-uppercase">Accept your invite</p>
+      </header>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-md-6 mr-auto ml-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="container">
+              <p class="text-center"><strong>You've been invited to <%= app_name %></strong></p>
+              <p class="text-center">Create a password to activate your invite</p>
+              <%= form_for resource, as: resource_name, url: invitation_path(resource_name),
+                html: { method: :put, class: "form-horizontal" } do |f| %>
+
+                <%= f.hidden_field :invitation_token %>
+
+                <%= f.form_group :password, class: "row" do |f| %>
+                  <%= f.label :password, class: "form-label" %>
+                  <%= f.password_field :password, autofocus: true, class: "form-control" %>
+                  <%= f.error_messages %>
+                <% end %>
+
+                <%= f.form_group :password, class: "row" do |f| %>
+                  <%= f.label :password_confirmation, class: "form-label"  %>
+                  <%= f.password_field :password_confirmation, class: "form-control" %>
+                  <%= f.error_messages %>
+                <% end %>
+
+                <div class="row d-flex align-items-center mt-5">
+                  <%= f.submit "Activate Invite &rarr;", class: 'btn btn-primary ml-auto' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>

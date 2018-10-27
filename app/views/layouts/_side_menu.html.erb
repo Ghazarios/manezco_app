@@ -1,0 +1,66 @@
+<nav class="nav-side-menu   navbar-expand-lg">
+  <%= render partial: 'layouts/side_menu_header' %>
+
+  <div id="menu-content" class="navbar-collapse collapse">
+    <div class="nav-side-container">
+      <ul class="navbar-nav flex-column">
+        <%= render partial: 'layouts/side_menu_main_content' %>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-expanded="false">
+            <%= theme_icon_tag "layout-menu-v" %>
+            <span>Multi-Level Menu</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav-item nav-second-level collapse" aria-expanded="false">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Second Level Item</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Second Level Item</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-expanded="false">
+                <span>Third Level</span>
+                <span class="fa arrow"></span>
+              </a>
+              <ul class="nav-item nav-third-level collapse">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Third Level Item</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Third Level Item</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Third Level Item</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link"  aria-expanded="false">
+                    <span>Fourth Level</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul class="nav-item nav-fourth-level collapse" aria-expanded="false">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Fourth Level Item</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Fourth Level Item</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Fourth Level Item</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="active">Fourth Level Item</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- /.nav-third-level -->
+            </li>
+          </ul>
+          <!-- /.nav-second-level -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

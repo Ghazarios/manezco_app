@@ -1,0 +1,25 @@
+<div class="navbar-header">
+  <div class="profile">
+    <%= random_avatar 60, "rounded-circle profile-image" %>
+    <div class="profile-body">
+      <h6>Fill Murray</h6>
+      <div class="user-links">
+        <a class="btn btn-link" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Profile">
+          <%= theme_icon_tag "user" %>
+        </a>
+        <a class="btn btn-link" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Messages">
+          <%= theme_icon_tag "email" %>
+        </a>
+        <a class="btn btn-link" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Settings">
+          <%= theme_icon_tag "settings" %>
+        </a>
+        <a class="btn btn-link" href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Logout">
+          <%= theme_icon_tag "power-off" %>
+        </a>
+      </div>
+    </div>
+  </div>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu-content" aria-controls="menu-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>
