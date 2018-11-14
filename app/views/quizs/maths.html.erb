@@ -1,0 +1,64 @@
+<div class='container'>
+    <div class="col-12 animate-fade-in-1000">
+
+    <h1>Maths Quiz</h1>
+
+    <!-- Question Nav -->
+    <div class="card card-default inspectable">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <ul class="nav nav-tabs nav-tabs-xs">
+          <% i = 0%>
+          <% nav_var = ""%>
+          <% @question.length.times do i+=1%>
+            <% i == 1 ? nav_var = "nav-link active" : nav_var = "nav-link" %>
+            <li class="nav-item">
+              <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#question#{i}"%> data-toggle="tab"><%="Question #{i}"%></a>
+            </li>
+          <%end %>
+        </ul>
+      </div>
+
+      <!-- Question Content -->
+      <% j = 0%>
+      <% k = 0%>
+      <% b = 0%>
+      <% n = 2%>
+      <div class="tab-content container">
+      <% @question.each do |index| %>
+      <% var_class = ""%>
+      <% j == 0 ? var_class = "tab-pane fade active show" : var_class = "tab-pane fade" %>
+        <%j+=1%>
+        <div class='<%=var_class %>' style='height: 444px; overflow-y: auto;' id='<%="question#{j}"%>'>
+
+        <!-- Question Name -->
+        <p> <%=index[0]%> </p>
+
+          <!-- Answers -->
+          <div class="radio">
+            <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+            <label for=<%="check#{k}"%> class="element-animation"><%= index[1]%></label>
+          </div>
+          <div class="radio">
+            <input type="radio" id=<%="check#{k+=1}"%> name="answer<%=j%>">
+            <label for=<%="check#{k}"%> class="element-animation"><%= index[2]%></label>
+          </div>
+          <div class="radio">
+            <input type="radio" id=<%="check#{k+=1}"%> name="answer<%=j%>">
+            <label for=<%="check#{k}"%> class="element-animation"><%= index[3]%></label>
+          </div>
+
+          <li class="nav nav-item">
+            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href=<%="#question#{b}"%> data-toggle="tab">Back</a>
+            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href=<%="#question#{n}"%> data-toggle="tab">Next></a>
+            <% b+=1%>
+            <% n+=1%>
+          </li>
+          </div>
+          <% k+=1%>
+        <%end %>
+        <button type="submit" onclick="mark()" class="btn btn-primary" disabled>Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
