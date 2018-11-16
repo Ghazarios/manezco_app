@@ -34,27 +34,24 @@
         <p> <%=index[0]%> </p>
 
           <!-- Answers -->
-          <div class="radio">
-            <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
-            <label for=<%="check#{k}"%> class="element-animation"><%= index[1]%></label>
-          </div>
-          <div class="radio">
-            <input type="radio" id=<%="check#{k+=1}"%> name="answer<%=j%>">
-            <label for=<%="check#{k}"%> class="element-animation"><%= index[2]%></label>
-          </div>
-          <div class="radio">
-            <input type="radio" id=<%="check#{k+=1}"%> name="answer<%=j%>">
-            <label for=<%="check#{k}"%> class="element-animation"><%= index[3]%></label>
-          </div>
+          <% m = 1 %>
+          <% until m == index.count do %>
+            <div class="radio">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <label for=<%="check#{k}"%> class="element-animation"><%= index[m]%></label>
+            </div>
+            <% m+=1 %>
+            <% k+=1 %>
+          <% end %>
 
+          <!-- Back and Next Buttons-->
           <li class="nav nav-item">
-            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href=<%="#question#{b}"%> data-toggle="tab">Back</a>
+            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href=<%="#question#{b}"%> data-toggle="tab" disabled>Back</a>
             <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href=<%="#question#{n}"%> data-toggle="tab">Next></a>
             <% b+=1%>
             <% n+=1%>
           </li>
           </div>
-          <% k+=1%>
         <%end %>
         <button type="submit" onclick="mark()" class="btn btn-primary" disabled>Submit</button>
       </div>
