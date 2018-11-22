@@ -3,10 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
+    if $("a#change1").hasClass("active")
+        $("a#back").off('click');
+
     $(".radio").click -> 
         if check()
             $("button").removeAttr("disabled")
 
+    $("a").click ->
+        if $("a#change1").hasClass("active")
+            $("#back").prop "disabled", true
+        else 
+            $("#back").prop "disabled", false
+
+        if $("a#change4").hasClass("active")
+            $("#next").prop "disabled", true
+        else 
+            $("#next").prop "disabled", false
     
 
 @check = () ->
@@ -30,34 +43,3 @@ $(document).ready ->
     $('#change'+(number-2)).removeClass "active"
     $('#change'+number).addClass "active"
     console.log(number)
-
-
-
-
-### $(document.body).on('click',"button",function (e) {
-    alert("Are you sure you want to submit?")
-    if(checkAnswers()){
-        markAnswers();
-    }
-    else
-    {
-        alert("You haven't answered all the questions!")
-    }
-})
-
-function checkAnswers(){
-    ans1 = $("input[name='answer1']");
-    ans2 = $("input[name='answer2']");
-    ans3 = $("input[name='answer3']");
-    ans4 = $("input[name='answer3']");
-    submit = false;
-    console.log("Checking answers. Please wait!")
-    if (ans1.checked && ans2.checked && ans3.checked && ans4.checked){
-        submit = true;
-    }
-    return submit;
-}
-
-function markAnswers(){
-    console.log("Marking answers. Please wait!")
-} ###
