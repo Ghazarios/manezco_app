@@ -1,0 +1,87 @@
+<div class='container'>
+    <div class="col-12 animate-fade-in-1000">
+
+    <h1><%= @title %></h1>
+
+    <!-- Question Nav -->
+    <div class="card card-default inspectable">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <ul class="nav nav-tabs nav-tabs-xs">
+          <% i = 0%>
+          <% ques_num = 0%>
+          <% nav_var = ""%>
+          <% @question.each do |entry| i+=1%>
+            <% i == 1 ? nav_var = "nav-link active" : nav_var = "nav-link" %>
+            <li class="nav-item">
+              <% heading = ""%>
+              <% case entry[0]%>
+              <% when "OV"%>
+                <% heading = "Overview"%>
+              <% when "TH"%>
+                <% heading = "Theory"%>
+              <% when "SC", "MC", "DD", "FIB"%>
+                <% heading = "Question #{ques_num+=1}"%>
+              <% end %>
+              <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
+            </li>
+          <%end %>
+        </ul>
+      </div>
+
+      <!-- Question Content -->
+      <% j = 0%>
+      <% k = 0%>
+      <% b = 0%>
+      <% n = 2%>
+      <div class="tab-content container">
+      <% @question.each do |index| %>
+        <% var_class = "tab-pane fade"%>
+        <% var_class += " active show" if j == 0 %>
+        <% j+=1%>
+        <div class='<%=var_class %>' style='height: 444px; overflow-y: auto;' id='<%="content#{j}"%>'>
+
+      <% case index[0]%>
+      <% when "OV", "TH"%>
+        <p><%= index[1]%></p>
+      <% when "SC"%>
+        <p> <%=index[1]%> </p>
+          <% m = 2 %>
+          <% until m == index.count do %>
+            <div class="radio">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <label for=<%="check#{k}"%> class="element-animation"><%= index[m]%></label>
+            </div>
+            <% m+=1 %>
+            <% k+=1 %>
+          <% end %>
+      <% when "MC"%>
+        <p> <%=index[1]%> </p>
+          <% m = 2 %>
+          <% until m == index.count do %>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" value=<%= "index[m]"%> id=<%="check#{k}"%>>
+              <label class="custom-control-label" for=<%="check#{k}"%>>
+                <%= index[m]%>
+              </label>
+            </div>
+            <% m+=1 %>
+            <% k+=1 %>
+          <% end %>
+      <% when "DD"%>
+      <% when "FIB"%>
+      <% end %>
+
+          <!-- Back and Next Buttons -->
+          <li class="nav nav-item">
+            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab" disabled>Back</a>
+            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next></a>
+            <% b+=1%>
+            <% n+=1%>
+          </li>
+          </div>
+        <%end %>
+        <button type="submit" onclick="mark()" class="btn btn-primary" disabled>Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

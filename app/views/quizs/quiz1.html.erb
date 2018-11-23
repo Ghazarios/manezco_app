@@ -1,0 +1,51 @@
+<div class='container'>
+<div class="col-12 animate-fade-in-1000">
+<h1>Maths Quiz</h1>
+
+    <nav aria-label="Question number navigation">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Overview</a></li>
+        <li class="page-item"><a class="page-link" href="#">Theory</a></li>
+        <li class="page-item"><a class="page-link" href="#question1">Quiz 1</a></li>
+        <li class="page-item"><a class="page-link" href="#question2">Quiz 2</a></li>
+        <li class="page-item"><a class="page-link" href="#">Quiz 3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Quiz 4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Quiz 5</a></li>
+    </ul>
+    </nav>
+
+    <div class='container' style='height: 444px; overflow-y: auto;' id='<%="question1"%>'>
+    <h3><%= @question[0][0] %></h3>
+
+    <div class="custom-control custom-radio custom-control">
+      <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline1"><%= @question[0][1]%></label>
+    </div>
+    <div class="custom-control custom-radio custom-control">
+      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline2"><%= @question[0][2]%></label>
+    </div>
+    <div class="custom-control custom-radio custom-control">
+      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline2"><%= @question[0][3]%></label>
+    </div>
+    </div>
+
+    <div class='container' style='height: 444px; overflow-y: auto;' id='<%="question2"%>'>
+    <h3><%= @question[0][0] %></h3>
+
+    <div class="custom-control custom-radio custom-control">
+      <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline1"><%= @question[0][1]%></label>
+    </div>
+    <div class="custom-control custom-radio custom-control">
+      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline2"><%= @question[0][2]%></label>
+    </div>
+    </div>
+
+
+    <button type="button" class="btn btn-warning">Back</button>
+    <button type="button" class="btn btn-info">Next</button>
+</div>
+</div>

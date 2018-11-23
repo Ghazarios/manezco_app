@@ -13,7 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-
 //= require rrt
-
+//= require_self
 //= require_tree .
+
+if($('#change1').hasClass('active')){
+    alert("question 1 active");
+}
