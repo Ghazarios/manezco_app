@@ -1,0 +1,78 @@
+<header class="landing-header-1" style="background-image: url(<%= image_path('rrt/stock/landscape_13.jpg') %>)">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-landing  navbar-centered navbar-expand-lg my-3">
+          <a href="javascript:" class="navbar-brand d-lg-none"><%= image_tag image_path('rrt/pyrrmid_64.png'), width: 32, height: 32, class: 'mr-2'%>PYRMID</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#standardLandingNavbarWithCenteredBrand" aria-controls="standardLandingNavbarWithCenteredBrand" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse text-white" id="standardLandingNavbarWithCenteredBrand">
+            <ul class="nav navbar-nav navbar-left">
+              <li class="nav-item ">
+                <a class="nav-link" href="javascript:">HOME</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="javascript:">ABOUT</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="javascript:">TEAM</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="javascript:">CONTACT</a>
+              </li>
+            </ul>
+            <a href="javascript:" class="navbar-brand navbar-center text-center d-none d-sm-none d-md-none d-lg-block"><%= image_tag image_path('rrt/pyrrmid_64.png'), width: 32, height: 32, class: 'mr-2'%>PYRMID</a>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                <a class="btn btn-sm btn-outline-light text-white text-hover-dark" href="javascript:">SIGN IN</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="container header-caption">
+    <div class="row">
+      <div class="col-7 mr-auto ml-auto text-center">
+        <div class="text-white">
+          <h1 class="mt-5 font-weight-bold leading-tight">WELCOME TO THE NEW THING</h1>
+          <p class="lead">Lorem ea sit vel laudantium numquam vel officiis impedit aliquam! Perspiciatis maiores veniam perspiciatis rem debitis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-10 ml-auto mr-auto mt-5">
+        <div class="card">
+          <div class="card-body">
+            <form class="form-inline d-flex justify-content-center justify-content-xl-between flex-column flex-lg-row">
+
+              <label class="sr-only" for="inlineFormInputName2">Email</label>
+              <div class="input-group input-group-sm mb-2 mb-lg-0">
+                <span class="input-group-prepend" id="basic-addon1"><div class="input-group-text"><%= theme_icon_tag "email" %></div></span>
+                <input type="text" class="form-control" id="inlineFormInputName2" placeholder="Your Email">
+              </div>
+
+              <label class="sr-only" for="inlineFormInputGroupUsername2">Password</label>
+              <div class="input-group input-group-sm mb-2 mb-lg-0">
+                <span class="input-group-prepend" id="basic-addon1"><div class="input-group-text"><%= theme_icon_tag "key" %></div></span>
+                <input type="password" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Choose a Password">
+              </div>
+
+              <label class="sr-only" for="inlineFormInputGroupUsername2">Confirm Password</label>
+              <div class="input-group input-group-sm mb-2 mb-lg-0">
+                <span class="input-group-prepend" id="basic-addon1"><div class="input-group-text"><%= theme_icon_tag "key" %></div></span>
+                <input type="password" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Confirm Password">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

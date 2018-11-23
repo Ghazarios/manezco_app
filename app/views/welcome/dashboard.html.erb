@@ -2,10 +2,11 @@
 
 <div class="container-fluid">
   <%#= render partial: 'welcome/bs_table' %>
-  <%= render partial: 'welcome/metrics_cards' %>
-  <%= render partial: 'welcome/metric_charts' %>
-  <%= render partial: 'welcome/sales_refunds' %>
-  <%= render partial: 'welcome/server_activity' %>
+  <%#= render partial: 'welcome/metrics_cards' %>
+  <%#= render partial: 'welcome/metric_charts' %>
+  <%#= render partial: 'welcome/sales_refunds' %>
+  <%#= render partial: 'welcome/server_activity' %>
   <%= render partial: 'welcome/most_active_users' %>
   <%= render partial: 'welcome/online_users' %>
+  <%= link_to('Logout', destroy_user_session_path, class: "btn btn-primary ml-auto btn-xlarge", method: :delete) %>
 </div>
