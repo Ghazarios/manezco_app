@@ -14,3 +14,14 @@
  *= require_tree .
  *= require_self
  */
+
+ input[type=text]
+ {
+    border: 0;
+    border-bottom: 1px solid #4682B4;
+ }
+
+ .rounded{
+     border: 3px solid #4682B4;
+     border-radius: 5px;
+ }

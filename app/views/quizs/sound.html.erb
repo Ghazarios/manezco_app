@@ -19,7 +19,7 @@
                 <% heading = "Overview"%>
               <% when "TH"%>
                 <% heading = "Theory"%>
-              <% when "DL", "TF", "SC", "MC", "DD", "FIB"%>
+              <% when "DL", "TF", "SC", "MC", "DD", "FIB", "SCP"%>
                 <% heading = "Question #{ques_num+=1}"%>
               <% end %>
               <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
@@ -62,23 +62,15 @@
              <option><%= index[4]%></option>
             </select>
         </div>
-    <% when "FIB"%>
-    <p><%= index[1]%></p>
-    <div class="form-group">
-        <label for="drop_down<%=j%>">Choose from the list below</label>
-        <select class="form-control" id="drop_down<%=j%>">
-        <option><%= index[2]%></option>
-        <option><%= index[3]%></option>
-            <option><%= index[4]%></option>
-        </select>
-    </div>
+      <% when "FIB"%>
+      <p><%= index[1]%><input type="text" size="<%=index[3].size%>" maxlength="<%=index[3].size%>"/><%= index[2]%></p>
       <% when "SC"%>
         <p> <%=index[1]%> </p>
           <% m = 2 %>
           <% until m == index.count do %>
             <div class="radio">
               <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
-              <label for=<%="check#{k}"%> class="element-animation"><%= index[m]%></label>
+              <label for=<%="check#{k}"%>><%= index[m]%></label>
             </div>
             <% m+=1 %>
             <% k+=1 %>
@@ -96,6 +88,18 @@
             <% m+=1 %>
             <% k+=1 %>
           <% end %>
+      <% when "SCP"%>
+        <p> <%=index[1]%> </p>
+        <div class="row container">
+        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <img src="https://image.ibb.co/ekLEaV/picture1.png" alt="Answer 1" height="200" width="200">      
+        </div>
+        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <img src="<%=index[3]%>" alt="Answer 2" height="200" width="200">   
+        </div>
+        </div>
       <% when "DD"%>
       <% end %>
 

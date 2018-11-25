@@ -43,9 +43,10 @@ class QuizsController < ApplicationController
             ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:"],
             ["TF", "Sound cannot travel through a vacuum."],
             ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
-            ["TF", "Soundwaves will travel forever. Over time, the words you say will be carried to distant parts of the world."], 
-            ["FIB", "Sound requires a M_ _ _ _ _ to transport it, like Air and Water."], 
-            ["MC", "Sound is:", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"]
+            ["FIB", "Sound requires a M", " to transport it, like Air and Water.", "edium"], 
+            ["MC", "Sound is:", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
+            ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
+            ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"]
         ]
         @title = "Sound"
     end
