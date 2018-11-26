@@ -19,7 +19,7 @@
                 <% heading = "Overview"%>
               <% when "TH"%>
                 <% heading = "Theory"%>
-              <% when "DL", "TF", "SC", "MC", "DD", "FIB", "SCP"%>
+              <% else %>
                 <% heading = "Question #{ques_num+=1}"%>
               <% end %>
               <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
@@ -68,9 +68,9 @@
         <p> <%=index[1]%> </p>
           <% m = 2 %>
           <% until m == index.count do %>
-            <div class="radio">
-              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
-              <label for=<%="check#{k}"%>><%= index[m]%></label>
+            <div class="custom-control custom-radio custom-control">
+              <input type="radio" class="custom-control-input" id=<%="check#{k}"%> name="answer<%=j%>">
+              <label class="custom-control-label" for=<%="check#{k}"%>><%= index[m]%></label>
             </div>
             <% m+=1 %>
             <% k+=1 %>
@@ -93,13 +93,25 @@
         <div class="row container">
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
               <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
-              <img src="https://image.ibb.co/ekLEaV/picture1.png" alt="Answer 1" height="200" width="200">      
+              <img src="<%=index[2]%>" alt="Answer 1" height="200" width="200">      
         </div>
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
               <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
               <img src="<%=index[3]%>" alt="Answer 2" height="200" width="200">   
         </div>
         </div>
+      <% when "CLP"%>
+        <p> <%=index[1]%> </p>
+        <img src="<%=index[2]%>" usemap="#image-map">
+
+        <map name="image-map">
+            <area target="_blank" alt="option-1" title="option-1" href="" coords="126,16,139,128" shape="rect">
+            <area target="_blank" alt="option-2" title="option-2" href="" coords="233,21,402,38" shape="rect">
+            <area target="_blank" alt="option-3" title="option-3" href="" coords="12,120,540,135" shape="rect">
+        </map>
+      <% when "PIC"%>
+        <p> <%=index[1]%> </p>
+        <img src="<%=index[2]%>" usemap="#image-map">
       <% when "DD"%>
       <% end %>
 
