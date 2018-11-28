@@ -59,11 +59,20 @@
             <select class="form-control" id="drop_down<%=j%>">
             <option><%= index[2]%></option>
             <option><%= index[3]%></option>
-             <option><%= index[4]%></option>
+            <option><%= index[4]%></option>
             </select>
         </div>
       <% when "FIB"%>
-      <p><%= index[1]%><input type="text" size="<%=index[3].size%>" maxlength="<%=index[3].size%>"/><%= index[2]%></p>
+        <p id="fill_in_blanks">
+        <% array_count = 0 %>
+        <% until index[array_count+=1].nil? %>
+          <% if (index[array_count][0] == "@") %>
+           <input type="text"  size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>"/>
+          <% else %>
+            <%= index[array_count].strip %>
+          <% end %>
+        <% end %>
+        </p>
       <% when "SC"%>
         <p> <%=index[1]%> </p>
           <% m = 2 %>
@@ -111,8 +120,15 @@
         </map>
       <% when "PIC"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map">
+        <img src="<%=index[2]%>" usemap="#image-map2">
+
+        <map name="image-map2">
+            <area target="_blank" alt="area-1" title="area-1" href="" coords="117,9,175,237" shape="rect">
+            <area target="" alt="area-2" title="area-2" href="" coords="365,15,413,240" shape="rect">
+        </map>
       <% when "DD"%>
+        <p> <%=index[1]%> </p>
+        
       <% end %>
 
           <!-- Back and Next Buttons -->
