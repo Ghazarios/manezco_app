@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'welcome/dashboard'
   get 'welcome/index'
+  get 'users/my_profile'
   get 'maths' => 'quizs#maths'
   get 'science' => 'quizs#science'
   get 'science/physics' => 'quizs#physics'
