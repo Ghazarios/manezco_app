@@ -15,22 +15,5 @@
 //= require turbolinks
 //= require rrt
 //= require_self
+//= require jquery-ui
 //= require_tree .
-
-$("#fill_in_blanks").innerHTML.trim();
-
-$("label.btn").on('click',function () {
-    var choice = $(this).find('input:radio').val();
-    $('#loadbar').show();
-    $('#quiz').fadeOut();
-    setTimeout(function(){
-       $( "#answer" ).html(  $(this).checking(choice) );      
-        $('#quiz').show();
-        $('#loadbar').fadeOut();
-       /* something else */
-    }, 1500);
-});
-
-if($('#change1').hasClass('active')){
-    alert("question 1 active");
-}

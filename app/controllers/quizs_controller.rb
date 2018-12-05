@@ -1,4 +1,28 @@
 class QuizsController < ApplicationController
+  
+    def sound
+        @question = [
+            ["OV", "Sounds are all around us. Having a good understanding of how they are created and how they travel from a source to your ears is important to help us understand the world. In this chapter, we will look at how sounds are created, how they travel, and other things that would help us understand them better."],
+            #["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:"],
+            ["TF", "Sound cannot travel through a vacuum.", "True"],
+            ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
+            ["FIB", "Sound requires a M", "@edium", " to transport it, like Air and Water."], 
+            ["MC", "Sound is:", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
+            ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
+            ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
+            ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "option-1"],
+            ["PIC", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "area-1"], 
+            ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
+            ["DD", "Order the following from slowest to fastest Sound speed:", "Water", "Air", "Steel"]
+            #Need to do animation
+            #Fix button bug
+            #Need to do submission
+            #Try the quiz1 style and modify it
+        ]
+        @answers = "True"
+        @title = "Sound"
+    end
+  
     def maths
         questions = [
             ["OV", "Shapes and sizes are all around you! In this tutorial we will be going over your understanding of geometry with quizzes designed to help you grasp important concepts"],
@@ -24,8 +48,19 @@ class QuizsController < ApplicationController
     end
     
     def result
-        @title = "Results"
+        @title = "Quiz Results"
         
+        @question = [
+            ["TF", "Sound cannot travel through a vacuum. True or False?", "True"],
+            ["DL", "Sound is an effect caused by _______", "Vibrations"], 
+            ["FIB", "Sound requires a M_____ to transport it, like Air and Water. ", "Medium"], 
+            ["MC", "Sound is (select all that apply):", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"]],
+            ["SC", "What are the three main properties of Waves?", ["a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"]],
+            ["SCP", "Click the wave that has a low Frequency: "],
+            ["CLP", "Click the line that is measuring the Amplitude: "],
+            ["PIC", "Click the area that contains the highest sound energy if the drum was being played: ", "area-1"], 
+            ["FIB", "Sound can be r______ and a________"]
+        ]
     end
 
     def science
@@ -35,29 +70,7 @@ class QuizsController < ApplicationController
 
     def physics
         @subjects = ["Sound", "Scientific Model", "Light", "Electricity"]
-    end
-
-    def sound
-        @question = [
-            ["OV", "Sounds are all around us. Having a good understanding of how they are created and how they travel from a source to your ears is important to help us understand the world. In this chapter, we will look at how sounds are created, how they travel, and other things that would help us understand them better."],
-            ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:"],
-            ["TF", "Sound cannot travel through a vacuum."],
-            ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
-            ["FIB", "Sound requires a M", "@edium", " to transport it, like Air and Water."], 
-            ["MC", "Sound is:", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
-            ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
-            ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
-            ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png"],
-            ["PIC", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png"], 
-            ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
-            ["DD", "Order the following from slowest to fastest Sound speed:", "Water", "Air", "Steel"]
-            #Need to do question 20 = '2 fill in the blanks', 17 & 30 = 'click on the picture', and 28 = 'order drag and drop'
-            #Need to do animation
-            #Fix button bug
-            #Need to do submission
-            #Try the quiz1 style and modify it
-        ]
-        @title = "Sound"
+        @title = "Physics"
     end
 
     def english
@@ -68,5 +81,7 @@ class QuizsController < ApplicationController
 
     end
 
-
+    def jquery
+      
+    end
 end

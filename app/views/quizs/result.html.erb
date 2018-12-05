@@ -1,0 +1,20 @@
+<div class='container'>
+    <div class="col-12 animate-fade-in-1000 container">
+
+    <h1><%= @title %></h1>
+
+    <div class="card card-default inspectable container">
+        <h2>Physics - Sound Quiz</h2>
+        <h3>You got: <span id="mark"></span> out of <%=@question.length%></h3>
+        <% @question.each_with_index do |entry, index| %>
+            <div>
+                <h6>Question <%=index+=1%></h6>
+                <p><%=entry[1]%></p>
+                Your answer: <span id="user_answer_<%=index%>"></span>
+            </div>
+        <% end %>
+        <a href="" onclick="redo_test()">Redo Test</a>
+    </div>
+    </div>
+    <script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
+</div>

@@ -72,3 +72,4 @@ source "https://gems.rapidrailsthemes.com/gems" do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
