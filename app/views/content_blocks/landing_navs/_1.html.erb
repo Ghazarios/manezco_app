@@ -1,0 +1,22 @@
+<nav class="navbar navbar-landing  navbar-expand-lg my-0 <%= local_assigns.fetch(:nav_class, '') %>">
+  <a href="javascript:" class="navbar-brand"><%= image_tag image_path('rrt/pyrrmid_64.png'), width: 32, height: 32, class: 'mr-2'%><%= app_name %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#standardNavbar" aria-controls="standardNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="standardNavbar">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="javascript:">HOME</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="javascript:">ABOUT</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="javascript:">TEAM</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="javascript:">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</nav>

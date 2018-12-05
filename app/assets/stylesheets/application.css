@@ -15,6 +15,7 @@
  *= require_self
  *= require jquery-ui/sortable
  */
+
 #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; clear: both;}
 #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 2em; text-align: center;}
 .center {
@@ -380,3 +381,14 @@ label .glyphicon {
      border: 3px solid #4682B4;
      border-radius: 5px;
  }
+=======
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+

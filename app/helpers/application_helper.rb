@@ -1,5 +1,5 @@
 module ApplicationHelper
   def app_name
-    "Manezco"
+    "ManezCo Education"
   end
 end

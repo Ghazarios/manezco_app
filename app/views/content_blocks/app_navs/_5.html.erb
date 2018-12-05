@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg my-0">
+  <a href="javascript:" class="navbar-brand">MY APP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#standardBasicAppUsernameNavbar" aria-controls="standardBasicAppUsernameNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="standardBasicAppUsernameNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Reports</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="nav-item dropdown user-nav">
+        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <p class="mr-1">Fill McMurray</p>
+          <span class="dropdown-toggle mr-2"></span>
+          <%= random_avatar 34, "d-flex rounded-circle" %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="dropdown-item text-center">
+            <div class="card">
+              <div class="card-body">
+                <%= random_avatar 120, "rounded-circle" %>
+                <p class="m0 p0 d-block">Fill Murray</p>
+                <p class="small m0 p0">Premium Account</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <div>
+                  <a href="003_app_pages@fa-laptop%2F006_user_profile" class="btn ">Edit Profile</a>
+                </div>
+                <div>
+                  <a href="#" class="btn ">Log Out</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
