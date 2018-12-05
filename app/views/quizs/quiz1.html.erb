@@ -31,17 +31,11 @@
     </div>
     </div>
 
-    <div class='container' style='height: 444px; overflow-y: auto;' id='<%="question2"%>'>
-    <h3><%= @question[0][0] %></h3>
-
-    <div class="custom-control custom-radio custom-control">
-      <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-      <label class="custom-control-label" for="customRadioInline1"><%= @question[0][1]%></label>
-    </div>
-    <div class="custom-control custom-radio custom-control">
-      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-      <label class="custom-control-label" for="customRadioInline2"><%= @question[0][2]%></label>
-    </div>
+    <div class="quiz" id="quiz" data-toggle="buttons">
+      <label class="element-animation1 btn btn-lg btn-primary btn-block"><span><%= theme_icon_tag "arrow-circle-right"%></span><input type="radio" name="q_answer" value="1">1 One</label>
+      <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
+      <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>
+      <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
     </div>
 
 

@@ -15,8 +15,5 @@
 //= require turbolinks
 //= require rrt
 //= require_self
+//= require jquery-ui
 //= require_tree .
-
-if($('#change1').hasClass('active')){
-    alert("question 1 active");
-}

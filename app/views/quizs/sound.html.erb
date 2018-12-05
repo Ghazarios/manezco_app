@@ -19,7 +19,7 @@
                 <% heading = "Overview"%>
               <% when "TH"%>
                 <% heading = "Theory"%>
-              <% when "DL", "TF", "SC", "MC", "DD", "FIB"%>
+              <% else %>
                 <% heading = "Question #{ques_num+=1}"%>
               <% end %>
               <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
@@ -47,7 +47,7 @@
         <p><%= index[1]%></p>
         <div class="form-group">
             <label for="true_false<%=j%>">True or False?</label>
-            <select class="form-control" id="true_false<%=j%>">
+            <select class="form-control" data-answer='<%= @answers %>' id="true_false<%=j%>">
             <option>True</option>
             <option>False</option>
             </select>
@@ -59,26 +59,27 @@
             <select class="form-control" id="drop_down<%=j%>">
             <option><%= index[2]%></option>
             <option><%= index[3]%></option>
-             <option><%= index[4]%></option>
+            <option><%= index[4]%></option>
             </select>
         </div>
-    <% when "FIB"%>
-    <p><%= index[1]%></p>
-    <div class="form-group">
-        <label for="drop_down<%=j%>">Choose from the list below</label>
-        <select class="form-control" id="drop_down<%=j%>">
-        <option><%= index[2]%></option>
-        <option><%= index[3]%></option>
-            <option><%= index[4]%></option>
-        </select>
-    </div>
+      <% when "FIB"%>
+        <p id="fill_in_blanks">
+        <% array_count = 0 %>
+        <% until index[array_count+=1].nil? %>
+          <% if (index[array_count][0] == "@") %>
+           <input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= array_count %>'/>
+          <% else %>
+            <%= index[array_count].strip %>
+          <% end %>
+        <% end %>
+        </p>
       <% when "SC"%>
-        <p> <%=index[1]%> </p>
+        <p> <%=index[1]%></p>
           <% m = 2 %>
           <% until m == index.count do %>
-            <div class="radio">
-              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
-              <label for=<%="check#{k}"%> class="element-animation"><%= index[m]%></label>
+            <div class="custom-control custom-radio custom-control">
+              <input type="radio" value='<%=index[m]%>' class="custom-control-input" id=<%="check#{k}"%> name="answer<%=j%>">
+              <label class="custom-control-label" for=<%="check#{k}"%>><%= index[m]%></label>
             </div>
             <% m+=1 %>
             <% k+=1 %>
@@ -88,7 +89,7 @@
           <% m = 2 %>
           <% until m == index.count do %>
             <div class="custom-control custom-checkbox">
-              <input class="custom-control-input" type="checkbox" value=<%= "index[m]"%> id=<%="check#{k}"%>>
+              <input class="custom-control-input" type="checkbox" value='<%=index[m]%>' name=<%="check#{j}"%> id=<%="check#{k}"%>>
               <label class="custom-control-label" for=<%="check#{k}"%>>
                 <%= index[m]%>
               </label>
@@ -96,7 +97,42 @@
             <% m+=1 %>
             <% k+=1 %>
           <% end %>
+      <% when "SCP"%>
+        <p> <%=index[1]%> </p>
+        <div class="row container">
+        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <img src="<%=index[2]%>" alt="Answer 1" height="200" width="200">      
+        </div>
+        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
+              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <img src="<%=index[3]%>" alt="Answer 2" height="200" width="200">   
+        </div>
+        </div>
+      <% when "CLP"%>
+        <p> <%=index[1]%> </p>
+        <img src="<%=index[2]%>" usemap="#image-map">
+
+        <map name="image-map">
+            <area target="_blank" alt="option-1" title="option-1" coords="126,16,139,128" shape="rect">
+            <area target="_blank" alt="option-2" title="option-2" coords="233,21,402,38" shape="rect">
+            <area target="_blank" alt="option-3" title="option-3" coords="12,120,540,135" shape="rect">
+        </map>
+      <% when "PIC"%>
+        <p> <%=index[1]%> </p>
+        <img src="<%=index[2]%>" usemap="#image-map2">
+
+        <map name="image-map2">
+            <area target="_blank" alt="area-1" title="area-1" href="" coords="117,9,175,237" shape="rect">
+            <area target="" alt="area-2" title="area-2" href="" coords="365,15,413,240" shape="rect">
+        </map>
       <% when "DD"%>
+        <p> <%=index[1]%> </p>
+        <ul id="sortable">
+          <li class="ui-state-default"><div class="center"> Air </div></li>
+          <li class="ui-state-default"><div class="center"> Steel </div></li>
+          <li class="ui-state-default"><div class="center"> Water </div></li>
+	      </ul>
       <% end %>
 
           <!-- Back and Next Buttons -->
@@ -108,8 +144,13 @@
           </li>
           </div>
         <%end %>
-        <button type="submit" onclick="mark()" class="btn btn-primary" disabled>Submit</button>
+        <button type="submit" onclick="mark()" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
+<script>
+  $("#sortable").sortable().disableSelection();
+</script>
