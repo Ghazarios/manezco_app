@@ -33,6 +33,7 @@
       <% k = 0%>
       <% b = 0%>
       <% n = 2%>
+			<% fib = 1 %>
       <div class="tab-content container">
       <% @question.each do |index| %>
         <% var_class = "tab-pane fade"%>
@@ -67,7 +68,8 @@
         <% array_count = 0 %>
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
-           <input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= array_count %>'/>
+           	<input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= fib %>'/>
+					 	<% fib+=1 %>
           <% else %>
             <%= index[array_count].strip %>
           <% end %>
@@ -123,8 +125,8 @@
         <img src="<%=index[2]%>" usemap="#image-map2">
 
         <map name="image-map2">
-            <area target="_blank" alt="area-1" title="area-1" href="" coords="117,9,175,237" shape="rect">
-            <area target="" alt="area-2" title="area-2" href="" coords="365,15,413,240" shape="rect">
+            <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
+            <area target="_blank" alt="area-2" title="area-2" coords="365,15,413,240" shape="rect">
         </map>
       <% when "DD"%>
         <p> <%=index[1]%> </p>
