@@ -49,6 +49,7 @@ class QuizsController < ApplicationController
     
     def result
         @title = "Quiz Results"
+        @header = "Sound Quiz"
         
         @question = [
             ["TF", "Sound cannot travel through a vacuum. True or False?", "True"],

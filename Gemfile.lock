@@ -1,6 +1,6 @@
 GEM
-  remote: https://rubygems.org/
-  remote: https://gems.rapidrailsthemes.com/gems/
+  remote: http://rubygems.org/
+  remote: http://gems.rapidrailsthemes.com/gems/
   specs:
     actioncable (5.2.1.1)
       actionpack (= 5.2.1.1)
@@ -276,7 +276,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.17.1

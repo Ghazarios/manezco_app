@@ -1,25 +1,24 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+#To-do:
+#CSS - Give margin for headers
 
 $(document).ready ->
+    $('map[name=image-map] area', 'map[name=image-map2] area').click ->
+        $(this).siblings().removeAttr 'selected'
+        $(this).attr 'selected', 'selected'
+        return
+    
     if sessvars.myObj
         answer.equals(sessvars.myObj.userAnswer)
+        i = 0
+        while i < sessvars.Answer.correctAnswer.length
+            if $("#user_answer_"+(i+1)).text().indexOf('Unlucky!') > -1
+                $('#correct_answer_'+(i+1)).text("Correct Answer: " + sessvars.Answer.correctAnswer[i])
+            i++
     sessvars.$.clearMem()
 
     if $("#mark").length
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
-
-    $('map[name=image-map] area').click ->
-        $(this).siblings().removeAttr 'selected'
-        $(this).attr 'selected', 'selected'
-        return
-    
-    $('map[name=image-map2] area').click ->
-        $(this).siblings().removeAttr 'selected'
-        $(this).attr 'selected', 'selected'
-        return
 
 answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"]]
 user_answer = []
@@ -89,7 +88,7 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     user_answer.push($("#drop_down3").val())
 
     ans3 = $("#fib1").val().length > 0
-    user_answer.push($("#fib4").val())
+    user_answer.push($("#fib1").val())
     
     selected = []
     ans4 = false
@@ -122,6 +121,7 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
+        sessvars.Answer = {correctAnswer: answer}
         window.location.replace("/result")
     else
         alert ("You haven't answered all questions!")
