@@ -1,8 +1,12 @@
 #To-do:
-#CSS - Give margin for headers
 
 $(document).ready ->
-    $('map[name=image-map] area', 'map[name=image-map2] area').click ->
+    $('map[name=image-map] area').click ->
+        $(this).siblings().removeAttr 'selected'
+        $(this).attr 'selected', 'selected'
+        return
+    
+    $('map[name=image-map2] area').click ->
         $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
         return
