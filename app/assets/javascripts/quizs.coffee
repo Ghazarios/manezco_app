@@ -28,7 +28,13 @@ $(document).ready ->
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
 
-answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"]]
+@sortable = () ->
+    array = $('.ui-sortable-handle').map(->
+      $.trim $(this).text()
+    ).get()
+    console.log(array)
+
+answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
 user_answer = []
 right_answer = []
 wrong_answer = []
@@ -124,13 +130,20 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     filled.push($("#fib3").val())
     user_answer.push(filled)
     
-    return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9)
+    array = $('.ui-sortable-handle').map(->
+      $.trim $(this).text()
+    ).get()
+    ans10 = array
+    user_answer.push(array)
+    
+    return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10)
 
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
         sessvars.Answer = {correctAnswer: answer}
         window.location.replace("/result")
+        console.log(user_answer)
     else
         alert ("You haven't answered all questions!")
         user_answer = []
