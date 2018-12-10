@@ -1,0 +1,15 @@
+
+  <div class="fileinput fileinput-avatar fileinput-new d-flex flex-column align-items-center" data-provides="fileinput" style="height: 180px; width: 200px">
+    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+      <%= random_avatar 128, 'rounded-circle shadow' %>
+    </div>
+    <div class="fileinput-preview fileinput-exists avatar rounded-circle"></div>
+    <div class="avatar-controls">
+      <span class="btn btn-sm btn-dark btn-link btn-file">
+        <span class="fileinput-new"><%= theme_icon_tag "upload" %></span>
+        <span class="fileinput-exists"><%= theme_icon_tag "upload" %></span>
+        <input type="file" name="...">
+      </span>
+      <a href="#" class="btn btn-dark btn-sm btn-link fileinput-exists" data-dismiss="fileinput"><%= theme_icon_tag "close" %></a>
+    </div>
+  </div>
