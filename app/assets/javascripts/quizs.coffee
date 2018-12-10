@@ -1,6 +1,10 @@
 #To-do:
 
 $(document).ready ->
+    $('#back').click (event) ->
+        event.preventDefault()
+        return
+        
     $('map[name=image-map] area').click ->
         $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
@@ -132,8 +136,26 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
         user_answer = []
 
 @change = (number) ->
-    $('#change'+number).siblings().removeClass "active"
+    if number == 0
+      number = 1
+    if number == 12
+      number = 11
+    $('.nav-item').children().removeClass "active"
     $('#change'+number).addClass "active"
+    if number == 1
+      $('#back').attr 'disabled', 'disabled'
+      $('#back').click (event) ->
+        event.preventDefault()
+        return
+    else
+      $('#back').removeAttr 'disabled'
+    if number == 11
+      $('#next').attr 'disabled', 'disabled'
+      $('#next').click (event) ->
+        event.preventDefault()
+        return
+    else
+      $('#next').removeAttr 'disabled'
     console.log(number)
 
 @redo_test = () ->
