@@ -1,7 +1,7 @@
 <div class='container'>
     <div class="col-12 animate-fade-in-1000">
 
-    <h1><%= @title %></h1>
+    <h1><%= @title %> Quiz</h1>
 
     <!-- Question Nav -->
     <div class="card card-default inspectable">
@@ -103,11 +103,11 @@
         <p> <%=index[1]%> </p>
         <div class="row container">
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
-              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <input type="radio" id=<%="check#{k}"%> value='Answer 1' name="answer<%=j%>">
               <img src="<%=index[2]%>" alt="Answer 1" height="200" width="200">      
         </div>
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
-              <input type="radio" id=<%="check#{k}"%> name="answer<%=j%>">
+              <input type="radio" id=<%="check#{k}"%> value='Answer 2' name="answer<%=j%>">
               <img src="<%=index[3]%>" alt="Answer 2" height="200" width="200">   
         </div>
         </div>
@@ -139,8 +139,8 @@
 
           <!-- Back and Next Buttons -->
           <li class="nav nav-item">
-            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab" disabled>Back</a>
-            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next></a>
+            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
+            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
             <% b+=1%>
             <% n+=1%>
           </li>

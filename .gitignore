@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+development.rb
 /.bundle
 Gemfile
 Gemfile.lock
@@ -20,6 +21,8 @@ Gemfile.lock
 !/tmp/.keep
 
 # Ignore uploaded files in development
+.jpg
+.png
 /storage/*
 !/storage/.keep
 

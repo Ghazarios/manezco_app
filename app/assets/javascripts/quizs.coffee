@@ -1,16 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+#To-do:
 
 $(document).ready ->
-    if sessvars.myObj
-        answer.equals(sessvars.myObj.userAnswer)
-    sessvars.$.clearMem()
-
-    if $("#mark").length
-        mark = $("*").html().match(/correct!/gi).length
-        $("#mark").text(mark)
-
+    $('#back').click (event) ->
+        event.preventDefault()
+        return
+        
     $('map[name=image-map] area').click ->
         $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
@@ -20,10 +14,22 @@ $(document).ready ->
         $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
         return
+    
+    if sessvars.myObj
+        answer.equals(sessvars.myObj.userAnswer)
+        i = 0
+        while i < sessvars.Answer.correctAnswer.length
+            if $("#user_answer_"+(i+1)).text().indexOf('Unlucky!') > -1
+                $('#correct_answer_'+(i+1)).text("Correct Answer: " + sessvars.Answer.correctAnswer[i])
+            i++
+    sessvars.$.clearMem()
 
-answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"]]
+    if $("#mark").length
+        mark = $("*").html().match(/correct!/gi).length
+        $("#mark").text(mark)
+
+answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
 user_answer = []
-right_answer = []
 wrong_answer = []
 
 if Array::equals
@@ -65,7 +71,6 @@ Array::equals = (array) ->
       wrong_answer.push(i+1)
       foo = false
     else
-      right_answer.push(i)
       $('#user_answer_'+(i+1)).text(array[i] + " Correct!")
     i++
   return foo
@@ -89,7 +94,7 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     user_answer.push($("#drop_down3").val())
 
     ans3 = $("#fib1").val().length > 0
-    user_answer.push($("#fib4").val())
+    user_answer.push($("#fib1").val())
     
     selected = []
     ans4 = false
@@ -117,19 +122,45 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     filled.push($("#fib3").val())
     user_answer.push(filled)
     
-    return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9)
+    array = $('.ui-sortable-handle').map(->
+      $.trim $(this).text()
+    ).get()
+    ans10 = array
+    user_answer.push(array)
+    
+    return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10)
 
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
+        sessvars.Answer = {correctAnswer: answer}
         window.location.replace("/result")
+        console.log(user_answer)
     else
         alert ("You haven't answered all questions!")
         user_answer = []
 
 @change = (number) ->
-    $('#change'+number).siblings().removeClass "active"
+    if number == 0
+      number = 1
+    if number == 12
+      number = 11
+    $('.nav-item').children().removeClass "active"
     $('#change'+number).addClass "active"
+    if number == 1
+      $('#back').attr 'disabled', 'disabled'
+      $('#back').click (event) ->
+        event.preventDefault()
+        return
+    else
+      $('#back').removeAttr 'disabled'
+    if number == 11
+      $('#next').attr 'disabled', 'disabled'
+      $('#next').click (event) ->
+        event.preventDefault()
+        return
+    else
+      $('#next').removeAttr 'disabled'
     console.log(number)
 
 @redo_test = () ->

@@ -6,8 +6,8 @@ class QuizsController < ApplicationController
             #["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:"],
             ["TF", "Sound cannot travel through a vacuum.", "True"],
             ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
-            ["FIB", "Sound requires a M", "@edium", " to transport it, like Air and Water."], 
-            ["MC", "Sound is:", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
+            ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
+            ["MC", "Sound is: (Select all that apply)", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
             ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
             ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
             ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "option-1"],
@@ -49,6 +49,7 @@ class QuizsController < ApplicationController
     
     def result
         @title = "Quiz Results"
+        @header = "Sound Quiz"
         
         @question = [
             ["TF", "Sound cannot travel through a vacuum. True or False?", "True"],
@@ -59,7 +60,8 @@ class QuizsController < ApplicationController
             ["SCP", "Click the wave that has a low Frequency: "],
             ["CLP", "Click the line that is measuring the Amplitude: "],
             ["PIC", "Click the area that contains the highest sound energy if the drum was being played: ", "area-1"], 
-            ["FIB", "Sound can be r______ and a________"]
+            ["FIB", "Sound can be r______ and a________"],
+            ["DD", "Order the following from slowest to fastest Sound speed:"]
         ]
     end
 
