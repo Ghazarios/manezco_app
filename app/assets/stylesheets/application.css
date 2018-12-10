@@ -46,3 +46,20 @@ input[type=text]
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+button[type=submit] {
+  margin-bottom: 15px;
+}
+
+li.nav-item {
+  margin-top: 10px;
+  clear: both;
+}
+
+a#back {
+  margin-right: 5px;
+}
+
+.ui-sortable-handle {
+  margin-bottom: 15px;
+}

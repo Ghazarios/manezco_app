@@ -28,15 +28,8 @@ $(document).ready ->
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
 
-@sortable = () ->
-    array = $('.ui-sortable-handle').map(->
-      $.trim $(this).text()
-    ).get()
-    console.log(array)
-
 answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
 user_answer = []
-right_answer = []
 wrong_answer = []
 
 if Array::equals
@@ -78,7 +71,6 @@ Array::equals = (array) ->
       wrong_answer.push(i+1)
       foo = false
     else
-      right_answer.push(i)
       $('#user_answer_'+(i+1)).text(array[i] + " Correct!")
     i++
   return foo

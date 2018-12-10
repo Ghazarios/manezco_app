@@ -1,7 +1,7 @@
 <div class='container'>
     <div class="col-12 animate-fade-in-1000">
 
-    <h1><%= @title %></h1>
+    <h1><%= @title %> Quiz</h1>
 
     <!-- Question Nav -->
     <div class="card card-default inspectable">
@@ -140,13 +140,12 @@
           <!-- Back and Next Buttons -->
           <li class="nav nav-item">
             <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
-            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next></a>
+            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
             <% b+=1%>
             <% n+=1%>
           </li>
           </div>
         <%end %>
-        <button type="submit" onclick="sortable()" class="btn btn-primary">Check</button>
         <button type="submit" onclick="mark()" class="btn btn-primary">Submit</button>
       </div>
     </div>
