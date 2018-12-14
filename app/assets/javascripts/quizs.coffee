@@ -1,19 +1,35 @@
-#To-do:
+#To-do: Randomize order of questions, randomize order of answer options
+#Modularize i.e. Make quiz template
+#Make quiz and quiz questions model (Need to watch Udemy course) so that admins can insert new questions
+#Animations?
+#Back and next button: Check if tab 1 is active then disable back button, disabled next if tab 12 active
 
 $(document).ready ->
-    $('#back').click (event) ->
-        event.preventDefault()
-        return
-        
     $('map[name=image-map] area').click ->
-        $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
+        $(this).siblings().removeAttr 'selected'
         return
     
     $('map[name=image-map2] area').click ->
-        $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
+        $(this).siblings().removeAttr 'selected'
         return
+    
+    $('a.nav-link').click ->
+        if $('li.nav-item').first().children().hasClass('active')
+          $('#back').attr 'disabled', 'disabled'
+          $('#back').click (event) ->
+            event.preventDefault()
+            return
+        else
+          $('#back').removeAttr 'disabled'
+        if $('li.nav-item').last().children().hasClass('active')
+          $('#next').attr 'disabled', 'disabled'
+          $('#next').click (event) ->
+            event.preventDefault()
+            return
+        else
+          $('#next').removeAttr 'disabled'
     
     if sessvars.myObj
         answer.equals(sessvars.myObj.userAnswer)
@@ -28,7 +44,6 @@ $(document).ready ->
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
 
-answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
 user_answer = []
 wrong_answer = []
 
@@ -50,7 +65,7 @@ Array::equals = (array) ->
     # Check if we have nested arrays
     if @[i] instanceof Array and array[i] instanceof Array
       # recurse into the nested arrays
-      # i = location of mc question
+      # i = index of question
       j = 0
       if @[i].length != array[i].length
         wrong_answer.push(i+1)
@@ -133,9 +148,7 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
-        sessvars.Answer = {correctAnswer: answer}
         window.location.replace("/result")
-        console.log(user_answer)
     else
         alert ("You haven't answered all questions!")
         user_answer = []
@@ -147,21 +160,20 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
       number = 11
     $('.nav-item').children().removeClass "active"
     $('#change'+number).addClass "active"
-    if number == 1
+    if $('li.nav-item').first().children().hasClass('active')
       $('#back').attr 'disabled', 'disabled'
       $('#back').click (event) ->
         event.preventDefault()
         return
     else
       $('#back').removeAttr 'disabled'
-    if number == 11
+    if $('li.nav-item').last().children().hasClass('active')
       $('#next').attr 'disabled', 'disabled'
       $('#next').click (event) ->
         event.preventDefault()
         return
     else
       $('#next').removeAttr 'disabled'
-    console.log(number)
 
 @redo_test = () ->
     window.location.replace("/science/physics/sound")
