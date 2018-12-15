@@ -4,35 +4,14 @@
 #Animations?
 #Back and next button: Check if tab 1 is active then disable back button, disabled next if tab 12 active
 
-$(document).ready ->
-    $('map[name=image-map] area').click ->
+$(document).ready ->   
+    $('area').click ->
         $(this).attr 'selected', 'selected'
         $(this).siblings().removeAttr 'selected'
         return
-    
-    $('map[name=image-map2] area').click ->
-        $(this).attr 'selected', 'selected'
-        $(this).siblings().removeAttr 'selected'
-        return
-    
-    $('a.nav-link').click ->
-        if $('li.nav-item').first().children().hasClass('active')
-          $('#back').attr 'disabled', 'disabled'
-          $('#back').click (event) ->
-            event.preventDefault()
-            return
-        else
-          $('#back').removeAttr 'disabled'
-        if $('li.nav-item').last().children().hasClass('active')
-          $('#next').attr 'disabled', 'disabled'
-          $('#next').click (event) ->
-            event.preventDefault()
-            return
-        else
-          $('#next').removeAttr 'disabled'
     
     if sessvars.myObj
-        answer.equals(sessvars.myObj.userAnswer)
+        sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
         i = 0
         while i < sessvars.Answer.correctAnswer.length
             if $("#user_answer_"+(i+1)).text().indexOf('Unlucky!') > -1
@@ -43,7 +22,7 @@ $(document).ready ->
     if $("#mark").length
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
-
+    
 user_answer = []
 wrong_answer = []
 
@@ -102,27 +81,27 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     result
 
 @check = () ->
-    ans1 = $("#true_false2").val().length > 0
-    user_answer.push($("#true_false2").val())
+    ans1 = $("#true_false3").val().length > 0
+    user_answer.push($("#true_false3").val())
 
-    ans2 = $("#drop_down3").val().length > 0
-    user_answer.push($("#drop_down3").val())
+    ans2 = $("#drop_down4").val().length > 0
+    user_answer.push($("#drop_down4").val())
 
     ans3 = $("#fib1").val().length > 0
     user_answer.push($("#fib1").val())
     
     selected = []
     ans4 = false
-    $.each $('input[name=\'check5\']:checked'), ->
+    $.each $('input[name=\'check6\']:checked'), ->
         selected.push $(this).val()
         if selected.length > 0
             ans4 = true
     user_answer.push(selected)
     
-    ans5 = $("input[name='answer6']:checked").val()
+    ans5 = $("input[name='answer7']:checked").val()
     user_answer.push(ans5)
 
-    ans6 = $("input[name='answer7']:checked").val()
+    ans6 = $("input[name='answer8']:checked").val()
     user_answer.push(ans6)
 
     ans7 = $('map[name=image-map] area[selected=selected]').attr('title')
@@ -148,6 +127,7 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
+        sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
         window.location.replace("/result")
     else
         alert ("You haven't answered all questions!")
@@ -156,18 +136,18 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @change = (number) ->
     if number == 0
       number = 1
-    if number == 12
-      number = 11
+    if number == 13
+      number = 12
     $('.nav-item').children().removeClass "active"
     $('#change'+number).addClass "active"
-    if $('li.nav-item').first().children().hasClass('active')
+    if number == 1
       $('#back').attr 'disabled', 'disabled'
       $('#back').click (event) ->
         event.preventDefault()
         return
     else
       $('#back').removeAttr 'disabled'
-    if $('li.nav-item').last().children().hasClass('active')
+    if number == 12
       $('#next').attr 'disabled', 'disabled'
       $('#next').click (event) ->
         event.preventDefault()

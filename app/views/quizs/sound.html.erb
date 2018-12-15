@@ -165,16 +165,15 @@
           </li>
           </div>
         <%end %>
-        <button class="btn btn-primary" type="submit" onclick="mark()" data-answer='<%=@answer%>'>Submit</button>
+        <button class="btn btn-primary" type="submit" onclick="mark()">Submit</button>
       </div>
     </div>
   </div>
 </div>
+<%= content_tag :div, id: "answers", data: {answer: @answer} do %>
+<% end %>
 
 <script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
 <script>
-  var answer = $('button[type=submit]').data('answer');
-  sessvars.Answer = {correctAnswer: answer};
-  console.log(sessvars.Answer);
   $("#sortable").sortable().disableSelection();
 </script>
