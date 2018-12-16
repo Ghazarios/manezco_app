@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get '/user/notifications' => 'users#notifications'
+  get '/user/support' => 'users#support'
+  get '/user/profile' => 'users#profile'
+  get '/user/plan' => 'users#plan'
+  get '/user/billing' => 'users#billing'
+  get '/user' => 'users#profile'
   get 'home/index'
   get 'welcome/dashboard'
   get 'welcome/index'
-  get 'users/my_profile'
+  
   get 'maths' => 'quizs#maths'
   get 'science' => 'quizs#science'
   get 'science/physics' => 'quizs#physics'
