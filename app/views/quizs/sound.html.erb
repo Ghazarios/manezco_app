@@ -42,8 +42,27 @@
         <div class='<%=var_class %>' style='height: 444px; overflow-y: auto;' id='<%="content#{j}"%>'>
 
       <% case index[0]%>
-      <% when "OV", "TH"%>
+      <% when "OV"%>
         <p><%= index[1]%></p>
+      <% when "TH"%>
+        <% array_count = 0 %>
+        <% until index[array_count+=1].nil? %>
+          <% if index[array_count].kind_of?(Array)%>
+             <% case index[array_count][0]%>
+             <% when "img" %>
+              <img src="<%=index[array_count][1]%>" alt="Theory <%=array_count%>"> 
+             <% when "li" %>
+              <% count = 0 %>
+              <ul>
+              <% until index[array_count][count+=1].nil? %>
+                <li><%=index[array_count][count]%></li>
+              <% end %>
+              </ul>
+             <% end %>
+          <% else %>
+            <p><%= index[array_count]%></p>
+          <% end %>
+        <% end %>
       <% when "TF"%>
         <p><%= index[1]%></p>
         <div class="form-group">
@@ -104,16 +123,16 @@
         <div class="row container">
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
               <input type="radio" id=<%="check#{k}"%> value='Answer 1' name="answer<%=j%>">
-              <img src="<%=index[2]%>" alt="Answer 1" height="200" width="200">      
+              <img src="<%=index[2]%>" alt="Answer 1">      
         </div>
         <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
               <input type="radio" id=<%="check#{k}"%> value='Answer 2' name="answer<%=j%>">
-              <img src="<%=index[3]%>" alt="Answer 2" height="200" width="200">   
+              <img src="<%=index[3]%>" alt="Answer 2">   
         </div>
         </div>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map">
+        <img src="<%=index[2]%>" usemap="#image-map" class="map">
 
         <map name="image-map">
             <area target="_blank" alt="option-1" title="option-1" coords="126,16,139,128" shape="rect">
@@ -122,7 +141,7 @@
         </map>
       <% when "PIC"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map2">
+        <img src="<%=index[2]%>" usemap="#image-map2" class="map">
 
         <map name="image-map2">
             <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
@@ -146,11 +165,13 @@
           </li>
           </div>
         <%end %>
-        <button type="submit" onclick="mark()" class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" type="submit" onclick="mark()">Submit</button>
       </div>
     </div>
   </div>
 </div>
+<%= content_tag :div, id: "answers", data: {answer: @answer} do %>
+<% end %>
 
 <script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
 <script>

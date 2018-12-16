@@ -1,23 +1,17 @@
-#To-do:
+#To-do: Randomize order of questions, randomize order of answer options
+#Modularize i.e. Make quiz template
+#Make quiz and quiz questions model (Need to watch Udemy course) so that admins can insert new questions
+#Animations?
+#Back and next button: Check if tab 1 is active then disable back button, disabled next if tab 12 active
 
-$(document).ready ->
-        
-    $('map[name=image-map] area').click ->
-        $(this).siblings().removeAttr 'selected'
+$(document).ready ->   
+    $('area').click ->
         $(this).attr 'selected', 'selected'
-        return
-    
-    $('map[name=image-map2] area').click ->
         $(this).siblings().removeAttr 'selected'
-        $(this).attr 'selected', 'selected'
-        return
-        
-    $('#back').click (event) ->
-        event.preventDefault()
         return
     
     if sessvars.myObj
-        answer.equals(sessvars.myObj.userAnswer)
+        sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
         i = 0
         while i < sessvars.Answer.correctAnswer.length
             if $("#user_answer_"+(i+1)).text().indexOf('Unlucky!') > -1
@@ -28,8 +22,7 @@ $(document).ready ->
     if $("#mark").length
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
-
-answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Air", "Water", "Steel"]]
+    
 user_answer = []
 wrong_answer = []
 
@@ -51,7 +44,7 @@ Array::equals = (array) ->
     # Check if we have nested arrays
     if @[i] instanceof Array and array[i] instanceof Array
       # recurse into the nested arrays
-      # i = location of mc question
+      # i = index of question
       j = 0
       if @[i].length != array[i].length
         wrong_answer.push(i+1)
@@ -88,27 +81,27 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
     result
 
 @check = () ->
-    ans1 = $("#true_false2").val().length > 0
-    user_answer.push($("#true_false2").val())
+    ans1 = $("#true_false3").val().length > 0
+    user_answer.push($("#true_false3").val())
 
-    ans2 = $("#drop_down3").val().length > 0
-    user_answer.push($("#drop_down3").val())
+    ans2 = $("#drop_down4").val().length > 0
+    user_answer.push($("#drop_down4").val())
 
     ans3 = $("#fib1").val().length > 0
     user_answer.push($("#fib1").val())
     
     selected = []
     ans4 = false
-    $.each $('input[name=\'check5\']:checked'), ->
+    $.each $('input[name=\'check6\']:checked'), ->
         selected.push $(this).val()
         if selected.length > 0
             ans4 = true
     user_answer.push(selected)
     
-    ans5 = $("input[name='answer6']:checked").val()
+    ans5 = $("input[name='answer7']:checked").val()
     user_answer.push(ans5)
 
-    ans6 = $("input[name='answer7']:checked").val()
+    ans6 = $("input[name='answer8']:checked").val()
     user_answer.push(ans6)
 
     ans7 = $('map[name=image-map] area[selected=selected]').attr('title')
@@ -134,9 +127,8 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
-        sessvars.Answer = {correctAnswer: answer}
+        sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
         window.location.replace("/result")
-        console.log(user_answer)
     else
         alert ("You haven't answered all questions!")
         user_answer = []
@@ -144,8 +136,8 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @change = (number) ->
     if number == 0
       number = 1
-    if number == 12
-      number = 11
+    if number == 13
+      number = 12
     $('.nav-item').children().removeClass "active"
     $('#change'+number).addClass "active"
     if number == 1
@@ -155,14 +147,13 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
         return
     else
       $('#back').removeAttr 'disabled'
-    if number == 11
+    if number == 12
       $('#next').attr 'disabled', 'disabled'
       $('#next').click (event) ->
         event.preventDefault()
         return
     else
       $('#next').removeAttr 'disabled'
-    console.log(number)
 
 @redo_test = () ->
     window.location.replace("/science/physics/sound")

@@ -3,7 +3,19 @@ class QuizsController < ApplicationController
     def sound
         @question = [
             ["OV", "Sounds are all around us. Having a good understanding of how they are created and how they travel from a source to your ears is important to help us understand the world. In this chapter, we will look at how sounds are created, how they travel, and other things that would help us understand them better."],
-            #["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:"],
+            ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:", 
+              ["img", "https://i.ibb.co/Yj6NPxN/Theory1.png"], 
+              "As you can see, Amplitude is the length of the ‘peak’ from the middle point, whereas the Wavelength is the distance between wave ‘peaks’. Frequency measures how many ‘peaks’ pass through a point over 1 second, so shorter wavelengths would have more peaks passing through than longer waves.",
+              ["img", "https://i.ibb.co/pRNFbMc/Theory2.png"],
+              "Sound is a form of kinetic energy produced by vibrations, these vibrations cause a chain reaction of more vibrations, carrying the soundwaves away from the source – until all the initial energy is gone. If you whack a hammer on a piece of metal, the metal is going to vibrate, the air around the metal will also start to vibrate, eventually the air around your ears will vibrate and you will perceive the vibrations as noise. This happens very fast, so if you’re close enough, it seems that you hear it straight away.",
+              ["li", 
+                "Sound travels in soundwaves, similar to when you drop a stone in a lake and see the ripples forming.",
+                "Sound is just the effect of physical vibrations.",
+                "For Sound to travel anywhere, it needs a medium to transport it, like Water, Air, or even Metal, otherwise there would be nothing vibrating.",
+                "Sound cannot travel in a vacuum (empty space without air), because there is no medium for it to travel through.",
+                "Sound and Light both travel as waves. The soundwaves lose energy over time, eventually stopping"
+              ] 
+            ],
             ["TF", "Sound cannot travel through a vacuum.", "True"],
             ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
             ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
@@ -14,11 +26,8 @@ class QuizsController < ApplicationController
             ["PIC", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "area-1"], 
             ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
             ["DD", "Order the following from slowest to fastest Sound speed:", "Water", "Air", "Steel"]
-            #Need to do animation
-            #Fix button bug
-            #Need to do submission
-            #Try the quiz1 style and modify it
         ]
+        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
         @answers = "True"
         @title = "Sound"
     end
