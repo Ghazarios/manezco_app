@@ -1,9 +1,6 @@
 #To-do:
 
 $(document).ready ->
-    $('#back').click (event) ->
-        event.preventDefault()
-        return
         
     $('map[name=image-map] area').click ->
         $(this).siblings().removeAttr 'selected'
@@ -13,6 +10,10 @@ $(document).ready ->
     $('map[name=image-map2] area').click ->
         $(this).siblings().removeAttr 'selected'
         $(this).attr 'selected', 'selected'
+        return
+        
+    $('#back').click (event) ->
+        event.preventDefault()
         return
     
     if sessvars.myObj
@@ -28,7 +29,7 @@ $(document).ready ->
         mark = $("*").html().match(/correct!/gi).length
         $("#mark").text(mark)
 
-answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
+answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Air", "Water", "Steel"]]
 user_answer = []
 wrong_answer = []
 
