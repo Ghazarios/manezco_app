@@ -2,7 +2,7 @@
     <div class="col-12 animate-fade-in-1000 container">
 
     <h1><%=@header%> Results</h1>
-
+    
     <div class="card card-default inspectable container">
         <h3>You got: <span id="mark"></span> out of <%=@question.length%></h3>
         <% @question.each_with_index do |entry, index| %>
@@ -18,3 +18,82 @@
     </div>
     <script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
 </div>
+<script>
+  var wrong_answer = [];
+
+  if (Array.prototype.equals) {
+    console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
+  }
+
+  Array.prototype.equals = function(array) {
+    var foo, i, j, l;
+    foo = true;
+    if (!array) {
+      foo = false;
+    }
+    if (this.length !== array.length) {
+      foo = false;
+    }
+    i = 0;
+    l = this.length;
+    while (i < l) {
+      if (this[i] instanceof Array && array[i] instanceof Array) {
+        j = 0;
+        if (this[i].length !== array[i].length) {
+          wrong_answer.push(i + 1);
+          $('#user_answer_' + (i + 1)).text(array[i] + " Unlucky!");
+          foo = false;
+        } else {
+          while (j < this[i].length) {
+            if (this[i][j] !== array[i][j]) {
+              if (jQuery.inArray(i + 1, "wrong_answer")) {
+                wrong_answer.push(i + 1);
+              }
+              foo = false;
+              $('#user_answer_' + (i + 1)).text(array[i] + " Unlucky!");
+            } else {
+              $('#user_answer_' + (i + 1)).text(array[i] + " Correct!");
+            }
+            j++;
+          }
+        }
+      } else if (this[i] !== array[i]) {
+        $('#user_answer_' + (i + 1)).text(array[i] + " Unlucky!");
+        wrong_answer.push(i + 1);
+        foo = false;
+      } else {
+        $('#user_answer_' + (i + 1)).text(array[i] + " Correct!");
+      }
+      i++;
+    }
+    return foo;
+  };
+
+  Object.defineProperty(Array.prototype, 'equals', {
+    enumerable: false
+  });
+  
+  var i;
+  if (sessvars.myObj) {
+    sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
+    i = 0;
+    while (i < sessvars.Answer.correctAnswer.length) {
+      if ($("#user_answer_" + (i + 1)).text().indexOf('Unlucky!') > -1) {
+        $('#correct_answer_' + (i + 1)).text("Correct Answer: " + sessvars.Answer.correctAnswer[i]);
+      }
+      i++;
+    }
+  }
+  
+  var mark; //Get rid of this method
+  if ($("#mark").length) {
+    mark = $("div.card").html().match(/correct!/gi).length;
+    $("#mark").text(mark);
+  }
+  
+  redo_test = function() {
+    console.log("Clearing memory")
+    sessvars.$.clearMem();
+    return window.location.replace("/science/physics/sound");//Modularize
+  };
+</script>

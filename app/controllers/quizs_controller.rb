@@ -28,7 +28,6 @@ class QuizsController < ApplicationController
             ["DD", "Order the following from slowest to fastest Sound speed:", "Water", "Air", "Steel"]
         ]
         @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
-        @answers = "True"
         @title = "Sound"
     end
   

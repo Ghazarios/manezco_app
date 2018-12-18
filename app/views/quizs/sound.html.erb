@@ -175,5 +175,11 @@
 
 <script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
 <script>
+  $('area').click(function() {
+    $(this).attr('selected', 'selected');
+    $(this).siblings().removeAttr('selected');
+  });
   $("#sortable").sortable().disableSelection();
+  sessvars.Answer = {correctAnswer: $('#answers').data('answer')};
+  $('#answers').remove();
 </script>

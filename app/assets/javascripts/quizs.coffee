@@ -1,84 +1,8 @@
 #To-do: Randomize order of questions, randomize order of answer options
 #Modularize i.e. Make quiz template
 #Make quiz and quiz questions model (Need to watch Udemy course) so that admins can insert new questions
-#Animations?
-#Back and next button: Check if tab 1 is active then disable back button, disabled next if tab 12 active
 
-$(document).ready ->   
-    $('area').click ->
-        $(this).attr 'selected', 'selected'
-        $(this).siblings().removeAttr 'selected'
-        return
-    
-    if sessvars.myObj
-        sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
-        i = 0
-        while i < sessvars.Answer.correctAnswer.length
-            if $("#user_answer_"+(i+1)).text().indexOf('Unlucky!') > -1
-                $('#correct_answer_'+(i+1)).text("Correct Answer: " + sessvars.Answer.correctAnswer[i])
-            i++
-    sessvars.$.clearMem()
-
-    if $("#mark").length
-        mark = $("*").html().match(/correct!/gi).length
-        $("#mark").text(mark)
-    
 user_answer = []
-wrong_answer = []
-
-if Array::equals
-  console.warn 'Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.'
-# attach the .equals method to Array's prototype to call it on any array
-
-Array::equals = (array) ->
-  foo = true;
-  # if the other array is a falsy value, return
-  if !array
-    foo = false
-  # compare lengths - can save a lot of time 
-  if @length != array.length
-    foo = false
-  i = 0
-  l = @length
-  while i < l
-    # Check if we have nested arrays
-    if @[i] instanceof Array and array[i] instanceof Array
-      # recurse into the nested arrays
-      # i = index of question
-      j = 0
-      if @[i].length != array[i].length
-        wrong_answer.push(i+1)
-        $('#user_answer_'+(i+1)).text(array[i] + " Unlucky!")
-        foo = false
-      else while j < @[i].length
-        if @[i][j] != array[i][j]
-            if jQuery.inArray(i+1, "wrong_answer")
-                wrong_answer.push(i+1)
-            foo=false
-            $('#user_answer_'+(i+1)).text(array[i] + " Unlucky!")
-        else
-            $('#user_answer_'+(i+1)).text(array[i] + " Correct!")
-        j++
-    else if @[i] != array[i]
-      $('#user_answer_'+(i+1)).text(array[i] + " Unlucky!")
-      # Warning - two different object instances will never be equal: {x:20} != {x:20}
-      wrong_answer.push(i+1)
-      foo = false
-    else
-      $('#user_answer_'+(i+1)).text(array[i] + " Correct!")
-    i++
-  return foo
-
-# Hide method from for-in loops
-Object.defineProperty Array.prototype, 'equals', enumerable: false
-
-@unique = (list) ->
-    result = []
-    $.each list, (i, e) ->
-      if $.inArray(e, result) == -1
-        result.push e
-      return
-    result
 
 @check = () ->
     ans1 = $("#true_false3").val().length > 0
@@ -127,7 +51,6 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
 @mark = () ->
     if check()
         sessvars.myObj = {userAnswer: user_answer}
-        sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
         window.location.replace("/result")
     else
         alert ("You haven't answered all questions!")
@@ -154,6 +77,3 @@ Object.defineProperty Array.prototype, 'equals', enumerable: false
         return
     else
       $('#next').removeAttr 'disabled'
-
-@redo_test = () ->
-    window.location.replace("/science/physics/sound")
