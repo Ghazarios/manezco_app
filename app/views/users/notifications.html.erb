@@ -1,0 +1,76 @@
+<%= content_for :js_libs, "modernizr jasny" %>
+
+<div class="profile-header jumbotron  d-flex align-items-center justify-content-center flex-column pb-0">
+  <%= render partial: '_user_account/avatar_upload' %>
+  <h2 class="m-0 mb-2">Phill McMurray</h2>
+  <div class="badge badge-light">
+    PRO ACCOUNT
+  </div>
+  <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-expanded="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="plan-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="false">Plan</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="billing-tab" data-toggle="tab" href="#billing" role="tab" aria-controls="billing" aria-expanded="false">Billing</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="notifications-tab" data-toggle="tab" href="#notifications" role="tab" aria-controls="notifications" aria-expanded="true">Notifications</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="support-tab" data-toggle="tab" href="#support" role="tab" aria-controls="support" aria-expanded="false">Support</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 mr-auto ml-auto">
+      <div class="tab-content pt-2 pb-2" id="myTabContent">
+
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="card">
+            <div class="card-body">
+            <%= render partial: '_user_account/profile' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="plan-tab">
+          <div class="card">
+            <div class="card-body">
+            <%= render partial: '_user_account/plan' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
+          <div class="card">
+            <div class="card-body">
+            <%= render partial: '_user_account/billing' %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane fade show active" id="notifications" role="tabpanel" aria-labelledby="notifications">
+          <div class="card">
+            <div class="card-body">
+            <%= render partial: '_user_account/notifications' %>
+          </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support">
+          <div class="card">
+            <div class="card-body">
+            <%= render partial: '_user_account/support' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
