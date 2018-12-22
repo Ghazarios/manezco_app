@@ -16,21 +16,38 @@ class QuizsController < ApplicationController
                 "Sound and Light both travel as waves. The soundwaves lose energy over time, eventually stopping"
               ] 
             ],
-            ["TF", "Sound cannot travel through a vacuum.", "True"],
+            ["TF", "Sound cannot travel through a vacuum."],
             ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
             ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
             ["MC", "Sound is: (Select all that apply)", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
             ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
             ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
-            ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "option-1"],
-            ["PIC", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "area-1"], 
+            ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
+            ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "117,9,175,237", "365,15,413,240"], 
             ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
             ["DD", "Order the following from slowest to fastest Sound speed:", "Water", "Air", "Steel"]
         ]
-        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "area-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
+        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
         @title = "Sound"
     end
   
+    def result
+        @title = "Quiz Results"
+        @header = "Sound Quiz"       
+        @question = [
+            ["TF", "Sound cannot travel through a vacuum. True or False?", "True"],
+            ["DL", "Sound is an effect caused by _______", "Vibrations"], 
+            ["FIB", "Sound requires a M_____ to transport it, like Air and Water. ", "Medium"], 
+            ["MC", "Sound is (select all that apply):", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"]],
+            ["SC", "What are the three main properties of Waves?", ["a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"]],
+            ["SCP", "Click the wave that has a low Frequency: "],
+            ["CLP", "Click the line that is measuring the Amplitude: "],
+            ["PIC", "Click the area that contains the highest sound energy if the drum was being played: ", "area-1"], 
+            ["FIB", "Sound can be r______ and a________"],
+            ["DD", "Order the following from slowest to fastest Sound speed:"]
+        ]
+    end
+
     def maths
         questions = [
             ["OV", "Shapes and sizes are all around you! In this tutorial we will be going over your understanding of geometry with quizzes designed to help you grasp important concepts"],
@@ -53,24 +70,6 @@ class QuizsController < ApplicationController
     def quiz1
         questions = [["What is the formula for the area of a circle?","2PIr^2","2PIr","2PId"], ["What is the formula for the area of a square?","2PIr^2","2PIr","r^2"], ["What is the formula for the area of a triangle?","2PIr^2","H*b/2","2PId"], ["What is the formula for the area of a hex?","2PIr^2/6","2PIr","r^2"]]
         @question = questions
-    end
-    
-    def result
-        @title = "Quiz Results"
-        @header = "Sound Quiz"
-        
-        @question = [
-            ["TF", "Sound cannot travel through a vacuum. True or False?", "True"],
-            ["DL", "Sound is an effect caused by _______", "Vibrations"], 
-            ["FIB", "Sound requires a M_____ to transport it, like Air and Water. ", "Medium"], 
-            ["MC", "Sound is (select all that apply):", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"]],
-            ["SC", "What are the three main properties of Waves?", ["a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"]],
-            ["SCP", "Click the wave that has a low Frequency: "],
-            ["CLP", "Click the line that is measuring the Amplitude: "],
-            ["PIC", "Click the area that contains the highest sound energy if the drum was being played: ", "area-1"], 
-            ["FIB", "Sound can be r______ and a________"],
-            ["DD", "Order the following from slowest to fastest Sound speed:"]
-        ]
     end
 
     def science

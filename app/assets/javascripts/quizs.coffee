@@ -1,8 +1,6 @@
-#To-do: Randomize order of questions, randomize order of answer options
-#Modularize i.e. Make quiz template
-#Make quiz and quiz questions model (Need to watch Udemy course) so that admins can insert new questions
-
 user_answer = []
+
+$(document).ready ->
 
 @check = () ->
     ans1 = $("#true_false3").val().length > 0
@@ -28,10 +26,10 @@ user_answer = []
     ans6 = $("input[name='answer8']:checked").val()
     user_answer.push(ans6)
 
-    ans7 = $('map[name=image-map] area[selected=selected]').attr('title')
+    ans7 = $('map[name=image-map9] area[selected=selected]').attr('title')
     user_answer.push(ans7)
     
-    ans8 = $('map[name=image-map2] area[selected=selected]').attr('title')
+    ans8 = $('map[name=image-map10] area[selected=selected]').attr('title')
     user_answer.push(ans8)
     
     filled = []
@@ -40,21 +38,28 @@ user_answer = []
     filled.push($("#fib3").val())
     user_answer.push(filled)
     
-    array = $('.ui-sortable-handle').map(->
+    array = $('ul#sortable').children().map(->
       $.trim $(this).text()
     ).get()
     ans10 = array
     user_answer.push(array)
     
+    console.log ans1 , ans2 , ans3 , ans4 , ans5, ans6, ans7 , ans8,ans9, ans10
     return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10)
 
-@mark = () ->
+@mark = (question_list) ->
+    console.log question_list
+    
     if check()
         sessvars.myObj = {userAnswer: user_answer}
         window.location.replace("/result")
     else
         alert ("You haven't answered all questions!")
         user_answer = []
+
+@getAnswer = () ->
+    sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
+    console.log sessvars.Answer.correctAnswer
 
 @change = (number) ->
     if number == 0

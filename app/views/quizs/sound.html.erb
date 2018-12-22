@@ -1,32 +1,36 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "https://www.thomasfrank.se/sessvars.js" %>
+<% end %>
+
 <div class='container'>
-    <div class="col-12 animate-fade-in-1000">
+  <div class="col-12 animate-fade-in-1000">
 
-    <h1><%= @title %> Quiz</h1>
+  <h1><%= @title %> Quiz</h1>
 
-    <!-- Question Nav -->
-    <div class="card card-default inspectable">
-      <div class="card-header d-flex align-items-center justify-content-between">
-        <ul class="nav nav-tabs nav-tabs-xs">
-          <% i = 0%>
-          <% ques_num = 0%>
-          <% nav_var = ""%>
-          <% @question.each do |entry| i+=1%>
-            <% i == 1 ? nav_var = "nav-link active" : nav_var = "nav-link" %>
-            <li class="nav-item">
-              <% heading = ""%>
-              <% case entry[0]%>
-              <% when "OV"%>
-                <% heading = "Overview"%>
-              <% when "TH"%>
-                <% heading = "Theory"%>
-              <% else %>
-                <% heading = "Question #{ques_num+=1}"%>
-              <% end %>
-              <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
-            </li>
-          <%end %>
-        </ul>
-      </div>
+  <!-- Question Nav -->
+  <div class="card card-default inspectable">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <ul class="nav nav-tabs nav-tabs-xs">
+        <% i = 0%>
+        <% ques_num = 0%>
+        <% nav_var = ""%>
+        <% @question.each do |entry| i+=1%>
+          <% i == 1 ? nav_var = "nav-link active" : nav_var = "nav-link" %>
+          <li class="nav-item">
+            <% heading = ""%>
+            <% case entry[0]%>
+            <% when "OV"%>
+              <% heading = "Overview"%>
+            <% when "TH"%>
+              <% heading = "Theory"%>
+            <% else %>
+              <% heading = "Question #{ques_num+=1}"%>
+            <% end %>
+            <a id="change<%=i%>" class='<%=nav_var %>' href=<%="#content#{i}"%> data-toggle="tab"><%= heading %></a>
+          </li>
+        <%end %>
+      </ul>
+    </div>
 
       <!-- Question Content -->
       <% j = 0%>
@@ -67,7 +71,7 @@
         <p><%= index[1]%></p>
         <div class="form-group">
             <label for="true_false<%=j%>">True or False?</label>
-            <select class="form-control" data-answer='<%= @answers %>' id="true_false<%=j%>">
+            <select class="form-control" id="true_false<%=j%>">
             <option>True</option>
             <option>False</option>
             </select>
@@ -77,9 +81,10 @@
         <div class="form-group">
             <label for="drop_down<%=j%>">Choose from the list below</label>
             <select class="form-control" id="drop_down<%=j%>">
-            <option><%= index[2]%></option>
-            <option><%= index[3]%></option>
-            <option><%= index[4]%></option>
+            <% counter = 1 %>
+            <% until index[counter+=1].nil? %>
+              <option><%= index[counter]%></option>
+            <% end %>
             </select>
         </div>
       <% when "FIB"%>
@@ -94,17 +99,6 @@
           <% end %>
         <% end %>
         </p>
-      <% when "SC"%>
-        <p> <%=index[1]%></p>
-          <% m = 2 %>
-          <% until m == index.count do %>
-            <div class="custom-control custom-radio custom-control">
-              <input type="radio" value='<%=index[m]%>' class="custom-control-input" id=<%="check#{k}"%> name="answer<%=j%>">
-              <label class="custom-control-label" for=<%="check#{k}"%>><%= index[m]%></label>
-            </div>
-            <% m+=1 %>
-            <% k+=1 %>
-          <% end %>
       <% when "MC"%>
         <p> <%=index[1]%> </p>
           <% m = 2 %>
@@ -118,31 +112,46 @@
             <% m+=1 %>
             <% k+=1 %>
           <% end %>
-      <% when "SCP"%>
+      <% when "SC"%>
+        <p> <%=index[1]%> </p>
+          <% m = 2 %>
+          <% until m == index.count do %>
+            <div class="custom-control custom-radio custom-control">
+              <input type="radio" value='<%=index[m]%>' class="custom-control-input" id=<%="check#{k}"%> name="answer<%=j%>">
+              <label class="custom-control-label" for=<%="check#{k}"%>><%= index[m]%></label>
+            </div>
+            <% m+=1 %>
+            <% k+=1 %>
+          <% end %>
+      <% when "SCP"%> 
         <p> <%=index[1]%> </p>
         <div class="row container">
-        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
-              <input type="radio" id=<%="check#{k}"%> value='Answer 1' name="answer<%=j%>">
-              <img src="<%=index[2]%>" alt="Answer 1">      
-        </div>
-        <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
-              <input type="radio" id=<%="check#{k}"%> value='Answer 2' name="answer<%=j%>">
-              <img src="<%=index[3]%>" alt="Answer 2">   
-        </div>
+        <% answer_num = 1 %>
+        <% m = 2 %>
+        <% until m == index.count do %>
+          <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
+                <input type="radio" value="Answer <%=answer_num%>" name="answer<%=j%>">
+                <img src="<%=index[m]%>" alt="Answer <%=answer_num%>">      
+          </div>
+          <% m+=1 %>
+          <% answer_num+=1 %>
+        <% end %>
         </div>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map" class="map">
-
-        <map name="image-map">
-            <area target="_blank" alt="option-1" title="option-1" coords="126,16,139,128" shape="rect">
-            <area target="_blank" alt="option-2" title="option-2" coords="233,21,402,38" shape="rect">
-            <area target="_blank" alt="option-3" title="option-3" coords="12,120,540,135" shape="rect">
+        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
+        <map name="image-map<%=j%>">
+          <% m = 3 %>
+          <% option_num = 1 %>
+          <% until m == index.count do %>
+            <area target="_blank" alt="option-<%=option_num%>" title="option-<%=option_num%>" coords="<%=index[m]%>" shape="rect">
+            <% option_num+=1 %>
+            <% m+=1 %>
+          <% end %>
         </map>
       <% when "PIC"%>
         <p> <%=index[1]%> </p>
         <img src="<%=index[2]%>" usemap="#image-map2" class="map">
-
         <map name="image-map2">
             <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
             <area target="_blank" alt="area-2" title="area-2" coords="365,15,413,240" shape="rect">
@@ -150,22 +159,32 @@
       <% when "DD"%>
         <p> <%=index[1]%> </p>
         <ul id="sortable">
-          <li class="ui-state-default"><div class="center"> Air </div></li>
-          <li class="ui-state-default"><div class="center"> Steel </div></li>
-          <li class="ui-state-default"><div class="center"> Water </div></li>
+          <% m = 2 %>
+          <% until m == index.count do %>
+            <li class="ui-state-default"><div class="center"> <%= index[m]%> </div></li>
+            <% m+=1 %>
+          <% end %>
 	      </ul>
       <% end %>
 
-          <!-- Back and Next Buttons -->
-          <li class="nav nav-item">
-            <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
-            <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
-            <% b+=1%>
-            <% n+=1%>
-          </li>
-          </div>
-        <%end %>
-        <button class="btn btn-primary" type="submit" onclick="mark()">Submit</button>
+        <!-- Back and Next Buttons -->
+        <li class="nav nav-item">
+          <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
+          <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
+          <% b+=1%>
+          <% n+=1%>
+        </li>
+        </div>
+      <%end %>
+
+      <% question_list = []%>
+      <% @question.each do |entry| i+=1%>
+        <% if entry[0] != "OV" || "TH" %>
+          <% question_list.push(entry) %>
+        <% end %>
+      <% end %>
+
+      <button class="btn btn-primary" type="submit" onclick="mark()">Submit</button>
       </div>
     </div>
   </div>
@@ -173,13 +192,17 @@
 <%= content_tag :div, id: "answers", data: {answer: @answer} do %>
 <% end %>
 
-<script type="text/javascript" src="https://www.thomasfrank.se/sessvars.js"></script>
 <script>
-  $('area').click(function() {
-    $(this).attr('selected', 'selected');
-    $(this).siblings().removeAttr('selected');
+  $(document).ready(function() {
+    $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
+      sessvars.Answer = {correctAnswer: $('#answers').data('answer')};
+      console.log("Sound sessvars: " + sessvars.Answer.correctAnswer);
+      $('#answers').remove();
+    });
+    $('area').click(function() {
+      $(this).attr('selected', 'selected');
+      $(this).siblings().removeAttr('selected');
+    });
+    $("#sortable").sortable().disableSelection();
   });
-  $("#sortable").sortable().disableSelection();
-  sessvars.Answer = {correctAnswer: $('#answers').data('answer')};
-  $('#answers').remove();
 </script>

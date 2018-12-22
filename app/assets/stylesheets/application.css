@@ -63,3 +63,17 @@ a#back {
 .ui-sortable-handle {
   margin-bottom: 15px;
 }
+
+.correct{
+  border-radius: 10px;
+  padding: 8px;
+  background-color: green;
+  color: white;
+}
+
+.incorrect{
+  border-radius: 10px;
+  padding: 8px;
+  background-color: red;
+  color: white;
+}
