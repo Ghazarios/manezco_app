@@ -1,6 +1,13 @@
 class QuizsController < ApplicationController
+    
+    #Each quiz (method) needs 4 things: 1.Contents, which contains questions with overview and theory 
+                                       #2.Answer, which contains the answers in order
+                                       #3.Question, which contains questions to be shown on the results page without overview and theory
+                                       #4.Title which tells the quiz name
+    #The first 3 things above needs to be in an array
   
     def sound
+        @title = "Sound"
         @contents = [
             ["OV", "Sounds are all around us. Having a good understanding of how they are created and how they travel from a source to your ears is important to help us understand the world. In this chapter, we will look at how sounds are created, how they travel, and other things that would help us understand them better."],
             ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:", 
@@ -27,8 +34,7 @@ class QuizsController < ApplicationController
             ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
             ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"]
         ]
-        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]
-        @title = "Sound"        
+        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]        
         @question = [
             ["TF", "Sound cannot travel through a vacuum. True or False?"],
             ["DL", "Sound is an effect caused by _______."], 
