@@ -14,7 +14,7 @@
         <% i = 0%>
         <% ques_num = 0%>
         <% nav_var = ""%>
-        <% @question.each do |entry| i+=1%>
+        <% @contents.each do |entry| i+=1%>
           <% i == 1 ? nav_var = "nav-link active" : nav_var = "nav-link" %>
           <li class="nav-item">
             <% heading = ""%>
@@ -37,9 +37,10 @@
       <% k = 0%>
       <% b = 0%>
       <% n = 2%>
-			<% fib = 1 %>
+			<% fib = 0 %>
+      <% question_list = [] %>
       <div class="tab-content container">
-      <% @question.each do |index| %>
+      <% @contents.each do |index| %>
         <% var_class = "tab-pane fade"%>
         <% var_class += " active show" if j == 0 %>
         <% j+=1%>
@@ -76,6 +77,7 @@
             <option>False</option>
             </select>
         </div>
+        <% question_list.push("true_false#{j}") %>
       <% when "DL"%>
         <p><%= index[1]%>______</p>
         <div class="form-group">
@@ -87,16 +89,25 @@
             <% end %>
             </select>
         </div>
+        <% question_list.push("drop_down#{j}") %>
       <% when "FIB"%>
         <p id="fill_in_blanks">
         <% array_count = 0 %>
+        <% answer = [] %>
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
-           	<input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= fib %>'/>
-					 	<% fib+=1 %>
+            <input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= fib+=1 %>'/>
+            <% if (index.length > 4) %>
+              <% answer.push("fib#{fib}") %>
+            <% else %>
+              <% question_list.push("fib#{fib}") %>
+            <% end %>
           <% else %>
             <%= index[array_count].strip %>
           <% end %>
+        <% end %>
+        <% unless (answer.empty?) %>
+          <% question_list.push(answer) %>
         <% end %>
         </p>
       <% when "MC"%>
@@ -112,6 +123,7 @@
             <% m+=1 %>
             <% k+=1 %>
           <% end %>
+        <% question_list.push("check#{j}") %>  
       <% when "SC"%>
         <p> <%=index[1]%> </p>
           <% m = 2 %>
@@ -123,6 +135,7 @@
             <% m+=1 %>
             <% k+=1 %>
           <% end %>
+          <% question_list.push("answer#{j}") %> 
       <% when "SCP"%> 
         <p> <%=index[1]%> </p>
         <div class="row container">
@@ -137,6 +150,7 @@
           <% answer_num+=1 %>
         <% end %>
         </div>
+        <% question_list.push("answer#{j}") %>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
         <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
@@ -149,6 +163,7 @@
             <% m+=1 %>
           <% end %>
         </map>
+        <% question_list.push("image-map#{j}") %>
       <% when "PIC"%>
         <p> <%=index[1]%> </p>
         <img src="<%=index[2]%>" usemap="#image-map2" class="map">
@@ -158,13 +173,14 @@
         </map>
       <% when "DD"%>
         <p> <%=index[1]%> </p>
-        <ul id="sortable">
+        <ul id=<%="sortable"%>>
           <% m = 2 %>
           <% until m == index.count do %>
             <li class="ui-state-default"><div class="center"> <%= index[m]%> </div></li>
             <% m+=1 %>
           <% end %>
 	      </ul>
+        <% question_list.push("sortable") %>
       <% end %>
 
         <!-- Back and Next Buttons -->
@@ -176,28 +192,27 @@
         </li>
         </div>
       <%end %>
-
-      <% question_list = []%>
-      <% @question.each do |entry| i+=1%>
-        <% if entry[0] != "OV" || "TH" %>
-          <% question_list.push(entry) %>
-        <% end %>
-      <% end %>
-
-      <button class="btn btn-primary" type="submit" onclick="mark()">Submit</button>
+      <button class="btn btn-primary" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>
   </div>
 </div>
-<%= content_tag :div, id: "answers", data: {answer: @answer} do %>
+<%= content_tag :div, id: "answers", data: {data: @answer} do %>
+<% end %>
+<%= content_tag :div, id: "question", data: {data: @question} do %>
+<% end %>
+<%= content_tag :div, id: "header", data: {data: @title} do %>
 <% end %>
 
 <script>
   $(document).ready(function() {
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
-      sessvars.Answer = {correctAnswer: $('#answers').data('answer')};
-      console.log("Sound sessvars: " + sessvars.Answer.correctAnswer);
+      sessvars.Answer = {correctAnswer: $('#answers').data('data')};
       $('#answers').remove();
+      sessvars.Questions = {questionList: $('#question').data('data')};
+      $('#question').remove();
+      sessvars.Header = {header: $('#header').data('data')};
+      $('#header').remove();
     });
     $('area').click(function() {
       $(this).attr('selected', 'selected');

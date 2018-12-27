@@ -1,84 +1,83 @@
+answer = []
 user_answer = []
 
 $(document).ready ->
 
-@check = () ->
-    ans1 = $("#true_false3").val().length > 0
-    user_answer.push($("#true_false3").val())
-
-    ans2 = $("#drop_down4").val().length > 0
-    user_answer.push($("#drop_down4").val())
-
-    ans3 = $("#fib1").val().length > 0
-    user_answer.push($("#fib1").val())
-    
-    selected = []
-    ans4 = false
-    $.each $('input[name=\'check6\']:checked'), ->
-        selected.push $(this).val()
-        if selected.length > 0
-            ans4 = true
-    user_answer.push(selected)
-    
-    ans5 = $("input[name='answer7']:checked").val()
-    user_answer.push(ans5)
-
-    ans6 = $("input[name='answer8']:checked").val()
-    user_answer.push(ans6)
-
-    ans7 = $('map[name=image-map9] area[selected=selected]').attr('title')
-    user_answer.push(ans7)
-    
-    ans8 = $('map[name=image-map10] area[selected=selected]').attr('title')
-    user_answer.push(ans8)
-    
-    filled = []
-    ans9 = ($("#fib2").val().length > 0) && ($("#fib3").val().length > 0)
-    filled.push($("#fib2").val())
-    filled.push($("#fib3").val())
-    user_answer.push(filled)
-    
-    array = $('ul#sortable').children().map(->
-      $.trim $(this).text()
-    ).get()
-    ans10 = array
-    user_answer.push(array)
-    
-    console.log ans1 , ans2 , ans3 , ans4 , ans5, ans6, ans7 , ans8,ans9, ans10
-    return (ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10)
-
 @mark = (question_list) ->
-    console.log question_list
-    
-    if check()
-        sessvars.myObj = {userAnswer: user_answer}
-        window.location.replace("/result")
+  if check(question_list)
+      sessvars.myAnswer = {userAnswer: answer}
+      window.location.replace("/result")
+  else
+      alert ("You haven't answered all questions!")
+      answer = []
+      user_answer = []
+
+@check = (question_list) ->
+  $.each question_list, (key, value) ->
+    if value.indexOf('check') >= 0
+      selected = []
+      $.each $('input[name=' + value + ']:checked'), ->
+          selected.push $(this).val()
+      answer.push(selected)
+    else if value.indexOf('answer') >= 0
+      ans5 = $('input[name=' + value + ']:checked').val()
+      answer.push(ans5)
+    else if value instanceof Array
+      fib = []
+      fib.push($("#"+value[0]).val())
+      fib.push($("#"+value[1]).val())
+      answer.push(fib)
+    else if value.indexOf('image') >= 0
+      selected = $('map[name=' + value + '] area[selected=selected]').attr('title')
+      answer.push(selected)
+    else if value.indexOf('sortable') >= 0
+      array = $('#sortable').children().map(->
+        $.trim $(this).text()
+      ).get()
+      answer.push(array)
     else
-        alert ("You haven't answered all questions!")
-        user_answer = []
+      answer.push($("#"+value).val())
+    return
+
+  answered_all = true
+  $.each answer, (key, index) ->
+    location = key
+    if index instanceof Array
+      if index.length == 0
+        console.log("Empty answer at " + location)
+        return answered_all = false
+      $.each index, (num, value) ->
+        if value[num] == "" or value.length == 0
+          console.log "Unanswered array at " + location
+          return answered_all = false
+    else if typeof index == undefined or index == false or index == ""
+      console.log "Undefined or empty value at " + location
+      return answered_all = false
+
+  return answered_all
 
 @getAnswer = () ->
-    sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
-    console.log sessvars.Answer.correctAnswer
+  sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
+  console.log sessvars.Answer.correctAnswer
 
 @change = (number) ->
-    if number == 0
-      number = 1
-    if number == 13
-      number = 12
-    $('.nav-item').children().removeClass "active"
-    $('#change'+number).addClass "active"
-    if number == 1
-      $('#back').attr 'disabled', 'disabled'
-      $('#back').click (event) ->
-        event.preventDefault()
-        return
-    else
-      $('#back').removeAttr 'disabled'
-    if number == 12
-      $('#next').attr 'disabled', 'disabled'
-      $('#next').click (event) ->
-        event.preventDefault()
-        return
-    else
-      $('#next').removeAttr 'disabled'
+  if number == 0
+    number = 1
+  if number == 13
+    number = 12
+  $('.nav-item').children().removeClass "active"
+  $('#change'+number).addClass "active"
+  if number == 1
+    $('#back').attr 'disabled', 'disabled'
+    $('#back').click (event) ->
+      event.preventDefault()
+      return
+  else
+    $('#back').removeAttr 'disabled'
+  if number == 12
+    $('#next').attr 'disabled', 'disabled'
+    $('#next').click (event) ->
+      event.preventDefault()
+      return
+  else
+    $('#next').removeAttr 'disabled'

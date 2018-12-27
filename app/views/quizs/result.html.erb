@@ -4,26 +4,24 @@
 
 <div class='container'>
     <div class="col-12 animate-fade-in-1000 container">
-
-    <h1><%=@header%> Results</h1>
-    
+    <h1 id="header"> Quiz Results</h1>
     <div class="card card-default inspectable container">
-        <h3>You got: <span id="mark"></span> out of <%=@question.length%></h3>
-        <% @question.each_with_index do |entry, index| %>
-            <div>
-                <h6>Question <%=index+=1%></h6>
-                <p><%=entry[1]%></p>
-                Your answer: <span id="user_answer_<%=index%>"></span>
-                <p id="correct_answer_<%=index%>"></p>
-            </div>
-        <% end %>
-        <a id='redo_test' href="/science/physics/sound">Redo Test</a>
     </div>
     </div>
 </div>
+
 <script>
   var wrong_answer = [];
+  
+  $( "#header" ).prepend(sessvars.Header.header);
 
+  $("div.card").prepend("<h3>You got: <span id='mark'></span> out of " + sessvars.Questions.questionList.length + "</h3>");
+
+  sessvars.Questions.questionList.forEach(function (question, index){
+    $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><p id='correct_answer_" + index + "'></p></div>");
+  });
+
+  $("div.card").append("<a id='redo_test' href='/science/physics/sound'>Redo Test</a>")
   if (Array.prototype.equals) {
     console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
   }
@@ -82,9 +80,8 @@
   });
   
   var i;
-  if (sessvars.myObj) {
-    console.log(sessvars.Answer.correctAnswer);
-    sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
+  if (sessvars.myAnswer) {
+    sessvars.Answer.correctAnswer.equals(sessvars.myAnswer.userAnswer)
     i = 0;
     while (i < sessvars.Answer.correctAnswer.length) {
       if ($("#user_answer_" + (i + 1)).text().indexOf('Unlucky!') > -1) {
@@ -101,7 +98,6 @@
   }
 
   $('#redo_test').click(function() {
-    console.log("Clearing memory");
     sessvars.$.clearMem();
   });
 </script>
