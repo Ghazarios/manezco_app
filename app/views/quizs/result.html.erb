@@ -82,7 +82,6 @@
   
   var i;
   if (sessvars.myAnswer) {
-    console.log(sessvars.Answer.correctAnswer);
     sessvars.Answer.correctAnswer.equals(sessvars.myAnswer.userAnswer)
     i = 0;
     while (i < sessvars.Answer.correctAnswer.length) {
@@ -96,7 +95,6 @@
   }
 
   $('#redo_test').click(function() {
-    console.log("Clearing memory");
     sessvars.$.clearMem();
     window.history.back();
   });
