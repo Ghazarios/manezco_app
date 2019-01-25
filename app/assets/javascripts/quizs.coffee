@@ -4,11 +4,7 @@
 #Animations?
 #Back and next button: Check if tab 1 is active then disable back button, disabled next if tab 12 active
 
-$(document).ready ->   
-    $('area').click ->
-        $(this).attr 'selected', 'selected'
-        $(this).siblings().removeAttr 'selected'
-        return
+$(document).ready ->
     
     if sessvars.myObj
         sessvars.Answer.correctAnswer.equals(sessvars.myObj.userAnswer)
