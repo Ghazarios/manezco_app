@@ -1,6 +1,6 @@
 class QuizsController < ApplicationController
     
-    #Each quiz (method) needs 4 things: 1.Contents, which contains questions with overview and theory 
+    #Each quiz (method) needs 4 things: 1.Content, which contains questions with overview and theory 
                                        #2.Answer, which contains the answers in order
                                        #3.Question, which contains questions to be shown on the results page without overview and theory
                                        #4.Title which tells the quiz name
