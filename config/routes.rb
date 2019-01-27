@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'quiz1' => 'quizs#quiz1'
   get 'jqueryui' => 'quizs#jquery'
   get 'result' => 'quizs#result'
+  post 'mark' => 'quizs#mark'
+  get '/welcome/score' => 'quizs#show'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'

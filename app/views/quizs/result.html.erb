@@ -92,6 +92,21 @@
     }
     var mark = $("div.card").html().match(/correct!/gi).length;
     $("#mark").text(mark);
+    
+    var name = sessvars.Header.header;
+    var result = mark;
+
+    $.ajax({
+      url: "/mark",
+      type: "POST",
+      data: {quiz: name, mark: result},
+      success: function (data) {
+        alert('Saved Successfully');
+      },
+      error:function(){
+       alert('Error');
+      }
+    });
   }
 
   $('#redo_test').click(function() {
