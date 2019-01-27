@@ -5,6 +5,7 @@ class QuizsController < ApplicationController
       #2.Answer, which contains the answers in order
       #3.Question, which contains questions to be shown on the results page without overview and theory
       #4.Title which tells the quiz name
+
     #The first 3 things above needs to be in an array
   
     def sound
