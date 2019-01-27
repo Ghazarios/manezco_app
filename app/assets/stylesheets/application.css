@@ -77,3 +77,78 @@ a#back {
   background-color: red;
   color: white;
 }
+
+input[type=text].input-3 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 3.5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 4ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-4 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 5.5ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-5 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 7.5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 7ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-6 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 9ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 8.5ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-7 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 10.5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 10ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-8 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 12ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 11.5ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input:focus {
+  outline: none;
+  color: dodgerblue;
+}
+
+#fill_in_blanks{
+  font-size: 1.7ch;
+}

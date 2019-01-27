@@ -27,13 +27,13 @@
   }
 
   Array.prototype.equals = function(array) {
-    var foo, i, j, l;
-    foo = true;
+    var correct, i, j, l;
+    correct = true;
     if (!array) {
-      foo = false;
+      correct = false;
     }
     if (this.length !== array.length) {
-      foo = false;
+      correct = false;
     }
     i = 0;
     l = this.length;
@@ -44,14 +44,14 @@
           wrong_answer.push(i + 1);
           $('#user_answer_' + (i + 1)).text(array[i]);
           $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
-          foo = false;
+          correct = false;
         } else {
           while (j < this[i].length) {
             if (this[i][j] !== array[i][j]) {
               if (jQuery.inArray(i + 1, "wrong_answer")) {
                 wrong_answer.push(i + 1);
               }
-              foo = false;
+              correct = false;
               $('#user_answer_' + (i + 1)).text(array[i]);
               $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
             } else {
@@ -65,14 +65,14 @@
         $('#user_answer_' + (i + 1)).text(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
         wrong_answer.push(i + 1);
-        foo = false;
+        correct = false;
       } else {
         $('#user_answer_' + (i + 1)).text(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
       }
       i++;
     }
-    return foo;
+    return correct;
   };
 
   Object.defineProperty(Array.prototype, 'equals', {
@@ -89,15 +89,27 @@
       }
       i++;
     }
-  }
-  
-  var mark; //Simplify by using the correct answer counter
-  if ($("#mark").length) {
-    mark = $("div.card").html().match(/correct!/gi).length;
+    var mark = $("div.card").html().match(/correct!/gi).length;
     $("#mark").text(mark);
+    
+    var name = sessvars.Header.header;
+    var result = mark;
+
+    $.ajax({
+      url: "/mark",
+      type: "POST",
+      data: {quiz: name, mark: result},
+      success: function (data) {
+        alert('Saved Successfully');
+      },
+      error:function(){
+       alert('Error');
+      }
+    });
   }
 
   $('#redo_test').click(function() {
     sessvars.$.clearMem();
+    window.history.back();
   });
 </script>

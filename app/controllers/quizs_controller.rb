@@ -1,9 +1,10 @@
 class QuizsController < ApplicationController
     
-    #Each quiz (method) needs 4 things: 1.Contents, which contains questions with overview and theory 
-                                       #2.Answer, which contains the answers in order
-                                       #3.Question, which contains questions to be shown on the results page without overview and theory
-                                       #4.Title which tells the quiz name
+    #Each quiz (method) needs 4 things: 
+      #1.Contents, which contains questions with overview and theory 
+      #2.Answer, which contains the answers in order
+      #3.Question, which contains questions to be shown on the results page without overview and theory
+      #4.Title which tells the quiz name
     #The first 3 things above needs to be in an array
   
     def sound
@@ -51,6 +52,16 @@ class QuizsController < ApplicationController
   
     def result
         @title = "Quiz Results"     
+    end
+  
+    def show
+        @score = Score.all
+    end
+
+    def mark
+        quiz = params[:quiz]
+        mark = params[:mark]
+        @score = Score.create!(score_params)
     end
 
     def maths
@@ -131,4 +142,9 @@ class QuizsController < ApplicationController
     def jquery
       
     end
+  
+    private 
+        def score_params
+            params.permit(:quiz, :mark)
+        end
 end

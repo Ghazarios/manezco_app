@@ -96,7 +96,8 @@
         <% answer = [] %>
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
-            <input type="text" size="<%=index[array_count].size%>" maxlength="<%=index[array_count].size-1%>" id='fib<%= fib+=1 %>'/>
+            <% maxlength = index[array_count].size-1%>
+            <input type="text" class="input-<%=maxlength%>" size="<%=index[array_count].size%>" maxlength="<%= maxlength %>" id='fib<%= fib+=1 %>'/>
             <% if (index.length > 4) %>
               <% answer.push("fib#{fib}") %>
             <% else %>

@@ -1,0 +1,5 @@
+<h1>Your Quiz Scores</h1>
+<% @score.each do |mark| %>
+    <h3><%= mark.quiz %></h3>
+    <h4><%= mark.mark %></h4>
+<% end %>
