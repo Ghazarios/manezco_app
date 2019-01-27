@@ -206,6 +206,7 @@
 <% end %>
 
 <script>
+
   $(document).ready(function() {
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
@@ -221,4 +222,5 @@
     });
     $("#sortable").sortable().disableSelection();
   });
+
 </script>

@@ -21,7 +21,8 @@
     $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><p id='correct_answer_" + index + "'></p></div>");
   });
 
-  $("div.card").append("<a id='redo_test' href='/science/physics/sound'>Redo Test</a>")
+  $("div.card").append("<a id='redo_test' href=''>Redo Test</a>")
+
   if (Array.prototype.equals) {
     console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
   }

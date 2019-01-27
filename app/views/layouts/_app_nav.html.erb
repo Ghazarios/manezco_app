@@ -35,13 +35,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <li>
-              <a class="dropdown-item" href="#">Site management</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">User management</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="http://manezco_app-manezcoptyltd150229.codeanyapp.com/user/profile">Settings</a>
             </li>
           </ul>
         </li>
@@ -107,10 +101,10 @@
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                   <div>
-                    <a href="003_app_pages@fa-laptop%2F006_user_profile" class="btn ">Edit Profile</a>
+                    <a href="https://manezco_app-manezcoptyltd150229.codeanyapp.com/user/profile" class="btn ">Edit Profile</a>
                   </div>
                   <div>
-                    <a href="#" class="btn ">Log Out</a>
+                    <%= link_to('Logout', destroy_user_session_path, class: "btn", method: :delete) %>
                   </div>
                 </div>
               </div>
