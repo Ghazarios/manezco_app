@@ -7,6 +7,20 @@ class QuizsController < ApplicationController
       #4.Title which tells the quiz name
 
     #The first 3 things above needs to be in an array
+
+  
+  
+  #*SCIENCE*
+  
+    def science
+        @subjects = ["Physics", "Earth Science", "Chemistry"]     
+        @title = "Science"
+    end
+  
+    def physics
+        @subjects = ["Sound", "Scientific Model", "Light", "Electricity"]
+        @title = "Physics"
+    end
   
     def sound
         @title = "Sound"
@@ -51,54 +65,6 @@ class QuizsController < ApplicationController
         ]
     end
   
-    def result
-        @title = "Quiz Results"     
-    end
-  
-    def show
-        @score = Score.all
-    end
-
-    def mark
-        quiz = params[:quiz]
-        mark = params[:mark]
-        @score = Score.create!(score_params)
-    end
-
-    def maths
-        questions = [
-            ["OV", "Shapes and sizes are all around you! In this tutorial we will be going over your understanding of geometry with quizzes designed to help you grasp important concepts"],
-            ["TH", "Area of a Rectangle = Base × Height.
-            Area of a Square = Base × Height.
-            Area of a Square = s2
-            Area of Triangle = ½(Base × Height)
-            Area of Parallelogram = Base × Height.
-            Area of Trapezoid = ½(Base1 + Base2) × Height.
-            Area of Circle = π(radius)2 = πr2"],
-            ["MC", "1. What is the formula for the area of a circle?","2PIr^2","π(radius)2","πr2","5bnD"], 
-            ["SC", "2. What is the formula for the area of a square?","r^2","2PIr^2","2PIr"], 
-            ["SC", "3. What is the formula for the area of a triangle?","H*b/2","2PIr^2","2PId"], 
-            ["SC", "4. What is the formula for the area of a hex?","2PIr^2/6","2PIr","r^2"]
-        ]
-        @title = "Trigonometry"
-        @question = questions
-    end
-
-    def quiz1
-        questions = [["What is the formula for the area of a circle?","2PIr^2","2PIr","2PId"], ["What is the formula for the area of a square?","2PIr^2","2PIr","r^2"], ["What is the formula for the area of a triangle?","2PIr^2","H*b/2","2PId"], ["What is the formula for the area of a hex?","2PIr^2/6","2PIr","r^2"]]
-        @question = questions
-    end
-
-    def science
-        @subjects = ["Physics", "Earth Science", "Chemistry"]     
-        @title = "Science"
-    end
-
-    def physics
-        @subjects = ["Sound", "Scientific Model", "Light", "Electricity"]
-        @title = "Physics"
-    end
-
     def scientific_model
         @title = "Scientific Model"
         @contents = [
@@ -131,13 +97,70 @@ class QuizsController < ApplicationController
             ["DD", "Order the following from fastest to slowest Sound speed:"]
         ]
     end
- 
+  
+
+  
+  
+  
+#*MATHS*
+  
+  
+    def maths
+        questions = [
+            ["OV", "Shapes and sizes are all around you! In this tutorial we will be going over your understanding of geometry with quizzes designed to help you grasp important concepts"],
+            ["TH", "Area of a Rectangle = Base × Height.
+            Area of a Square = Base × Height.
+            Area of a Square = s2
+            Area of Triangle = ½(Base × Height)
+            Area of Parallelogram = Base × Height.
+            Area of Trapezoid = ½(Base1 + Base2) × Height.
+            Area of Circle = π(radius)2 = πr2"],
+            ["MC", "1. What is the formula for the area of a circle?","2PIr^2","π(radius)2","πr2","5bnD"], 
+            ["SC", "2. What is the formula for the area of a square?","r^2","2PIr^2","2PIr"], 
+            ["SC", "3. What is the formula for the area of a triangle?","H*b/2","2PIr^2","2PId"], 
+            ["SC", "4. What is the formula for the area of a hex?","2PIr^2/6","2PIr","r^2"]
+        ]
+        @title = "Trigonometry"
+        @question = questions
+    end
+
+    def quiz1
+        questions = [["What is the formula for the area of a circle?","2PIr^2","2PIr","2PId"], ["What is the formula for the area of a square?","2PIr^2","2PIr","r^2"], ["What is the formula for the area of a triangle?","2PIr^2","H*b/2","2PId"], ["What is the formula for the area of a hex?","2PIr^2/6","2PIr","r^2"]]
+        @question = questions
+    end
+
+
+#*ENGLISH*
+
+
     def english
 
     end
+  
+  
+  
+  
+ #*HASS*
 
     def hass
 
+    end
+  
+  
+  
+
+    def result
+        @title = "Quiz Results"     
+    end
+  
+    def show
+        @score = Score.all
+    end
+
+    def mark
+        quiz = params[:quiz]
+        mark = params[:mark]
+        @score = Score.create!(score_params)
     end
 
     def jquery
