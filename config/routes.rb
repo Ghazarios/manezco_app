@@ -10,12 +10,17 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
   get 'maths' => 'quizs#maths'
+  get 'maths/year7' => 'quizs#year7'
+  get 'year7/geometry' => 'quizs#geometry'
+  get 'year7/numberandalgebra' => 'quizs#numberandalgebra'
+	get 'numberandalgebra/indexpowers' => 'quizs#indexpowers'
   get 'science' => 'quizs#science'
   get 'science/physics' => 'quizs#physics'
   get 'science/physics/sound' => 'quizs#sound'
   get 'english' => 'quizs#english'
+  get 'english/year7e' => 'quizs#year7e'
   get 'hass' => 'quizs#hass'
-  get 'quiz1' => 'quizs#quiz1'
+
   get 'jqueryui' => 'quizs#jquery'
   get 'result' => 'quizs#result'
   post 'mark' => 'quizs#mark'
