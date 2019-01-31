@@ -144,21 +144,34 @@ class QuizsController < ApplicationController
               ], 
 							
               ["FIB", "What is 4 to the power of 2?", "@16"],
-              ["FIB", "What is 2 to the power of 4?", "@16"], 
+              ["FIB", "What is 2 to the power of 4?", "@16"],
+							["SC", "36 written as a power would be:", "a. 3^3", "b. 4^3", "c. 6^2"],
+							["SC", "49 written as a power would be:", "a. 3^4", "b. 6^3", "c. 7^2"],
               ["FIB", "What is 3 to the power of 3?", "@27"], 
               ["FIB", "What is 5 to the power of 2?", "@25"],
               ["FIB", "What is 2 to the power of 5?", "@32"],
-							["TF", "9 written as a power would be 3^2"]
+							["TF", "9 written as a power would be 3^2"],
+							["SC", "121 written as a power would be:", "a. 10^9", "b. 11^2", "c. 11^11"],
+							["SC", "8 written as a power would be:", "a. 8^2", "b. 4^2", "c. 2^3"],
+							["SC", "125 written as a power would be:", "a. 5^5", "b. 5^3", "c. 25^2"],
+							["MC", "64 can be written as a power in a few different ways. Select all that apply:", "3^4", "4^3", "8^8", "2^6", "8^2"],
+							["FIB", "3^4 is:", "@81"]
 							]
-          @answer = ["16", "16", "27", "25", "32", "True"]        
+          @answer = ["16", "16", "c. 6^2", "c. 7^2", "27", "25", "32", "True", "b. 11^2", "c. 2^3", "b. 5^3", ["4^3", "2^6", "8^2"], "81"]        
           @question = [
-              ["TF", "Sound cannot travel through a vacuum. True or False?"],
-              ["DL", "Sound is an effect caused by _______."], 
-              ["FIB", "Sound requires a M_____ to transport it, like Air and Water."], 
-              ["MC", "Sound is (select all that apply):"],
-              ["SC", "What are the three main properties of Waves?"],
-              ["SCP", "Click the wave that has a low Frequency: "],
-              
+              ["FIB", "What is 4 to the power of 2?"],
+							["FIB", "What is 2 to the power of 4?"],
+							["SC", "36 written as a power would be:"],
+							["SC", "49 written as a power would be:"],
+							["FIB", "What is 3 to the power of 3?"],
+							["FIB", "What is 5 to the power of 2?"],
+							["FIB", "What is 2 to the power of 5?"],
+							["TF", "9 written as a power would be 3^2"],
+							["SC", "121 written as a power would be:"],
+							["SC", "8 written as a power would be:"],
+							["SC", "125 written as a power would be:"],	
+							["MC", "64 can be written as a power in a few different ways. Select all that apply:"],
+							["FIB", "3^4 is:"]              
          		  ]
 				end
 
