@@ -3,6 +3,9 @@ user_answer = []
 
 $(document).ready ->
 
+@home = () ->
+      window.location.replace("/welcome/dashboard")
+
 @mark = (question_list) ->
   if check(question_list)
       sessvars.myAnswer = {userAnswer: answer}

@@ -22,6 +22,7 @@
   });
 
   $("div.card").append("<a id='redo_test' href=''>Redo Test</a>")
+  $("div.card").append("<a id='scores' href=''>See Scores</a>")
 
   if (Array.prototype.equals) {
     console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
@@ -43,7 +44,7 @@
         j = 0;
         if (this[i].length !== array[i].length) {
           wrong_answer.push(i + 1);
-          $('#user_answer_' + (i + 1)).text(array[i]);
+          $('#user_answer_' + (i + 1)).html(array[i]);
           $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
           correct = false;
         } else {
@@ -53,22 +54,22 @@
                 wrong_answer.push(i + 1);
               }
               correct = false;
-              $('#user_answer_' + (i + 1)).text(array[i]);
+              $('#user_answer_' + (i + 1)).html(array[i]);
               $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
             } else {
-              $('#user_answer_' + (i + 1)).text(array[i]);
+              $('#user_answer_' + (i + 1)).html(array[i]);
               $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
             }
             j++;
           }
         }
       } else if (this[i] !== array[i]) {
-        $('#user_answer_' + (i + 1)).text(array[i]);
+        $('#user_answer_' + (i + 1)).html(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
         wrong_answer.push(i + 1);
         correct = false;
       } else {
-        $('#user_answer_' + (i + 1)).text(array[i]);
+        $('#user_answer_' + (i + 1)).html(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
       }
       i++;
@@ -86,7 +87,7 @@
     i = 0;
     while (i < sessvars.Answer.correctAnswer.length) {
       if ($("#user_answer_" + (i + 1)).text().indexOf('Unlucky!') > -1) {
-        $('#correct_answer_' + (i + 1)).text("Correct Answer: " + sessvars.Answer.correctAnswer[i]);
+        $('#correct_answer_' + (i + 1)).html("Correct Answer: " + sessvars.Answer.correctAnswer[i]);
       }
       i++;
     }
@@ -112,5 +113,10 @@
   $('#redo_test').click(function() {
     sessvars.$.clearMem();
     window.history.back();
+  });
+  
+  $('#scores').click(function() {
+    sessvars.$.clearMem();
+    window.location.href = "/welcome/score";
   });
 </script>
