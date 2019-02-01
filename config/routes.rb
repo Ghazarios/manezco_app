@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'year7/geometry' => 'quizs#geometry'
   get 'year7/numberandalgebra' => 'quizs#numberandalgebra'
 	get 'numberandalgebra/indexpowers' => 'quizs#indexpowers'
+	get 'numberandalgebra/primenumbers1' => 'quizs#primenumbers1'
   get 'science' => 'quizs#science'
   get 'science/physics' => 'quizs#physics'
   get 'science/physics/sound' => 'quizs#sound'

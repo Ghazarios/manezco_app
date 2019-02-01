@@ -143,37 +143,78 @@ class QuizsController < ApplicationController
                 ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.1.2.png?alt=media&token=1a8095f7-d3de-4799-8914-4a437788f770"] 
               ], 
 							
-              ["FIB", "What is 4 to the power of 2?", "@16"],
-              ["FIB", "What is 2 to the power of 4?", "@16"],
-							["SC", "36 written as a power would be:", "a. 3^3", "b. 4^3", "c. 6^2"],
-							["SC", "49 written as a power would be:", "a. 3^4", "b. 6^3", "c. 7^2"],
+              ["FIB", "What is 4[sup]2[/sup]?", "@16"],
+              ["FIB", "What is 2[sup]4[/sup]?", "@16"],
+							["SC", "36 written as a power would be:", "a. 3[sup]3[/sup]", "b. 4[sup]3[/sup]", "c. 6[sup]2[/sup]"],
+							["SC", "49 written as a power would be:", "a. 3[sup]4[/sup]", "b. 6[sup]3[/sup]", "c. 7[sup]2[/sup]"],
               ["FIB", "What is 3 to the power of 3?", "@27"], 
-              ["FIB", "What is 5 to the power of 2?", "@25"],
-              ["FIB", "What is 2 to the power of 5?", "@32"],
-							["TF", "9 written as a power would be 3^2"],
-							["SC", "121 written as a power would be:", "a. 10^9", "b. 11^2", "c. 11^11"],
-							["SC", "8 written as a power would be:", "a. 8^2", "b. 4^2", "c. 2^3"],
-							["SC", "125 written as a power would be:", "a. 5^5", "b. 5^3", "c. 25^2"],
-							["MC", "64 can be written as a power in a few different ways. Select all that apply:", "3^4", "4^3", "8^8", "2^6", "8^2"],
-							["FIB", "3^4 is:", "@81"]
+              ["FIB", "What is 5[sup]2[/sup]?", "@25"],
+              ["FIB", "What is 2[sup]5[/sup]?", "@32"],
+							["TF", "9 written as a power would be 3[sup]2[/sup]"],
+							["SC", "121 written as a power would be:", "a. 10[sup]9[/sup]", "b. 11[sup]2[/sup]", "c. 11[sup]11[/sup]"],
+							["SC", "8 written as a power would be:", "a. 8[sup]2[/sup]", "b. 4[sup]2[/sup]", "c. 2[sup]3[/sup]"],
+							["SC", "125 written as a power would be:", "a. 5[sup]5[/sup]", "b. 5[sup]3[/sup]", "c. 25[sup]2[/sup]"],
+							["MC", "64 can be written as a power in a few different ways. Select all that apply:", "3[sup]4[/sup]", "4[sup]3[/sup]", "8[sup]8[/sup]", "2[sup]6[/sup]", "8[sup]2[/sup]"],
+							["FIB", "3[sup]4[/sup] is:", "@81"]
 							]
-          @answer = ["16", "16", "c. 6^2", "c. 7^2", "27", "25", "32", "True", "b. 11^2", "c. 2^3", "b. 5^3", ["4^3", "2^6", "8^2"], "81"]        
+          @answer = ["16", "16", "c. 6<sup>2</sup>", "c. 7<sup>2</sup>", "27", "25", "32", "True", "b. 11<sup>2</sup>", "c. 2<sup>3</sup>", "b. 5<sup>3</sup>", ["4<sup>3</sup>", "2<sup>6</sup>", "8<sup>2</sup>"], "81"]        
           @question = [
-              ["FIB", "What is 4 to the power of 2?"],
-							["FIB", "What is 2 to the power of 4?"],
+              ["FIB", "What is 4[sup]2[/sup]?"],
+							["FIB", "What is 2[sup]4[/sup]?"],
 							["SC", "36 written as a power would be:"],
 							["SC", "49 written as a power would be:"],
 							["FIB", "What is 3 to the power of 3?"],
-							["FIB", "What is 5 to the power of 2?"],
-							["FIB", "What is 2 to the power of 5?"],
-							["TF", "9 written as a power would be 3^2"],
+							["FIB", "What is 5[sup]2[/sup]?"],
+							["FIB", "What is 2[sup]5[/sup]?"],
+							["TF", "9 written as a power would be 3[sup]2[/sup]"],
 							["SC", "121 written as a power would be:"],
 							["SC", "8 written as a power would be:"],
 							["SC", "125 written as a power would be:"],	
 							["MC", "64 can be written as a power in a few different ways. Select all that apply:"],
-							["FIB", "3^4 is:"]              
+							["FIB", "3[sup]4[/sup] is:"]              
          		  ]
 				end
+	
+					def primenumbers1
+					@title = "Prime Numbers 1"
+          @contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.2.1.png?alt=media&token=902f045d-cd5c-4674-a5b1-663d5cf1470f"],
+              ], 
+							["TH",
+								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.2.2.png?alt=media&token=6ad4b7b5-f942-431e-851d-ebaeb485fd45"]
+							],
+							
+              ["TF", "17 is a Prime Number"],
+              ["TF", "23 isn't a Prime Number"],
+							["SC", "27 isn't a Prime Number because it can be divided by:", "a. 3 and 9", "b. 3 and 6", "c. 9 and 2"],
+							["DL", "29 is", "not a Prime Number", "is a Prime Number"],
+              ["TF", "31 is a Prime Number"], 
+              ["SC", "39 is:", "a. Not a Prime Number as it can be divided by 30 and 9", "b. Is a Prime Number", "c. Is not a Prime Number because it can be
+							divided by 3 and 13"],
+              ["SC", "47 is:", "a. Not a Prime Number as it can be divided by 7 and 3", "b. Is a Prime Number", "c. Is not a Prime Number because it can be
+							divided by 12 and 6"],
+							["SC", "51 is:", "a. Not a Prime Number as it can be divided by 3 and 17", "b. Is a Prime Number", "c. Is not a Prime Number because it can be
+							divided by 12 and 6"],
+							["TF", "61 is a Prime Number"],
+							["MC", "63 isn't a Prime Number as it can be divided by:", "3", "5", "7", "9", "11", "17", "21"]
+							]
+          @answer = ["True", "False", "a. 3 and 9", "is a Prime Number", "True", "c. Is not a Prime Number because it can be
+							divided by 3 and 13", "b. Is a Prime Number", "a. Not a Prime Number as it can be divided by 3 and 17", "True", ["3", "7", "9", "21"] ]        
+          @question = [
+              ["TF", "17 is a Prime Number"],
+              ["TF", "23 isn't a Prime Number"],
+							["SC", "27 isn't a Prime Number because it can be divided by:"],
+							["DL", "29 is"],
+              ["TF", "31 is a Prime Number"], 
+              ["SC", "39 is:"],
+              ["SC", "47 is:"],
+							["SC", "51 is:"],
+							["TF", "61 is a Prime Number"],
+							["MC", "63 isn't a Prime Number as it can be divided by:"]
+         		  ]
+				end
+	
 
 
 #*ENGLISH*
