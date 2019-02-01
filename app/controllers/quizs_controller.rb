@@ -5,12 +5,12 @@ class QuizsController < ApplicationController
       #2.Answer, which contains the answers in order
       #3.Question, which contains questions to be shown on the results page without overview and theory
       #4.Title which tells the quiz name
-
     #The first 3 things above needs to be in an array
   
     def sound
         @title = "Sound"
         @contents = [
+            [
             ["OV", "Sounds are all around us. Having a good understanding of how they are created and how they travel from a source to your ears is important to help us understand the world. In this chapter, we will look at how sounds are created, how they travel, and other things that would help us understand them better."],
             ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves. Below is a diagram outlining the properties of waves:", 
               ["img", "https://i.ibb.co/Yj6NPxN/Theory1.png"], 
@@ -25,22 +25,22 @@ class QuizsController < ApplicationController
                 "Sound and Light both travel as waves. The soundwaves lose energy over time, eventually stopping"
               ] 
             ],
-            ["TF", "Sound cannot travel through a vacuum."],
-            ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
+            ["TF", "Sound cannot travel through a 2[sup]5[/sup]."],
+            ["DL", "Sound is an effect caused by", "2[sup]5[/sup]", "Vibrations", "Light"], 
             ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
             ["MC", "Sound is: (Select all that apply)", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
-            ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
+            ["SC", "What are the three main properties of Waves?", "a. 2[sup]5[/sup]", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
             ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
             ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
             ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "117,9,175,237", "365,15,413,240"], 
             ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
             ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"]
         ]
-        @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]        
+        @answer = ["True", "2<sup>5</sup>", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]        
         @question = [
-            ["TF", "Sound cannot travel through a vacuum. True or False?"],
+            ["TF", "Sound cannot travel through a 2<sup>5</sup>. True or False?"],
             ["DL", "Sound is an effect caused by _______."], 
-            ["FIB", "Sound requires a M_____ to transport it, like Air and Water."], 
+            ["FIB", "Sound requires a m_____ to transport it, like Air and Water."], 
             ["MC", "Sound is (select all that apply):"],
             ["SC", "What are the three main properties of Waves?"],
             ["SCP", "Click the wave that has a low Frequency: "],
