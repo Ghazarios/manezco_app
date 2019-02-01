@@ -112,5 +112,9 @@
   $('#redo_test').click(function() {
     sessvars.$.clearMem();
     window.history.back();
+		
+		var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
+    $("div.container").html(replace);
+		
   });
 </script>
