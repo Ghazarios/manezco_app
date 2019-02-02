@@ -59,15 +59,12 @@ class QuizsController < ApplicationController
         @score = Score.where(user_id: current_user.id)
     end
 
-    def mark #Save mark to database with current_user's ID
+    def mark 
         quiz = params[:quiz]
         mark = params[:mark]
-        user_id = current_user.id
-        if Score.where(user_id: current_user.id, quiz: quiz).first
-            flash[:danger] = "You already did this quiz! Cannot save"
-        else
-            @score = Score.create!(score_params)
-        end
+        @score = Score.new(score_params)
+        @score.user = current_user
+        @score.save
     end
 
     def maths
