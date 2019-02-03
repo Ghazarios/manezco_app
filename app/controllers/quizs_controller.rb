@@ -157,21 +157,21 @@ class QuizsController < ApplicationController
 							["MC", "64 can be written as a power in a few different ways. Select all that apply:", "3[sup]4[/sup]", "4[sup]3[/sup]", "8[sup]8[/sup]", "2[sup]6[/sup]", "8[sup]2[/sup]"],
 							["FIB", "3[sup]4[/sup] is:", "@81"]
 							]
-          @answer = ["16", "16", "c. 6[sup]2[/sup]", "c. 7[sup]2[/sup]", "27", "25", "32", "True", "b. 11[sup]2[/sup]", "c. 2[sup]3[/sup]", "b. 5[sup]3[/sup]", ["4[sup]3[/sup]", "2[sup]6[/sup]", "8[sup]2[/sup]"], "81"]        
+          @answer = ["16", "16", "c. 6<sup>2</sup>", "c. 7<sup>2</sup>", "27", "25", "32", "True", "b. 11<sup>2</sup>", "c. 2<sup>3</sup>", "b. 5<sup>3</sup>", ["4<sup>3</sup>", "2<sup>6</sup>", "8<sup>2</sup>"], "81"]        
           @question = [
-              ["FIB", "What is 4[sup]2[/sup]?"],
-							["FIB", "What is 2[sup]4[/sup]?"],
+              ["FIB", "What is 4<sup>2</sup>?"],
+							["FIB", "What is 2<sup>4</sup>?"],
 							["SC", "36 written as a power would be:"],
 							["SC", "49 written as a power would be:"],
 							["FIB", "What is 3 to the power of 3?"],
-							["FIB", "What is 5[sup]2[/sup]?"],
-							["FIB", "What is 2[sup]5[/sup]?"],
-							["TF", "9 written as a power would be 3[sup]2[/sup]"],
+							["FIB", "What is 5<sup>2</sup>?"],
+							["FIB", "What is 2<sup>5</sup>?"],
+							["TF", "9 written as a power would be 3<sup>2</sup>"],
 							["SC", "121 written as a power would be:"],
 							["SC", "8 written as a power would be:"],
 							["SC", "125 written as a power would be:"],	
 							["MC", "64 can be written as a power in a few different ways. Select all that apply:"],
-							["FIB", "3[sup]4[/sup] is:"]              
+							["FIB", "3<sup>4</sup> is:"]              
          		  ]
 				end
 	
