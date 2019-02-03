@@ -14,20 +14,15 @@
   var wrong_answer = [];
   
   $( "#header" ).prepend(sessvars.Header.header);
-
   $("div.card").prepend("<h3>You got: <span id='mark'></span> out of " + sessvars.Questions.questionList.length + "</h3>");
-
   sessvars.Questions.questionList.forEach(function (question, index){
     $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><p id='correct_answer_" + index + "'></p></div>");
   });
-
   $("div.card").append("<a id='redo_test' href=''>Redo Test</a>")
   $("div.card").append("<a id='scores' href=''>See Scores</a>")
-
   if (Array.prototype.equals) {
     console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
   }
-
   Array.prototype.equals = function(array) {
     var correct, i, j, l;
     correct = true;
@@ -76,7 +71,6 @@
     }
     return correct;
   };
-
   Object.defineProperty(Array.prototype, 'equals', {
     enumerable: false
   });
@@ -96,7 +90,6 @@
     
     var name = sessvars.Header.header;
     var result = mark;
-
     $.ajax({
       url: "/mark",
       type: "POST",
@@ -109,7 +102,6 @@
       }
     });
   }
-
   $('#redo_test').click(function() {
     sessvars.$.clearMem();
     window.history.back();
