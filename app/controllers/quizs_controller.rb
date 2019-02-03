@@ -5,13 +5,32 @@ class QuizsController < ApplicationController
       #2.Answer, which contains the answers in order
       #3.Question, which contains questions to be shown on the results page without overview and theory
       #4.Title which tells the quiz name
-
     #The first 3 things above needs to be in an array
 
+
+  
+
+    def show #Show only current_user's scores
+        @score = Score.where(user: current_user)
+    end
   
   
-  #*SCIENCE*
+    def mark 
+      quiz = params[:quiz]
+      mark = params[:mark]
+      @score = Score.new(score_params)
+      @score.user = current_user
+      @score.save
+    end
+    
   
+     def result
+       @title = "Quiz Results"     
+     end
+  
+  
+      #*SCIENCE*
+
   def science
       @subjects = ["Physics", "Earth Science", "Chemistry"]     
       @title = "Science"
@@ -77,6 +96,7 @@ class QuizsController < ApplicationController
           ]
       end
 
+
       def scientific_model
           @title = "Scientific Model"
           @contents = [
@@ -115,6 +135,9 @@ class QuizsController < ApplicationController
   
   
 #*MATHS*
+  
+  
+  
   def maths
     @subjects = ["Year 7", "Year 8", "Year 9"]
     @title = "Maths"
@@ -244,23 +267,8 @@ class QuizsController < ApplicationController
   
   
 
-    def result
-        @title = "Quiz Results"     
-    end
+
   
-    def show
-        @score = Score.all
-    end
-
-    def mark
-        quiz = params[:quiz]
-        mark = params[:mark]
-        @score = Score.create!(score_params)
-    end
-
-    def jquery
-      
-    end
   
     private 
         def score_params

@@ -165,13 +165,6 @@
           <% end %>
         </map>
         <% question_list.push("image-map#{j}") %>
-      <% when "PIC"%>
-        <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map2" class="map">
-        <map name="image-map2">
-            <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
-            <area target="_blank" alt="area-2" title="area-2" coords="365,15,413,240" shape="rect">
-        </map>
       <% when "DD"%>
         <p> <%=index[1]%> </p>
         <ul id=<%="sortable"%>>
@@ -193,6 +186,7 @@
         </li>
         </div>
       <%end %>
+      <button class="btn btn-secondary" onclick="home()">Submit</button>
       <button class="btn btn-primary" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>
@@ -206,7 +200,6 @@
 <% end %>
 
 <script>
-	
   $(document).ready(function() {
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
@@ -221,8 +214,8 @@
       $(this).siblings().removeAttr('selected');
     });
     $("#sortable").sortable().disableSelection();
-		var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
+    
+    var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
     $("div.container").html(replace);
   });
-
 </script>
