@@ -25,7 +25,7 @@ class QuizsController < ApplicationController
                 "Sound and Light both travel as waves. The soundwaves lose energy over time, eventually stopping"
               ] 
             ],
-            ["TF", "Sound cannot travel through a 2[sup]5[/sup]."],
+            ["TF", "Sound cannot travel through space."],
             ["DL", "Sound is an effect caused by", "2[sup]5[/sup]", "Vibrations", "Light"], 
             ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
             ["MC", "Sound is: (Select all that apply)", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
@@ -56,7 +56,7 @@ class QuizsController < ApplicationController
     end
   
     def show #Show only current_user's scores
-        @score = Score.where(user_id: current_user.id)
+        @score = Score.where(user: current_user)
     end
 
     def mark 
