@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_073641) do
+ActiveRecord::Schema.define(version: 2019_02_04_103213) do
 
   create_table "questions", force: :cascade do |t|
     t.string "type"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_01_27_073641) do
     t.integer "mark", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
