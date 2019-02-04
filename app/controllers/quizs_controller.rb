@@ -154,7 +154,7 @@ class QuizsController < ApplicationController
       end
       
       def numberandalgebra
-        @subjects = ["Index Powers", "Prime numbers 1"]
+        @subjects = ["Index Powers", "Prime numbers 1", "Prime Factors 1"]
         @title = "Number & Algebra"
 			end
 				
@@ -238,6 +238,10 @@ class QuizsController < ApplicationController
          		  ]
 				end
 	
+	
+				def primefactors1
+					
+				end
 
 
 #*ENGLISH*
