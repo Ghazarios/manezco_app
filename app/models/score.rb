@@ -1,4 +1,4 @@
 class Score < ApplicationRecord
-  validates :quiz, uniqueness: true
+  validates :user_id, presence: true
   belongs_to :user
 end
