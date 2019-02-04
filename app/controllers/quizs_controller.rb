@@ -238,11 +238,6 @@ class QuizsController < ApplicationController
          		  ]
 				end
 	
-	
-				def primefactors1
-					
-				end
-
 
 #*ENGLISH*
 
