@@ -186,7 +186,6 @@
         </li>
         </div>
       <%end %>
-      <button class="btn btn-secondary" onclick="home()">Submit</button>
       <button class="btn btn-primary" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>
@@ -201,6 +200,7 @@
 
 <script>
   $(document).ready(function() {
+    
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
       $('#answers').remove();
@@ -209,13 +209,19 @@
       sessvars.Header = {header: $('#header').data('data')};
       $('#header').remove();
     });
+
+    var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
+    $("div.container").html(replace);
+
+    $("ul.nav:last-child").click(function() {
+      $("button.btn-primary").removeAttr('disabled');
+    })
+
     $('area').click(function() {
       $(this).attr('selected', 'selected');
       $(this).siblings().removeAttr('selected');
     });
-    $("#sortable").sortable().disableSelection();
     
-    var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
-    $("div.container").html(replace);
+    $("#sortable").sortable().disableSelection();
   });
 </script>
