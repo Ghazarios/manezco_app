@@ -315,7 +315,8 @@ class QuizsController < ApplicationController
  #*HASS*
 
     def hass
-
+			@subjects = ["Year 7h", "Year 8h", "Year 9h"]
+    	@title = "Humanities and Social Sciences"
     end
   
   
