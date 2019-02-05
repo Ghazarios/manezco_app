@@ -239,6 +239,61 @@ class QuizsController < ApplicationController
 				end
 	
 
+				def primefactors1
+										@title = "Prime Factors 1"
+          @contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.3.1.png?alt=media&token=3f477da7-1716-447b-825a-de9c7ef2bbfe"],
+              ], 
+							["TH",
+								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.3.2.png?alt=media&token=7853e92a-25b6-4d45-9ba9-cb8173272555"]
+							],
+						
+							["OV", "For the following questions; represent the whole numbers as products of powers of prime numbers:"],
+							
+              ["TF", "8 as a prime factor would be 4[sup]2[/sup]"],
+              ["SC", "12 as a prime factor would be:", "2[sup]2[/sup] x 3", "3[sup]2[/sup] x 3", "4[sup]2[/sup] x 2"],
+							["SC", "16 as a prime factor is:", "2[sup]2[/sup] x 3", "3[sup]3[/sup]", "4[sup]2[/sup]"],
+							["DL", "28 as a prime factor would be", "2^2 x 2", "7^4", "2^2 x 7"],
+              ["TF", "The prime factor of 38 is 2x19"], 
+              ["FIB", "42 as a prime factor is:", "@2", "x", "@3", "x 7"],
+              ["FIB", "61 as a prime factor is:", "@61"],
+							["FIB", "68 as a prime factor is", "@2", "[sup]2[/sup]", "x", "@17"],
+							["TF", "100 as a prime factor is 5[sup]10[/sup] x 2"],
+							["DL", "101 as a prime factor is", "50x2", "101", "100+1", "8x4"],
+							["FIB", "156 as a prime factor is 2[sup]2[/sup] x", "@3", "x", "@13"],
+							["SC", "The prime factors of 750 would be:", "2 x 5 x 5[sup]3[/sup]", "4 x 3 x 5[sup]2[/sup]", "2 x 3 x 5[sup]3[/sup]"],
+							["SC", "The prime factors of 1200 would be:", "2[sup]4[/sup] x 5[sup]3[/sup]", "4 x 3 x 5[sup]2[/sup]",
+							"2[sup]3[/sup] x 5[sup]3[/sup]"],
+							["FIB", "The prime factor of 343 is", "@7", "[sup]3[/sup]"],
+							["MC", "Click the prime factors that multiply with each other to form 6000", "2[sup]4[/sup]", "3[sup]4[/sup]",
+							"3", "5[sup]3[/sup]", "6[sup]3[/sup]"],
+							["SC", "*Bonus question* What is the Sieve of Erastosthenes?", "a.	It is a formula to find Prime Numbers", "b.	It is an ancient tool to draw numbers", 
+							"c.	It is an  algorithm to find Prime Numbers using division rule-outs up to a specific integer",
+							"d.	It is an  ancient  algorithm to find Prime Numbers that uses abacus"]
+							]
+          @answer = ["False", "2<sup>2</sup> x 3", "4<sup>2</sup>", "2^2 x 7", "True", ["2", "3"],"61", ["2", "17"],
+										"False", "101",["3", "13"], "2 x 3 x 5<sup>3</sup>", "2<sup>3</sup> x 5<sup>3</sup>", "7", ["2<sup>4</sup>", "3", "5<sup>3</sup>"]]        
+          @question = [
+              ["TF", "8 as a prime factor would be 4<sup>2</sup>"],
+              ["SC", "12 as a prime factor would be:"],
+							["SC", "16 as a prime factor is:"],
+							["DL", "28 as a prime factor would be"],
+              ["TF", "The prime factor of 38 is 2x19"], 
+              ["FIB", "42 as a prime factor is:"],
+              ["FIB", "61 as a prime factor is:"],
+							["FIB", "68 as a prime factor is"],
+							["TF", "100 as a prime factor is 5<sup>10</sup> x 2"],
+							["DL", "101 as a prime factor is"],
+							["FIB", "156 as a prime factor is 2<sup>2</sup> x"],
+							["SC", "The prime factors of 750 would be:"],
+							["SC", "The prime factors of 1200 would be:"],
+							["FIB", "The prime factor of 343 is"],
+							["MC", "Click the prime factors that multiply with each other to form 6000"],
+							["SC", "What is the Sieve of Erastosthenes?"]
+							]
+         							
+				end
 #*ENGLISH*
 
 
