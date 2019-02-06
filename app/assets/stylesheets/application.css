@@ -152,3 +152,7 @@ input:focus {
 #fill_in_blanks{
   font-size: 1.7ch;
 }
+
+#redo_test{
+  margin-right: 10px;
+}
