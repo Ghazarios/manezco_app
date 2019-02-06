@@ -11,7 +11,6 @@ $(document).ready ->
       sessvars.myAnswer = {userAnswer: answer}
       window.location.replace("/result")
   else
-      alert ("You haven't answered all questions!")
       answer = []
       user_answer = []
 
@@ -47,14 +46,14 @@ $(document).ready ->
     location = key
     if index instanceof Array
       if index.length == 0
-        console.log("Empty answer at " + location)
+        alert ("You haven't answered question " + location)
         return answered_all = false
       $.each index, (num, value) ->
         if value[num] == "" or value.length == 0
-          console.log "Unanswered array at " + location
+          alert ("You haven't answered question " + location)
           return answered_all = false
-    else if typeof index == undefined or index == false or index == ""
-      console.log "Undefined or empty value at " + location
+    else if typeof index == 'undefined' or index == false or index == ""
+      alert ("You haven't answered question " + location)
       return answered_all = false
 
   return answered_all
