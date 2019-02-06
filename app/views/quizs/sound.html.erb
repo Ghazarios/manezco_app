@@ -6,6 +6,7 @@
   <div class="col-12 animate-fade-in-1000">
 
   <h1><%= @title %> Quiz</h1>
+	
 
   <!-- Question Nav -->
   <div class="card card-default inspectable">
@@ -178,6 +179,7 @@
       <% end %>
 
         <!-- Back and Next Buttons -->
+					
         <li class="nav nav-item">
           <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
           <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
@@ -186,7 +188,8 @@
         </li>
         </div>
       <%end %>
-      <button class="btn btn-primary" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
+			<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
+      <button class="btn btn-primary", style="float:right" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>
   </div>
