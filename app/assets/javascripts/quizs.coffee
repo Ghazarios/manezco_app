@@ -26,8 +26,8 @@ $(document).ready ->
       answer.push(ans5)
     else if value instanceof Array
       fib = []
-      fib.push($("#"+value[0]).val())
-      fib.push($("#"+value[1]).val())
+      $.each type, (key, value) ->
+        fib.push($("#"+type[key]).val())
       answer.push(fib)
     else if value.indexOf('image') >= 0
       selected = $('map[name=' + value + '] area[selected=selected]').attr('title')
@@ -43,7 +43,7 @@ $(document).ready ->
 
   answered_all = true
   $.each answer, (key, index) ->
-    location = key
+    location = key + 1
     if index instanceof Array
       if index.length == 0
         alert ("You haven't answered question " + location)

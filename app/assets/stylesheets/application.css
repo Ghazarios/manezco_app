@@ -78,12 +78,34 @@ a#back {
   color: white;
 }
 
+input[type=text].input-1 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 1.5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 1ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
+input[type=text].input-2 {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 3ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 2.5ch 2px no-repeat;
+  font: 2ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+
 input[type=text].input-3 {
   display: inline-block;
   margin: 2em auto;
   border: none;
   padding: 0;
-  width: 3.5ch;
+  width: 4.5ch;
   background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 4ch 2px no-repeat;
   font: 2ch droid sans mono, consolas, monospace;
   letter-spacing: 0.5ch;
@@ -94,7 +116,7 @@ input[type=text].input-4 {
   margin: 2em auto;
   border: none;
   padding: 0;
-  width: 5ch;
+  width: 6ch;
   background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 5.5ch 2px no-repeat;
   font: 2ch droid sans mono, consolas, monospace;
   letter-spacing: 0.5ch;
