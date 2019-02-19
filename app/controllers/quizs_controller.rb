@@ -240,7 +240,7 @@ class QuizsController < ApplicationController
 	
 
 				def primefactors1
-										@title = "Prime Factors 1"
+					@title = "Prime Factors 1"
           @contents = [
               ["TH", 
                 ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.3.1.png?alt=media&token=3f477da7-1716-447b-825a-de9c7ef2bbfe"],
@@ -298,14 +298,79 @@ class QuizsController < ApplicationController
 
 
   def english
-    @subjects = ["Year 7e", "Year 8e", "Year 9e"]
+    @subjects = ["Year 7 English", "Year 8 English", "Year 9 English"]
     @title = "English"
   end
     
-    def year7e
-      @subjects = ["Punctuation", "Spelling"]
+    def year7english
+      @subjects = ["Punctuation", "Grammar", "Language Devices", "Writing", "Reading"]
       @title = "Year 7"
     end
+	
+			def punctuation
+				@subjects = ["Basic Punctuation"]
+				@title = "Punctuation"
+			end
+				
+				def basicpunctuation
+					@title = "Basic Punctuation"
+          @contents = [
+              ["OV", "Capital letters for beginning sentences:
+							The start of a sentence needs a capital letter so the reader knows a new
+							sentence has begun.", "Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
+							
+              ["FIB", "the wind blew through the open window.", "@The wind blew through the open window."],
+              ["FIB", "water pushed its way across the land.", "@Water pushed its way across the land."],
+							["FIB", "sunshine warmed the old man's room.", "@Sunshine warmed the old man's room."],
+							["FIB", "my husband cooked a big Sunday lunch.", "@My husband cooked a big Sunday lunch."],
+              ["FIB", "earthquakes shake Japan regularly.", "@Earthquakes shake Japan regularly."],
+						
+              ["TH",
+								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/english%2F7%2Fpunctuation%2F7.1.1.png?alt=media&token=0d6b7d4e-18ba-4b31-a1f2-97f2ead4d7a9"]
+							],
+							["OV", "Practice 2: Correct the following sentences with proper grammar and punctuation:"],
+							
+              ["FIB", "i met tom on the weekend.", "@I met Tom on the weekend."],
+              ["FIB", "My dad drives a ford, but I like holden.", "@My dad drives a Ford, but I like Holden."],
+							["FIB", "jessica thinks yamaha make the best motorbikes.", "@Jessica thinks Yamaha make the best motorbikes."],
+							["FIB", "On the summer holiday, I visited harry in brisbane.", "@On the summer holiday, I visited Harry in Brisbane."],
+              ["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill.", "@Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill."],
+							
+							["OV", "The following sentences have capital letter errors.
+							Practice 3: Correct each of the following sentences:"],
+							["FIB", "monday is my first day at a new school in perth.", "@Monday is my first day at a new school in Perth."],
+              ["FIB", "I really like annie. I hope she comes to bill's party on friday.", "@I really like Annie. I hope she comes to Bill's party on Friday."],
+							["FIB", "where are you going for the summer holiday in december?", "@Where are you going for the summer holiday in December?"],
+							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
+              ["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'",
+							"the", "traffic", "was", "really", "bad", "on", "the", "albany", "highway", "on","thursday"]
+							
+							]
+          @answer = ["The wind blew through the open window.", "Water pushed its way across the land.", "Sunshine warmed the old man's room.", "My husband cooked a big Sunday lunch.",
+					"Earthquakes shake Japan regularly.", "I met Tom on the weekend.", "My dad drives a Ford, but I like Holden.", "Jessica thinks Yamaha make the best motorbikes.",
+					"On the summer holiday, I visited Harry in Brisbane.", "Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill.", "Monday is my first day at a new school in Perth.",
+					"I really like Annie. I hope she comes to Bill's party on Friday.", "Where are you going for the summer holiday in December?", "False", ["the", "albany", "highway", "thursday"] ]        
+          @question = [
+              ["FIB", "the wind blew through the open window."],
+              ["FIB", "water pushed its way across the land."],
+							["FIB", "sunshine warmed the old man's room."],
+							["FIB", "my husband cooked a big Sunday lunch."],
+							["FIB", "earthquakes shake Japan regularly."],
+							["FIB", "i met tom on the weekend."],
+							["FIB", "My dad drives a ford, but I like holden."],
+							["FIB", "jessica thinks yamaha make the best motorbikes."],
+							["FIB", "On the summer holiday, I visited harry in brisbane."],
+							["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill."],
+							["FIB", "monday is my first day at a new school in perth."],
+							["FIB", "I really like annie. I hope she comes to bill's party on friday."],
+							["FIB", "where are you going for the summer holiday in december?"],
+							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
+							["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'"]
+         		  ]
+
+				end
+		
+
   
       
   
@@ -315,18 +380,29 @@ class QuizsController < ApplicationController
  #*HASS*
 
     def hass
-			@subjects = ["Year 7h", "Year 8h", "Year 9h"]
+			@subjects = ["Year 7 HaSS", "Year 8 HaSS", "Year 9 HaSS"]
     	@title = "Humanities and Social Sciences"
     end
+	
+		def year7hass
+			@subjects = ["Geography", "History", "Civics", "Economics"]
+			@title = "Year 7"
+		end
+	
+		def geography
+			@subjects = ["Enviro Resources"]
+			@title = "Geography"
+		end
+	
   
   
   
 
 
-  
+end  
   
     private 
         def score_params
             params.permit(:quiz, :mark)
         end
-end
+
