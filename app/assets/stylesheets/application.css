@@ -16,6 +16,14 @@
  *= require jquery-ui/sortable
  */
 
+ul.nav-tabs a {
+  border-radius: 3px !important;
+}
+
+li.nav-item {
+  padding: 4px 3px 0px !important ; 
+}
+
 #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; clear: both;}
 #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 2em; text-align: center;}
 .center {
@@ -175,6 +183,36 @@ input:focus {
   font-size: 1.7ch;
 }
 
-#redo_test{
-  margin-right: 10px;
+button[type=submit]{
+  height: 40px !important;
+  width: 82px !important;
+  position: relative;
+  cursor: pointer;
+}
+
+button[type=submit].shake{
+  animation-name: shake;
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes shake {
+  0% {left: 0}
+  1% {left: -3px}
+  2% {left: 5px}
+  3% {left: -8px}
+  4% {left: 8px}
+  5% {left: -5px}
+  6% {left: 3px}
+  7% {left: 0}
+}
+
+.popover {
+  font-size: 15px;
+  background-color: #d9534f;
+  border: 1px solid #d43f3a;
+}
+
+.popover.bs-popover-top .arrow:after, .popover.bs-popover-auto[x-placement^="top"] .arrow:after {
+  border-top-color: #d9534f;
 }
