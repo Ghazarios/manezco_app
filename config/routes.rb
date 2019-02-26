@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'hass' => 'quizs#hass'
 	get 'hass/year7hass' => 'quizs#year7hass'
 	get 'year7hass/geography' => 'quizs#geography'
+	get 'geography/environmentalresources' => 'quizs#environmentalresources'
 
   get 'jqueryui' => 'quizs#jquery'
   get 'result' => 'quizs#result'
