@@ -6,7 +6,6 @@
   <div class="col-12 animate-fade-in-1000">
 
   <h1><%= @title %> Quiz</h1>
-	
 
   <!-- Question Nav -->
   <div class="card card-default inspectable">
@@ -80,6 +79,7 @@
         </div>
         <% question_list.push("true_false#{j}") %>
       <% when "DL"%>
+
         <p><%= index[1]%>______</p>
         <div class="form-group">
             <label for="drop_down<%=j%>">Choose from the list below</label>
@@ -155,7 +155,7 @@
         <% question_list.push("answer#{j}") %>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
+        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map"/>
         <map name="image-map<%=j%>">
           <% m = 3 %>
           <% option_num = 1 %>
@@ -166,6 +166,13 @@
           <% end %>
         </map>
         <% question_list.push("image-map#{j}") %>
+      <% when "PIC"%>
+        <p> <%=index[1]%> </p>
+        <img src="<%=index[2]%>" usemap="#image-map2" class="map"/>
+        <map name="image-map2">
+            <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
+            <area target="_blank" alt="area-2" title="area-2" coords="365,15,413,240" shape="rect">
+        </map>
       <% when "DD"%>
         <p> <%=index[1]%> </p>
         <ul id=<%="sortable"%>>
@@ -179,7 +186,6 @@
       <% end %>
 
         <!-- Back and Next Buttons -->
-					
         <li class="nav nav-item">
           <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
           <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
@@ -188,12 +194,13 @@
         </li>
         </div>
       <%end %>
-			<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
-      <button class="btn btn-primary", style="float:right" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
+      <button class="btn btn-primary" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="You haven't answered all questions" type="submit" onclick="mark(<%=question_list%>)" disabled="disabled">Submit</button>
       </div>
     </div>
   </div>
 </div>
+<%= content_tag :div, id: "question_list", data: {data: question_list} do %>
+<% end %>
 <%= content_tag :div, id: "answers", data: {data: @answer} do %>
 <% end %>
 <%= content_tag :div, id: "question", data: {data: @question} do %>
@@ -203,7 +210,6 @@
 
 <script>
   $(document).ready(function() {
-    
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
       $('#answers').remove();
@@ -212,19 +218,28 @@
       sessvars.Header = {header: $('#header').data('data')};
       $('#header').remove();
     });
-
     var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
     $("div.container").html(replace);
-
-    $("ul.nav:last-child").click(function() {
-      $("button.btn-primary").removeAttr('disabled');
-    })
-
+    var last_num = $('ul.nav-tabs-xs li').length
+    
+    $('a#back').first().attr('disabled', 'disabled');
+    $('a#back').first().click(function(event){
+      event.preventDefault();
+      $('a#change1').addClass("active");
+    });
+    $('a#next').last().attr('disabled', 'disabled');
+    $('a#next').last().click(function(event){
+      event.preventDefault();
+      $('a#change'+last_num).addClass("active");
+    });
     $('area').click(function() {
       $(this).attr('selected', 'selected');
       $(this).siblings().removeAttr('selected');
     });
     
     $("#sortable").sortable().disableSelection();
+    $('a#change'+last_num).click(function(){
+      $('button[type="submit"]').removeAttr('disabled');
+    })
   });
 </script>

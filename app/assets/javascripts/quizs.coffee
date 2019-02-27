@@ -1,86 +1,93 @@
 answer = []
-user_answer = []
 
 $(document).ready ->
-
-@home = () ->
-      window.location.replace("/welcome/dashboard")
-
+  $(document).on 'click', 'ul.nav-tabs a', ->
+    $(this).animate {
+      backgroundColor: 'transparent'
+      color: '#4173a7'
+    }, 500
+    return
+  $(document).on 'click', 'div.tab-pane.active', (event) ->
+    if event.button == 0 
+      name = $(this).attr('id')
+      $('ul.nav-tabs a[href="#'+name+'"]').animate {
+        backgroundColor: 'transparent'
+        color: '#4173a7'
+      }, 500
+    return
+      
 @mark = (question_list) ->
   if check(question_list)
       sessvars.myAnswer = {userAnswer: answer}
       window.location.replace("/result")
   else
-      alert ("You haven't answered all questions!")
+      $('button[type=submit]').effect 'shake'
+      $('button[type="submit"]').popover 'show'
+      setTimeout (->
+        $('button[type="submit"]').popover 'hide'
+        return
+      ), 3000
       answer = []
-      user_answer = []
 
-@check = (question_list) ->
-  $.each question_list, (key, value) ->
-    if value.indexOf('check') >= 0
+@check = (question_list) -> #Check if questions are all answered
+  unanswered = []
+  sort = 1
+  $.each question_list, (key, type) ->
+    location = key + 1
+    if type.indexOf('check') >= 0 #Checkboxes
       selected = []
-      $.each $('input[name=' + value + ']:checked'), ->
+      $.each $('input[name=' + type + ']:checked'), ->
           selected.push $(this).val()
-      answer.push(selected)
-    else if value.indexOf('answer') >= 0
-      ans5 = $('input[name=' + value + ']:checked').val()
-      answer.push(ans5)
-    else if value instanceof Array
+      if selected.length == 0
+        unanswered.push location
+      else
+        answer.push(selected)
+    else if type.indexOf('answer') >= 0 #Single choice radio button
+      radio = $('input[name=' + type + ']:checked').val()
+      if typeof radio == 'undefined'
+        unanswered.push location
+      else
+        answer.push(radio)
+    else if type instanceof Array #Multiple FIBs
       fib = []
-      fib.push($("#"+value[0]).val())
-      fib.push($("#"+value[1]).val())
-      answer.push(fib)
-    else if value.indexOf('image') >= 0
-      selected = $('map[name=' + value + '] area[selected=selected]').attr('title')
-      answer.push(selected)
-    else if value.indexOf('sortable') >= 0
+      $.each type, (key, value) ->
+        content = $("#"+type[key]).val()
+        if content.length != 0
+          fib.push content
+      if type.length == fib.length
+        answer.push(fib)
+      else
+        unanswered.push location
+    else if type.indexOf('image') >= 0 #Image-maps
+      selected = $('map[name=' + type + '] area[selected=selected]').attr('title')
+      if typeof selected == 'undefined'
+        unanswered.push location
+      else 
+        answer.push(selected)
+    else if type.indexOf('sortable') >= 0 #Sortable
       array = $('#sortable').children().map(->
         $.trim $(this).text()
       ).get()
       answer.push(array)
-    else
-      answer.push($("#"+value).val())
-    return
+    else #True or false, dropdown
+      if typeof $("#"+type).val() == 'undefined' or $("#"+type).val() == ""
+        unanswered.push location
+      else
+        answer.push($("#"+type).val())
+  highlightUnanswered(unanswered, question_list)
+  console.log "Unanswered array= " + unanswered
+  return unanswered.length == 0
 
-  answered_all = true
-  $.each answer, (key, index) ->
-    location = key
-    if index instanceof Array
-      if index.length == 0
-        console.log("Empty answer at " + location)
-        return answered_all = false
-      $.each index, (num, value) ->
-        if value[num] == "" or value.length == 0
-          console.log "Unanswered array at " + location
-          return answered_all = false
-    else if typeof index == undefined or index == false or index == ""
-      console.log "Undefined or empty value at " + location
-      return answered_all = false
-
-  return answered_all
+@highlightUnanswered = (unanswered, list) ->
+  $.each unanswered, (key, index) -> 
+    location = index + 2
+    $('#change'+location).animate({backgroundColor:'#d9534f', color:'white'}, 250)
+  return
 
 @getAnswer = () ->
   sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
   console.log sessvars.Answer.correctAnswer
 
 @change = (number) ->
-  if number == 0
-    number = 1
-  if number == 13
-    number = 12
   $('.nav-item').children().removeClass "active"
   $('#change'+number).addClass "active"
-  if number == 1
-    $('#back').attr 'disabled', 'disabled'
-    $('#back').click (event) ->
-      event.preventDefault()
-      return
-  else
-    $('#back').removeAttr 'disabled'
-  if number == 12
-    $('#next').attr 'disabled', 'disabled'
-    $('#next').click (event) ->
-      event.preventDefault()
-      return
-  else
-    $('#next').removeAttr 'disabled'
