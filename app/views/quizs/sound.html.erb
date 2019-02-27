@@ -218,10 +218,8 @@
       sessvars.Header = {header: $('#header').data('data')};
       $('#header').remove();
     });
-
     var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
     $("div.container").html(replace);
-
     var last_num = $('ul.nav-tabs-xs li').length
     
     $('a#back').first().attr('disabled', 'disabled');
@@ -234,14 +232,12 @@
       event.preventDefault();
       $('a#change'+last_num).addClass("active");
     });
-
     $('area').click(function() {
       $(this).attr('selected', 'selected');
       $(this).siblings().removeAttr('selected');
     });
     
     $("#sortable").sortable().disableSelection();
-
     $('a#change'+last_num).click(function(){
       $('button[type="submit"]').removeAttr('disabled');
     })
