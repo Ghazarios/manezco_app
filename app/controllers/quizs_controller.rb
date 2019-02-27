@@ -396,7 +396,7 @@ class QuizsController < ApplicationController
 				end
 	
 					def environmentalresources
-						@title = "Prime Factors 1"
+						@title = "Environmental Resources"
           	@contents = [
               ["TH", 
                 ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2F7.1.1.png?alt=media&token=20c2381b-f767-4734-bb8f-1826a0efee09"],
