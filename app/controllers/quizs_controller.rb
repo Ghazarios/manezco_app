@@ -317,7 +317,7 @@ class QuizsController < ApplicationController
           @contents = [
               ["OV", "Capital letters for beginning sentences:
 							The start of a sentence needs a capital letter so the reader knows a new
-							sentence has begun.", "Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
+							sentence has begun. Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
 							
               ["FIB", "the wind blew through the open window.", "@The wind blew through the open window."],
               ["SC", "Which sentence is correct?", "Water pushed its way across the land.", "water pushed its way across the land.", "water Pushed its way across the land."],
