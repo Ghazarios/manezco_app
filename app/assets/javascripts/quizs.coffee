@@ -74,15 +74,13 @@ $(document).ready ->
         unanswered.push location
       else
         answer.push($("#"+type).val())
-  highlightUnanswered(unanswered, question_list)
+  highlightUnanswered(unanswered)
   console.log "Unanswered array= " + unanswered
   return unanswered.length == 0
 
-@highlightUnanswered = (unanswered, list) ->
-  $.each unanswered, (key, index) -> 
-    location = index + 2
-    $('#change'+location).animate({backgroundColor:'#d9534f', color:'white'}, 250)
-  return
+@highlightUnanswered = (unanswered) ->
+  for question in unanswered
+    $("ul.nav-tabs a:contains(" + question + ")").animate({backgroundColor:'#d9534f', color:'white'}, 250)
 
 @getAnswer = () ->
   sessvars.Answer = {correctAnswer: $('#answers').data('answer')}
