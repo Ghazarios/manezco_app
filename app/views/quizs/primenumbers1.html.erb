@@ -6,6 +6,7 @@
   <div class="col-12 animate-fade-in-1000">
 
   <h1><%= @title %> Quiz</h1>
+	
 
   <!-- Question Nav -->
   <div class="card card-default inspectable">
@@ -165,13 +166,6 @@
           <% end %>
         </map>
         <% question_list.push("image-map#{j}") %>
-      <% when "PIC"%>
-        <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map2" class="map">
-        <map name="image-map2">
-            <area target="_blank" alt="area-1" title="area-1" coords="117,9,175,237" shape="rect">
-            <area target="_blank" alt="area-2" title="area-2" coords="365,15,413,240" shape="rect">
-        </map>
       <% when "DD"%>
         <p> <%=index[1]%> </p>
         <ul id=<%="sortable"%>>
@@ -185,6 +179,7 @@
       <% end %>
 
         <!-- Back and Next Buttons -->
+					
         <li class="nav nav-item">
           <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
           <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
@@ -193,7 +188,8 @@
         </li>
         </div>
       <%end %>
-      <button class="btn btn-primary" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
+			<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
+      <button class="btn btn-primary", style="float:right" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>
   </div>
@@ -206,8 +202,8 @@
 <% end %>
 
 <script>
-	
   $(document).ready(function() {
+    
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
       $('#answers').remove();
@@ -216,13 +212,19 @@
       sessvars.Header = {header: $('#header').data('data')};
       $('#header').remove();
     });
+
+    var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
+    $("div.container").html(replace);
+
+    $("ul.nav:last-child").click(function() {
+      $("button.btn-primary").removeAttr('disabled');
+    })
+
     $('area').click(function() {
       $(this).attr('selected', 'selected');
       $(this).siblings().removeAttr('selected');
     });
+    
     $("#sortable").sortable().disableSelection();
-		var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
-    $("div.container").html(replace);
   });
-
 </script>

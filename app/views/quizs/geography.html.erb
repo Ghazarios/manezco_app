@@ -1,5 +1,6 @@
 <div class="container">
-<h1>Year 7 English</h1>
+<h1>Geography</h1>
+
 
 <div class="row container">
 <% @subjects.each do |subject| %>
@@ -9,7 +10,7 @@
         <div class="media">
           <div class="d-flex align-self-center mr-3">
           </div>
-          <a href="/year7/<%= subject.downcase.gsub(/\s+/, "") %>">
+          <a href="/geography/<%= subject.downcase.gsub(/\s+/, "") %>">
           <div class="media-body text-left">
             <h4 class="m-0 text-muted"><%= subject%></h4>
           </div>
@@ -19,5 +20,6 @@
     </div>
   </div>
 <% end %>
+	<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
 </div>
 </div>

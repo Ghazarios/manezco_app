@@ -1,5 +1,8 @@
 <div class="container">
 <h1>Geometry</h1>
+<h4>
+	No quizzes available yet
+</h4>
 
 <div class="row container">
 <% @subjects.each do |subject| %>
@@ -19,5 +22,6 @@
     </div>
   </div>
 <% end %>
+	<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
 </div>
 </div>
