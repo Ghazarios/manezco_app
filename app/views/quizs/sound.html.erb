@@ -92,9 +92,13 @@
         </div>
         <% question_list.push("drop_down#{j}") %>
       <% when "FIB"%>
-        <p id="fill_in_blanks">
         <% array_count = 0 %>
         <% answer = [] %>
+        <% if index[1].kind_of?(Array) %>
+          <img src="<%=index[1][0]%>" alt="Fill-in-blanks">
+          <% array_count += 1 %>
+        <% end %> 
+        <p id="fill_in_blanks">
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
             <% maxlength = index[array_count].size-1%>
