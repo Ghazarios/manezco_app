@@ -75,7 +75,6 @@ $(document).ready ->
       else
         answer.push($("#"+type).val())
   highlightUnanswered(unanswered)
-  console.log "Unanswered array= " + unanswered
   return unanswered.length == 0
 
 @highlightUnanswered = (unanswered) ->

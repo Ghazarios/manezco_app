@@ -216,3 +216,13 @@ button[type=submit].shake{
 .popover.bs-popover-top .arrow:after, .popover.bs-popover-auto[x-placement^="top"] .arrow:after {
   border-top-color: #d9534f;
 }
+
+.map-container {
+  background-size: cover;
+  position: relative;
+}
+.map-container canvas { position: absolute; }
+.map-container img {
+  opacity: 0;
+  position: absolute;
+}
