@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 				get 'numberandalgebra/indexpowers' => 'quizs#indexpowers'
 				get 'numberandalgebra/primenumbers1' => 'quizs#primenumbers1'
 				get 'numberandalgebra/primefactors1' => 'quizs#primefactors1'
+		get 'maths/year8' => 'quizs#year8'
+			get 'year8/numberalgebra' => 'quizs#numberalgebra'
+				get 'numberalgebra/rationalnumbers' => 'quizs#rationalnumbers'
 
 	
   get 'science' => 'quizs#science'

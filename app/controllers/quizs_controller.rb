@@ -174,6 +174,7 @@ class QuizsController < ApplicationController
     @subjects = ["Year 7", "Year 8", "Year 9"]
     @title = "Maths"
   end
+	
   
     def year7
       @subjects = ["Geometry", "Number and Algebra", "Statistics and Probability"]
@@ -323,6 +324,78 @@ class QuizsController < ApplicationController
 							["FIB", "The prime factor of 343 is"],
 							["MC", "Click the prime factors that multiply with each other to form 6000"],
 							["SC", "What is the Sieve of Erastosthenes?"]
+							]
+         							
+				end
+		
+		def year8
+			@subjects = ["Number Algebra"]
+			@title = "Year 8 Maths"
+		end
+	
+			def numberalgebra
+				@subjects = ["Rational numbers"]
+				@title = "Number and Algebra"
+			end 
+	
+				def rationalnumbers
+					@title = "Rational numbers"
+          @contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.1.png?alt=media&token=091ba272-44d4-430d-bb2c-099ffc1326fc"],
+              ], 
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.2.png?alt=media&token=a61ba89a-2759-4ed3-9dbd-21ed3d19e849"],
+              ],
+							["OV", "Answer the following questions without a calculator:"],
+              ["FIB", "What is 4 x 5?", "@20"],
+							["FIB", "What is 2 + -9?", "@-7"],
+							["FIB", "What is 5 x -7?", "@-35"],
+							["TF", "-7 x -8 is -56"],
+							["FIB", "What is -3 + (-9) + 1?", "@-11"],
+						
+							["SC", "What is 15 ÷ (-3) × 7?", "70", "-35", "35"],
+							["DL", "What is -24 ÷ 8 + 4?", "11", "-7", "1"],	
+							["FIB", "What is 21 - 28?", "@-7"],
+							["FIB", "What is -28 - 21?", "@-49"],
+							["FIB", "What is -28 - (-21)?", "@-7"],
+						
+							["FIB", "What is 	-(5 - 8) + 3(2 - 9)?", "@-18"],
+							["MC", "What is 3/4 + 3/4? (select all that apply)", "5/4", "9/8", "6/4", "1 1/2", "1 3/4", "1 2/4"],
+							["FIB", "What is 3/4 x 3/4?", "@9", "/16"],
+							["MC", "What is -(3/22) x 11/6? (select all that apply)", "1/3", "33/132", "- 33/132", "1/4", "- 1/4"],
+							["DL", "What is 	3/5  ÷  6/25?", "50/30", "15/6", "8/31"],
+						
+							["FIB", "What is one third of 105?", "@35"],
+							["FIB", "What is a fifth of 60?", "@12"],
+							["FIB", "What is a quarter of 180?", "@45"],
+							["FIB", "What is a a tenth of half? (answer in decimals)", "@0.05"],
+							["FIB", "What is Five times the product of two and three", "@30"],
+							
+							]
+          @answer = ["20", "-7", "-35", "False", "-11", "-35", "1", "-7", "-49", "-7", "-18", ["6/4", "1 1/2", "1 2/4"],
+											"9", ["- 33/132", "- 1/4"], "15/6", "35", "12", "45", "0.05", "30"]        
+          @question = [
+              ["FIB", "What is 4 x 5?"],
+							["FIB", "What is 2 + -9?"],
+							["FIB", "What is 5 x -7?"],
+							["TF", "-7 x -8 is -56"],
+							["FIB", "What is -3 + (-9) + 1?"],
+							["SC", "What is 15 ÷ (-3) × 7?"],
+							["DL", "What is -24 ÷ 8 + 4?"],	
+							["FIB", "What is 21 - 28?"],
+							["FIB", "What is -28 - 21?"],
+							["FIB", "What is -28 - (-21)?"],
+							["FIB", "What is 	-(5 - 8) + 3(2 - 9)?"],
+							["MC", "What is 3/4 + 3/4? (select all that apply)"],
+							["FIB", "What is 3/4 x 3/4? /16"],
+							["MC", "What is -(3/22) x 11/6? (select all that apply)"],
+							["DL", "What is 	3/5  ÷  6/25?"],
+							["FIB", "What is one third of 105?"],
+							["FIB", "What is a fifth of 60?"],
+							["FIB", "What is a quarter of 180?"],
+							["FIB", "What is a a tenth of half? (answer in decimals)"],
+							["FIB", "What is Five times the product of two and three"],
 							]
          							
 				end
