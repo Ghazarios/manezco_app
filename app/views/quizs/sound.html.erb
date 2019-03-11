@@ -92,9 +92,13 @@
         </div>
         <% question_list.push("drop_down#{j}") %>
       <% when "FIB"%>
-        <p id="fill_in_blanks">
         <% array_count = 0 %>
         <% answer = [] %>
+        <% if index[1].kind_of?(Array) %>
+          <img src="<%=index[1][0]%>" alt="Fill-in-blanks">
+          <% array_count += 1 %>
+        <% end %> 
+        <p id="fill_in_blanks">
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
             <% maxlength = index[array_count].size-1%>
@@ -210,6 +214,7 @@
 
 <script>
   $(document).ready(function() {
+    
     $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
       sessvars.Answer = {correctAnswer: $('#answers').data('data')};
       $('#answers').remove();
@@ -218,8 +223,10 @@
       sessvars.Header = {header: $('#header').data('data')};
       $('#header').remove();
     });
+    
     var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
     $("div.container").html(replace);
+    
     var last_num = $('ul.nav-tabs-xs li').length
     
     $('a#back').first().attr('disabled', 'disabled');
@@ -232,14 +239,26 @@
       event.preventDefault();
       $('a#change'+last_num).addClass("active");
     });
+    
     $('area').click(function() {
       $(this).attr('selected', 'selected');
       $(this).siblings().removeAttr('selected');
     });
     
     $("#sortable").sortable().disableSelection();
+    
     $('a#change'+last_num).click(function(){
       $('button[type="submit"]').removeAttr('disabled');
     })
+    
+    var maps = document.querySelectorAll('.map');
+    maps.forEach((map) => {
+      var highlighter = new ImageMapHighlighter(map, {
+          strokeColor: 'ff0000',
+          fill: true,
+          fillColor: '00ff00'
+      });
+      highlighter.init();
+    });
   });
 </script>

@@ -5,18 +5,18 @@ Rails.application.routes.draw do
   get '/user/plan' => 'users#plan'
   get '/user/billing' => 'users#billing'
   get '/user' => 'users#profile'
-  get 'home/index'
+  get 'home/index' 
   get 'welcome/dashboard'
   get 'welcome/index'
   
   get 'maths' => 'quizs#maths'
-  	get 'maths/year7' => 'quizs#year7'
+   	get 'maths/year7' => 'quizs#year7'
   		get 'year7/geometry' => 'quizs#geometry'
   		get 'year7/numberandalgebra' => 'quizs#numberandalgebra'
 				get 'numberandalgebra/indexpowers' => 'quizs#indexpowers'
 				get 'numberandalgebra/primenumbers1' => 'quizs#primenumbers1'
 				get 'numberandalgebra/primefactors1' => 'quizs#primefactors1'
-	
+
 	
   get 'science' => 'quizs#science'
   	get 'science/physics' => 'quizs#physics'
