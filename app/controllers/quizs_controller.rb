@@ -583,6 +583,79 @@ class QuizsController < ApplicationController
 							["MC", "What will be the best plan for a country concerned with resource conservation and economic growth?"]
 							]
 					end
+				
+				def civics
+					@subjects = ["Government and Democracy"]
+					@title = "Civics and Citizenship"
+				end
+				
+					def governmentanddemocracy
+						@title = "Government and Democracy"
+          	@contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.1.png?alt=media&token=42659873-b77f-4b2f-8a84-3a9350951c07"],
+              ],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.2.png?alt=media&token=ec287686-3396-4d1d-a034-f18178a08382"],
+              ],
+							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governer-General"],
+              ["FIB", "The separation of powers creates a system of b", "@alances", "and c", "@hecks"],
+							["DL", "Chapter II of the Constitution establishes the ", "Legislature", "Executive", "Judiciary"],
+							["SC", "The separation of powers ensures that one branch does not hold all the power. This is an example of a system of:", "Checks", "Balances"],
+							["FIB", "(hint: Don't forget capital letters) The Australian Constitution separates power amongst three branches of government.
+							They are the: L", "@egislature", "E", "@xecutive", "and", "@Judiciary"],
+							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
+							
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.3.png?alt=media&token=d0a50312-8a68-496e-8a4c-eda45d0bfd8a"],
+              ],
+							
+							["CLP", "Click the box that interprets the Law", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.5.png?alt=media&token=b1a0f944-9c6f-4b08-8d0a-b6f63ca962f3"],
+							],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.6.png?alt=media&token=41e5c233-e27a-469f-acff-7093a1301264"],
+							],
+							["SC", "The Executive consists of the Governor-General and the", "Federal Executive Council", "Lower House", "Senate"],
+							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
+							["MC", "Choose one or more of the following options. Royal assent is:", "Needed for a Bill to be passed into legislation", 
+							"Given directly by the Queen", "Given by the Executive", "Given by the Governer-General"],
+							["FIB", "With regards to the law, the main role of the Executive is to e", "@nact", " the law"],
+							["TF", "A bill is a proposed law, True or False?"],
+							["CLP", "Click the box that represents the Executive", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							["DL", "The Governor-General is appointed by the:", "Election", "Queen", "Prime Minister"],
+							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
+							["CLP", "Click the box that represents the Legislature", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							
+							
+							]
+							
+          @answer = ["The Constitution", ["alances", "hecks"], "Executive", "Balances", ["egislature", "xecutive", "Judiciary"], "True", "option-3", "Federal Executive Council",
+						"False", ["Needed for a Bill to be passed into legislation", "Given by the Governer-General"], "nact", "True", "option-2", "Queen", "True", "option-1"]        
+          @question = [
+             	["SC", "Which of the following outlines the separation of powers in Australia?"],
+              ["FIB", "The separation of powers creates a system of"],
+							["DL", "Chapter II of the Constitution establishes the "],
+							["SC", "The separation of powers ensures that one branch does not hold all the power. This is an example of a system of:"],
+							["FIB", "(hint: Don't forget capital letters) The Australian Constitution separates power amongst three branches of government.
+							They are the: L"],
+							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
+							["CLP", "Click the box that represents the Judiciary"],
+							["SC", "The Executive consists of the Governor-General and the"],
+							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
+							["MC", "Choose one or more of the following options. Royal assent is:"],
+							["FIB", "With regards to the law, the main role of the Executive is to e"],
+							["TF", "A bill is a proposed law, True or False?"],
+							["CLP", "Click the box that represents the Executive"],
+							["DL", "The Governor-General is appointed by the:"],
+							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
+							["CLP", "Click the box that represents the Legislature"],
+							]
+					end
 						
 		
   
