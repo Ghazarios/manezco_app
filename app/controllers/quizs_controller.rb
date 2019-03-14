@@ -598,7 +598,7 @@ class QuizsController < ApplicationController
 							["TH", 
                 ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.2.png?alt=media&token=ec287686-3396-4d1d-a034-f18178a08382"],
               ],
-							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governer-General"],
+							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governor-General"],
               ["FIB", "The separation of powers creates a system of b", "@alances", "and c", "@hecks"],
 							["DL", "Chapter II of the Constitution establishes the ", "Legislature", "Executive", "Judiciary"],
 							["SC", "The separation of powers ensures that one branch does not hold all the power. This is an example of a system of:", "Checks", "Balances"],
@@ -621,7 +621,7 @@ class QuizsController < ApplicationController
 							["SC", "The Executive consists of the Governor-General and the", "Federal Executive Council", "Lower House", "Senate"],
 							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
 							["MC", "Choose one or more of the following options. Royal assent is:", "Needed for a Bill to be passed into legislation", 
-							"Given directly by the Queen", "Given by the Executive", "Given by the Governer-General"],
+							"Given directly by the Queen", "Given by the Executive", "Given by the Governor-General"],
 							["FIB", "With regards to the law, the main role of the Executive is to e", "@nact", " the law"],
 							["TF", "A bill is a proposed law, True or False?"],
 							["CLP", "Click the box that represents the Executive", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
@@ -635,7 +635,7 @@ class QuizsController < ApplicationController
 							]
 							
           @answer = ["The Constitution", ["alances", "hecks"], "Executive", "Balances", ["egislature", "xecutive", "Judiciary"], "True", "option-3", "Federal Executive Council",
-						"False", ["Needed for a Bill to be passed into legislation", "Given by the Governer-General"], "nact", "True", "option-2", "Queen", "True", "option-1"]        
+						"False", ["Needed for a Bill to be passed into legislation", "Given by the Governor-General"], "nact", "True", "option-2", "Queen", "True", "option-1"]        
           @question = [
              	["SC", "Which of the following outlines the separation of powers in Australia?"],
               ["FIB", "The separation of powers creates a system of"],
