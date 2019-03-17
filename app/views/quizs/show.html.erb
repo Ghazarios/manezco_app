@@ -1,5 +1,19 @@
-<h1>Your Quiz Scores</h1>
-<% @score.each do |mark| %>
-    <h3><%= mark.quiz %></h3>
-    <h4><%= mark.mark %></h4>
-<% end %>
+<div class='container'>
+    <h1>Your Quiz Scores</h1>
+    <div class='container'>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Date Taken</th>
+        </tr>
+        <% @score.each do |mark| %>
+        <tr>
+            <td><%= mark.quiz %></td>
+            <td><%= mark.mark %></td>
+            <td><%= mark.created_at %></td>
+        </tr>
+        <% end %>
+    </table>
+    </div>
+</div>

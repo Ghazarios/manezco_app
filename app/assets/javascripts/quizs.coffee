@@ -68,7 +68,17 @@ $(document).ready ->
       array = $('#sortable').children().map(->
         $.trim $(this).text()
       ).get()
-      answer.push(array)
+      answer.push(array) 
+    else if type.indexOf('pic') >= 0 #FIB-Pic
+      array = []
+      input = $('.' + type).find('input')
+      $.each input, (key, value) ->
+        array.push($(value).val())
+      console.log array
+      if array.indexOf('') != -1
+        unanswered.push location
+      else
+        answer.push(array)
     else #True or false, dropdown
       if typeof $("#"+type).val() == 'undefined' or $("#"+type).val() == ""
         unanswered.push location
