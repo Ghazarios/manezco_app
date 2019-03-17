@@ -1,25 +1,38 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Amiko' rel='stylesheet'>
+<style>
+h1 {
+    font-family: 'Amiko'
+}
+</style>
+</head>
+<div style="width: 100%">
+	<%= render partial: 'content_blocks/app_navs/4' %>
+</div>	
+<br>
 <div class="container">
-<h1>Maths</h1>
+	
+	
 
 
-<div class="row container">
-<% @subjects.each do |subject| %>
-  <div class="col-12 col-md-12 col-lg-12 animate-drop-fade">
-    <div class="card card-mini  inspectable">
-      <div class="card-body">
-        <div class="media">
-          <div class="d-flex align-self-center mr-3">
-          </div>
-          <a href="/maths/<%= subject.downcase.gsub(/\s+/, "") %>">
-          <div class="media-body text-left">
-            <h4 class="m-0 text-muted"><%= subject%></h4>
-          </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-	<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
-</div>
+	<div class="row container">
+	<h1>Mathematics</h1>
+	<% @subjects.each do |subject| %>
+		<div class="col-12 col-md-12 col-lg-12 animate-drop-fade">
+			<div class="card card-mini  inspectable">
+				<div class="card-body">
+					<div class="media">
+						<div class="d-flex align-self-center mr-3">
+						</div>
+						<a href="/maths/<%= subject.downcase.gsub(/\s+/, "") %>">
+						<div class="media-body text-left">
+							<h4 class="m-0 text-muted"><%= subject%></h4>
+						</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	</div>
 </div>
