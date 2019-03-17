@@ -242,3 +242,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+div.tab-pane.fade {
+  min-height: 440px;
+  height:auto;  
+}
