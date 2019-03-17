@@ -78,7 +78,8 @@ class QuizsController < ApplicationController
               ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png",
 								"117,9,175,237", "365,15,413,240"], 
               ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
-              ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"]
+              ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
+              ["PIC", "Fill in the blanks: ", "https://i.ibb.co/5nKDQcG/FIBImage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"]
           ]
           @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
 						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]        
