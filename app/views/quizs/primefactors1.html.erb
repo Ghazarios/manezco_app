@@ -2,10 +2,15 @@
   <%= javascript_include_tag "https://www.thomasfrank.se/sessvars.js" %>
 <% end %>
 
+<div style="width: 100%">
+	<%= render partial: 'content_blocks/app_navs/4' %>
+</div>	
+<br>
+
 <div class='container'>
   <div class="col-12 animate-fade-in-1000">
 
-  <h1><%= @title %> Quiz</h1>
+  <h1 align="center"><%= @title %> Quiz</h1>
 	
 
   <!-- Question Nav -->
@@ -45,7 +50,7 @@
         <% var_class = "tab-pane fade"%>
         <% var_class += " active show" if j == 0 %>
         <% j+=1%>
-        <div class='<%=var_class %>' style='height: 444px; overflow-y: auto;' id='<%="content#{j}"%>'>
+        <div class='<%=var_class %>' style='min-height: 444px; overflow-y: auto;' id='<%="content#{j}"%>'>
 
       <% case index[0]%>
       <% when "OV"%>
@@ -188,7 +193,7 @@
         </li>
         </div>
       <%end %>
-			<%= link_to('Home', welcome_dashboard_path, class: "btn btn-success ml-auto btn-xlarge") %>
+			
       <button class="btn btn-primary", style="float:right" type="submit" onclick="mark(<%=question_list%>)">Submit</button>
       </div>
     </div>

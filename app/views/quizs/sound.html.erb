@@ -2,10 +2,16 @@
   <%= javascript_include_tag "https://www.thomasfrank.se/sessvars.js" %>
 <% end %>
 
+<div style="width: 100%">
+	<%= render partial: 'content_blocks/app_navs/4' %>
+</div>	
+<br>
+
 <div class='container'>
   <div class="col-12 animate-fade-in-1000">
 
-  <h1><%= @title %> Quiz</h1>
+  <h1 align="center"><%= @title %> Quiz</h1>
+	
 
   <!-- Question Nav -->
   <div class="card card-default inspectable">
@@ -79,7 +85,6 @@
         </div>
         <% question_list.push("true_false#{j}") %>
       <% when "DL"%>
-
         <p><%= index[1]%>______</p>
         <div class="form-group">
             <label for="drop_down<%=j%>">Choose from the list below</label>
@@ -92,13 +97,9 @@
         </div>
         <% question_list.push("drop_down#{j}") %>
       <% when "FIB"%>
+        <p id="fill_in_blanks">
         <% array_count = 0 %>
         <% answer = [] %>
-        <% if index[1].kind_of?(Array) %>
-          <img src="<%=index[1][0]%>" alt="Fill-in-blanks">
-          <% array_count += 1 %>
-        <% end %> 
-        <p id="fill_in_blanks">
         <% until index[array_count+=1].nil? %>
           <% if (index[array_count][0] == "@") %>
             <% maxlength = index[array_count].size-1%>
@@ -159,7 +160,7 @@
         <% question_list.push("answer#{j}") %>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map"/>
+        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
         <map name="image-map<%=j%>">
           <% m = 3 %>
           <% option_num = 1 %>
