@@ -37,7 +37,7 @@ class QuizsController < ApplicationController
   end
     
     def physics
-        @subjects = ["Sound", "Scientific Model", "Light", "Electricity"]
+        @subjects = ["Sound"]
         @title = "Physics"
     end
   
@@ -97,39 +97,71 @@ class QuizsController < ApplicationController
           ]
       end
 
-
-      def scientific_model
-          @title = "Scientific Model"
+		def earthscience
+			@subjects = ["Tectonic Plates"]
+			@title = ["Earth Science"]
+		end
+	
+			def tectonicplates
+				  @title = "Tectonic Plates"
           @contents = [
-              ["OV", "Scientific Models are diagrams, illustrations, or other visualisations that help us understand complex scientific processes. These models can be realistic, or they can be exaggerated, depending on how complex the process is. In this quiz, we will look at examples of scientific models that represent the 3 states of matter and answer some questions."],
-              ["TH", "Let’s use a Particle Model to demonstrate the differences between ice, water, and water vapour (which are all H2O) *Note, the word Particles is used in the lesson to refer to elements, electrons, and molecules, for simplification*: In reality, this would look like:",
-                  ["img", ""]
-              ],
-              ["TF", "Sound cannot travel through a vacuum."],
-              ["DL", "Sound is an effect caused by", "Electromagnetism", "Vibrations", "Light"], 
-              ["FIB", "Sound requires a m", "@edium", " to transport it, like Air and Water."], 
-              ["MC", "Sound is: (Select all that apply)", "Form of Kinetic Energy", "Form of Potential Energy", "Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
-              ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength, Acceleration, Frequent"],
-              ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
-              ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
-              ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png", "117,9,175,237", "365,15,413,240"], 
-              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
-              ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"]
+          	["TH",
+							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.1png.png?alt=media&token=65fb51f0-0c3f-4c9e-af95-1dcad6e7458c"]
+						],
+						["TH",
+							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.2png.png?alt=media&token=6c314275-0150-4c7a-86f3-390d717baaa8"]
+						],
+						["TH",
+							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.3png.png?alt=media&token=d9e36cec-abc8-4a05-af71-07b097055ca5"]
+						],
+						["TH",
+							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.4png.png?alt=media&token=3479dc92-2a23-4930-8c95-9503113b1729"]
+						],
+						
+						["SC", "What are Tectonic Plates?", "a.	Large countries that border each other", "b.	Continents ",
+						"c.	Large slabs of Crust rock that float on the Mantle"],
+						["TF", "All Tectonic Plates are moving into each other."], 
+						["SC", "Tectonic Plates are generally located within the:", "Outer Core", "Lower Mantle", "Crust"], 
+						["CLP", "Click the box that represents the Mantle", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
+						["SC", "What are the two varieties of Tectonic Plates?", "Country and Ocean", "Continental and Oceanic", "Crustal and Orogenic"],
+						["CLP", "Click the box that represents the Inner Core", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
+						["FIB", "How many major/main Tectonic Plates are there?", "@8"],
+						["TF", "Continental plates have no oceans on them."],
+						["CLP", "Click the box that represents the Crust", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
+						["FIB", "The Major Tectonic Plates are the Australian, South American, Eurasian, Indian, North American,
+						Antarctic, African, and", "@Pacific", "plates."],
+						["TF", "The Nazca Plate is a Minor Plate."],
+						["DL", "Which of the following is true?", "The Australian, Antarctic, and Pacific Plates are major.
+						The Nazca and Arabian Plates are minor.", "The Australian, Nazca, and Pacific Plates are major.
+						The Caribbean and South American Plates are minor."],
+						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
+						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"]
           ]
-          @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"], "a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"]]        
+          @answer = ["c.	Large slabs of Crust rock that float on the Mantle", "False", "Crust", "option-2", "Continental and Oceanic",
+										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Antarctic, and Pacific Plates are major.
+										The Nazca and Arabian Plates are minor.", "No"]        
           @question = [
-              ["TF", "Sound cannot travel through a vacuum. True or False?"],
-              ["DL", "Sound is an effect caused by _______."], 
-              ["FIB", "Sound requires a M_____ to transport it, like Air and Water."], 
-              ["MC", "Sound is (select all that apply):"],
-              ["SC", "What are the three main properties of Waves?"],
-              ["SCP", "Click the wave that has a low Frequency: "],
-              ["CLP", "Click the line that is measuring the Amplitude: "],
-              ["PIC", "Click the area that contains the highest sound energy if the drum was being played: "], 
-              ["FIB", "Sound can be r______ and a________"],
-              ["DD", "Order the following from fastest to slowest Sound speed:"]
+						["SC", "What are Tectonic Plates?"],
+						["TF", "All Tectonic Plates are moving into each other."], 
+						["SC", "Tectonic Plates are generally located within the:"], 
+						["CLP", "Click the box that represents the Mantle"],
+						["SC", "What are the two varieties of Tectonic Plates?"],
+						["CLP", "Click the box that represents the Inner Core"],
+						["FIB", "How many major/main Tectonic Plates are there?"],
+						["TF", "Continental plates have no oceans on them."],
+						["CLP", "Click the box that represents the Crust"],
+						["FIB", "The Major Tectonic Plates are the Australian, South American, Eurasian, Indian, North American,
+						Antarctic, African, and ____"],
+						["TF", "The Nazca Plate is a Minor Plate."],
+						["DL", "Which of the following is true?"],
+						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
+						is touching any Plate boundaries/borders?"]
           ]
-      end
+			end
+      
   
 
   
@@ -318,7 +350,7 @@ class QuizsController < ApplicationController
           @contents = [
               ["OV", "Capital letters for beginning sentences:
 							The start of a sentence needs a capital letter so the reader knows a new
-							sentence has begun.", "Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
+							sentence has begun. Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
 							
               ["FIB", "the wind blew through the open window.", "@The wind blew through the open window."],
               ["SC", "Which sentence is correct?", "Water pushed its way across the land.", "water pushed its way across the land.", "water Pushed its way across the land."],
@@ -491,5 +523,6 @@ end
     private 
         def score_params
             params.permit(:quiz, :mark)
-        end
+				end
+		
 
