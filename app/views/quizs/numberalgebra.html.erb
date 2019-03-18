@@ -16,7 +16,7 @@ h1 {
 
 
 	<div class="row container">
-	<h1>Mathematics</h1>
+	<h1>Number and Algebra</h1>
 	<% @subjects.each do |subject| %>
 		<div class="col-12 col-md-12 col-lg-12 animate-drop-fade">
 			<div class="card card-mini  inspectable">
@@ -24,7 +24,7 @@ h1 {
 					<div class="media">
 						<div class="d-flex align-self-center mr-3">
 						</div>
-						<a href="/maths/<%= subject.downcase.gsub(/\s+/, "") %>">
+						<a href="/numberalgebra/<%= subject.downcase.gsub(/\s+/, "") %>">
 						<div class="media-body text-left">
 							<h4 class="m-0 text-muted"><%= subject%></h4>
 						</div>

@@ -175,6 +175,7 @@ class QuizsController < ApplicationController
     @subjects = ["Year 7", "Year 8", "Year 9"]
     @title = "Maths"
   end
+	
   
     def year7
       @subjects = ["Geometry", "Number and Algebra", "Statistics and Probability"]
@@ -324,6 +325,78 @@ class QuizsController < ApplicationController
 							["FIB", "The prime factor of 343 is"],
 							["MC", "Click the prime factors that multiply with each other to form 6000"],
 							["SC", "What is the Sieve of Erastosthenes?"]
+							]
+         							
+				end
+		
+		def year8
+			@subjects = ["Number Algebra"]
+			@title = "Year 8 Maths"
+		end
+	
+			def numberalgebra
+				@subjects = ["Rational numbers"]
+				@title = "Number and Algebra"
+			end 
+	
+				def rationalnumbers
+					@title = "Rational numbers"
+          @contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.1.png?alt=media&token=091ba272-44d4-430d-bb2c-099ffc1326fc"],
+              ], 
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.2.png?alt=media&token=a61ba89a-2759-4ed3-9dbd-21ed3d19e849"],
+              ],
+							["OV", "Answer the following questions without a calculator:"],
+              ["FIB", "What is 4 x 5?", "@20"],
+							["FIB", "What is 2 + -9?", "@-7"],
+							["FIB", "What is 5 x -7?", "@-35"],
+							["TF", "-7 x -8 is -56"],
+							["FIB", "What is -3 + (-9) + 1?", "@-11"],
+						
+							["SC", "What is 15 ÷ (-3) × 7?", "70", "-35", "35"],
+							["DL", "What is -24 ÷ 8 + 4?", "11", "-7", "1"],	
+							["FIB", "What is 21 - 28?", "@-7"],
+							["FIB", "What is -28 - 21?", "@-49"],
+							["FIB", "What is -28 - (-21)?", "@-7"],
+						
+							["FIB", "What is 	-(5 - 8) + 3(2 - 9)?", "@-18"],
+							["MC", "What is 3/4 + 3/4? (select all that apply)", "5/4", "9/8", "6/4", "1 1/2", "1 3/4", "1 2/4"],
+							["FIB", "What is 3/4 x 3/4?", "@9", "/16"],
+							["MC", "What is -(3/22) x 11/6? (select all that apply)", "1/3", "33/132", "- 33/132", "1/4", "- 1/4"],
+							["DL", "What is 	3/5  ÷  6/25?", "50/30", "15/6", "8/31"],
+						
+							["FIB", "What is one third of 105?", "@35"],
+							["FIB", "What is a fifth of 60?", "@12"],
+							["FIB", "What is a quarter of 180?", "@45"],
+							["FIB", "What is a a tenth of half? (answer in decimals)", "@0.05"],
+							["FIB", "What is Five times the product of two and three", "@30"],
+							
+							]
+          @answer = ["20", "-7", "-35", "False", "-11", "-35", "1", "-7", "-49", "-7", "-18", ["6/4", "1 1/2", "1 2/4"],
+											"9", ["- 33/132", "- 1/4"], "15/6", "35", "12", "45", "0.05", "30"]        
+          @question = [
+              ["FIB", "What is 4 x 5?"],
+							["FIB", "What is 2 + -9?"],
+							["FIB", "What is 5 x -7?"],
+							["TF", "-7 x -8 is -56"],
+							["FIB", "What is -3 + (-9) + 1?"],
+							["SC", "What is 15 ÷ (-3) × 7?"],
+							["DL", "What is -24 ÷ 8 + 4?"],	
+							["FIB", "What is 21 - 28?"],
+							["FIB", "What is -28 - 21?"],
+							["FIB", "What is -28 - (-21)?"],
+							["FIB", "What is 	-(5 - 8) + 3(2 - 9)?"],
+							["MC", "What is 3/4 + 3/4? (select all that apply)"],
+							["FIB", "What is 3/4 x 3/4? /16"],
+							["MC", "What is -(3/22) x 11/6? (select all that apply)"],
+							["DL", "What is 	3/5  ÷  6/25?"],
+							["FIB", "What is one third of 105?"],
+							["FIB", "What is a fifth of 60?"],
+							["FIB", "What is a quarter of 180?"],
+							["FIB", "What is a a tenth of half? (answer in decimals)"],
+							["FIB", "What is Five times the product of two and three"],
 							]
          							
 				end
@@ -509,6 +582,79 @@ class QuizsController < ApplicationController
 							["SC", "Why does population growth affect natural resource management?"],
 							["TF", "Short term gains made by using up natural resources until depletion will positively effect the long term natural resources supply."],
 							["MC", "What will be the best plan for a country concerned with resource conservation and economic growth?"]
+							]
+					end
+				
+				def civics
+					@subjects = ["Government and Democracy"]
+					@title = "Civics and Citizenship"
+				end
+				
+					def governmentanddemocracy
+						@title = "Government and Democracy"
+          	@contents = [
+              ["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.1.png?alt=media&token=42659873-b77f-4b2f-8a84-3a9350951c07"],
+              ],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.2.png?alt=media&token=ec287686-3396-4d1d-a034-f18178a08382"],
+              ],
+							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governor-General"],
+              ["FIB", "The separation of powers creates a system of b", "@alances", "and c", "@hecks"],
+							["DL", "Chapter II of the Constitution establishes the ", "Legislature", "Executive", "Judiciary"],
+							["SC", "The separation of powers ensures that one branch does not hold all the power. This is an example of a system of:", "Checks", "Balances"],
+							["FIB", "(hint: Don't forget capital letters) The Australian Constitution separates power amongst three branches of government.
+							They are the: L", "@egislature", "E", "@xecutive", "and", "@Judiciary"],
+							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
+							
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.3.png?alt=media&token=d0a50312-8a68-496e-8a4c-eda45d0bfd8a"],
+              ],
+							
+							["CLP", "Click the box that interprets the Law", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.5.png?alt=media&token=b1a0f944-9c6f-4b08-8d0a-b6f63ca962f3"],
+							],
+							["TH", 
+                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.6.png?alt=media&token=41e5c233-e27a-469f-acff-7093a1301264"],
+							],
+							["SC", "The Executive consists of the Governor-General and the", "Federal Executive Council", "Lower House", "Senate"],
+							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
+							["MC", "Choose one or more of the following options. Royal assent is:", "Needed for a Bill to be passed into legislation", 
+							"Given directly by the Queen", "Given by the Executive", "Given by the Governor-General"],
+							["FIB", "With regards to the law, the main role of the Executive is to e", "@nact", " the law"],
+							["TF", "A bill is a proposed law, True or False?"],
+							["CLP", "Click the box that represents the Executive", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							["DL", "The Governor-General is appointed by the:", "Election", "Queen", "Prime Minister"],
+							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
+							["CLP", "Click the box that represents the Legislature", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
+							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
+							
+							
+							]
+							
+          @answer = ["The Constitution", ["alances", "hecks"], "Executive", "Balances", ["egislature", "xecutive", "Judiciary"], "True", "option-3", "Federal Executive Council",
+						"False", ["Needed for a Bill to be passed into legislation", "Given by the Governor-General"], "nact", "True", "option-2", "Queen", "True", "option-1"]        
+          @question = [
+             	["SC", "Which of the following outlines the separation of powers in Australia?"],
+              ["FIB", "The separation of powers creates a system of"],
+							["DL", "Chapter II of the Constitution establishes the "],
+							["SC", "The separation of powers ensures that one branch does not hold all the power. This is an example of a system of:"],
+							["FIB", "(hint: Don't forget capital letters) The Australian Constitution separates power amongst three branches of government.
+							They are the: L"],
+							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
+							["CLP", "Click the box that represents the Judiciary"],
+							["SC", "The Executive consists of the Governor-General and the"],
+							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
+							["MC", "Choose one or more of the following options. Royal assent is:"],
+							["FIB", "With regards to the law, the main role of the Executive is to e"],
+							["TF", "A bill is a proposed law, True or False?"],
+							["CLP", "Click the box that represents the Executive"],
+							["DL", "The Governor-General is appointed by the:"],
+							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
+							["CLP", "Click the box that represents the Legislature"],
 							]
 					end
 						
