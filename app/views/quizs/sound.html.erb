@@ -240,6 +240,9 @@
       event.preventDefault();
       $('a#change1').addClass("active");
     });
+    $('a.next:eq(-2)').click(function() {
+      $('button[type="submit"]').removeAttr('disabled');
+    });
     $('a#next').last().attr('disabled', 'disabled');
     $('a#next').last().click(function(event){
       event.preventDefault();
