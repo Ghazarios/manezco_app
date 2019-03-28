@@ -15,6 +15,7 @@ $(document).ready ->
         color: '#4173a7'
       }, 500
     return
+  
       
 @mark = (question_list) ->
   if check(question_list)

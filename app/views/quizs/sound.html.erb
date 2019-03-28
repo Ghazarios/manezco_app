@@ -261,14 +261,16 @@
       $('button[type="submit"]').removeAttr('disabled');
     })
     
-    var maps = document.querySelectorAll('.map');
-    maps.forEach((map) => {
-      var highlighter = new ImageMapHighlighter(map, {
-          strokeColor: 'ff0000',
-          fill: true,
-          fillColor: '00ff00'
+    setTimeout(function (){
+      var maps = document.querySelectorAll('.map');
+      maps.forEach((map) => {
+        var highlighter = new ImageMapHighlighter(map, {
+            strokeColor: 'ff0000',
+            fill: true,
+            fillColor: '00ff00'
+        });
+        highlighter.init();
       });
-      highlighter.init();
-    });
+    }, 1000);
   });
 </script>
