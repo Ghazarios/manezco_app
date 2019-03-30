@@ -258,16 +258,19 @@
       $('button[type="submit"]').removeAttr('disabled');
     })
     
-    setTimeout(function (){
-      var maps = document.querySelectorAll('.map');
-      maps.forEach((map) => {
-        var highlighter = new ImageMapHighlighter(map, {
-            strokeColor: 'ff0000',
-            fill: true,
-            fillColor: '00ff00'
-        });
-        highlighter.init();
+    var maps = document.querySelectorAll('.map');
+    maps.forEach((map) => {
+      var highlighter = new ImageMapHighlighter(map, {
+          strokeColor: 'ff0000',
+          fill: true,
+          fillColor: '00ff00'
       });
-    }, 1000);
+      highlighter.init();
+    });
+    
+    console.log($("canvas:eq(0)").attr('height'));
+    if ($("canvas:first").attr('height') == 0){
+      location.reload();
+    };
   });
 </script>
