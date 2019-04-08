@@ -198,8 +198,8 @@
 
         <!-- Back and Next Buttons -->
         <li class="nav nav-item">
-          <a id="back" class='nav-link btn btn-warning' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
-          <a id="next" class='nav-link btn btn-info' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
+          <a class='nav-link btn btn-warning back' onclick="change(<%= b %>)" href='<%="#content#{b}"%>' data-toggle="tab">Back</a>
+          <a class='nav-link btn btn-info next' onclick="change(<%= n %>)" href='<%="#content#{n}"%>' data-toggle="tab">Next</a>
           <% b+=1%>
           <% n+=1%>
         </li>
@@ -236,13 +236,16 @@
     
     var last_num = $('ul.nav-tabs-xs li').length
     
-    $('a#back').first().attr('disabled', 'disabled');
-    $('a#back').first().click(function(event){
+    $('a.back').first().attr('disabled', 'disabled');
+    $('a.back').first().click(function(event){
       event.preventDefault();
       $('a#change1').addClass("active");
     });
-    $('a#next').last().attr('disabled', 'disabled');
-    $('a#next').last().click(function(event){
+    $('a.next:eq(-2)').click(function() {
+      $('button[type="submit"]').removeAttr('disabled');
+    });
+    $('a.next').last().attr('disabled', 'disabled');
+    $('a.next').last().click(function(event){
       event.preventDefault();
       $('a#change'+last_num).addClass("active");
     });
@@ -258,14 +261,17 @@
       $('button[type="submit"]').removeAttr('disabled');
     })
     
-    var maps = document.querySelectorAll('.map');
-    maps.forEach((map) => {
-      var highlighter = new ImageMapHighlighter(map, {
-          strokeColor: 'ff0000',
-          fill: true,
-          fillColor: '00ff00'
+    $( "img:last" ).load(function() {
+      console.log("image loaded")
+      var maps = document.querySelectorAll('.map');
+      maps.forEach((map) => {
+        var highlighter = new ImageMapHighlighter(map, {
+            strokeColor: 'ff0000',
+            fill: true,
+            fillColor: '00ff00'
+        });
+        highlighter.init();
       });
-      highlighter.init();
     });
   });
 </script>
