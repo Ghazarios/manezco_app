@@ -183,7 +183,7 @@ class QuizsController < ApplicationController
     end
   
       def geometry
-        @subjects = ["Test", "Test2"]
+        @subjects = []
         @title = "Geometry"
       end
       
