@@ -93,10 +93,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            // Create a container element and move the image element as well as
 	            // our shiny new canvas into it.
-	            var container = this._createContainerFor(this.element);
-	            this.element.parentNode.insertBefore(container, this.element);
+              var container = this._createContainerFor(this.element);
+              this.element.parentNode.insertBefore(container, this.element);
 	            container.appendChild(this.element);
-                container.insertBefore(canvas, this.element);
+              container.insertBefore(canvas, this.element);
                 
 	            /* if (this.options.alwaysOn) {
 	                for (var i = 0; i < map.areas.length; i++) {
