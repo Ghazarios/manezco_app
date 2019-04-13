@@ -32,7 +32,6 @@ $(document).ready ->
 
 @check = (question_list) -> #Check if questions are all answered
   unanswered = []
-  sort = 1
   $.each question_list, (key, type) ->
     location = key + 1
     if type.indexOf('check') >= 0 #Checkboxes
@@ -41,12 +40,14 @@ $(document).ready ->
           selected.push $(this).val()
       if selected.length == 0
         unanswered.push location
+        answer.push ""
       else
         answer.push(selected)
     else if type.indexOf('answer') >= 0 #Single choice radio button
       radio = $('input[name=' + type + ']:checked').val()
       if typeof radio == 'undefined'
         unanswered.push location
+        answer.push ""
       else
         answer.push(radio)
     else if type instanceof Array #Multiple FIBs
@@ -59,10 +60,12 @@ $(document).ready ->
         answer.push(fib)
       else
         unanswered.push location
+        answer.push ""
     else if type.indexOf('image') >= 0 #Image-maps
       selected = $('map[name=' + type + '] area[selected=selected]').attr('title')
       if typeof selected == 'undefined'
         unanswered.push location
+        answer.push ""
       else 
         answer.push(selected)
     else if type.indexOf('sortable') >= 0 #Sortable
@@ -78,11 +81,24 @@ $(document).ready ->
       console.log array
       if array.indexOf('') != -1
         unanswered.push location
+        answer.push ""
       else
-        answer.push(array)
+        answer.push array
+    else if type.indexOf('drag') >= 0 #Draggable
+      array = []
+      drags = $('#' + type).nextUntil("li", "div")
+      $.each drags, (key, value) ->
+        if $(this).data('dropped')
+          array.push($(this).data('area'))
+      if drags.length == array.length
+        answer.push array
+      else
+        unanswered.push location
+        answer.push ""
     else #True or false, dropdown
       if typeof $("#"+type).val() == 'undefined' or $("#"+type).val() == ""
         unanswered.push location
+        answer.push ""
       else
         answer.push($("#"+type).val())
   highlightUnanswered(unanswered)

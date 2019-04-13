@@ -194,6 +194,20 @@
           <% end %>
 	      </ul>
         <% question_list.push("sortable") %>
+      <% when "DRAG"%>
+      <p> <%=index[1]%> </p>
+        <% m = 2 %>
+        <% size = (index.count-3)/12 %>
+        <div id="drag<%=j%>" class="row justify-content-around">
+        <% until m == index.count-1 do %>
+          <div id="<%=index[m]%>" class="col-md-3 text-center rounded ui-widget-header droppable" style="height: 250px"> <%=index[m]%> </div>
+          <% m+=1 %>
+        <% end %>
+        </div>
+        <% index[-1].each do |drag| %>
+          <div id="<%=drag%>" class="drag"><%=drag%></div>
+        <% end %>
+        <% question_list.push("drag#{j}") %>
       <% end %>
 
         <!-- Back and Next Buttons -->
@@ -262,7 +276,6 @@
     })
     
     $( "img:last" ).load(function() {
-      console.log("image loaded")
       var maps = document.querySelectorAll('.map');
       maps.forEach((map) => {
         var highlighter = new ImageMapHighlighter(map, {
@@ -272,6 +285,21 @@
         });
         highlighter.init();
       });
+    });
+    
+    $( ".drag" ).draggable({
+      revert: false,
+      start: function(event, ui) {
+          ui.helper.data('dropped', false);
+      }
+    });
+    $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        var area = $( this ).attr("id");
+        $( this ).addClass( "ui-state-highlight" );
+        ui.helper.data('dropped', true);
+        ui.draggable.data( "area", area );
+      }
     });
   });
 </script>
