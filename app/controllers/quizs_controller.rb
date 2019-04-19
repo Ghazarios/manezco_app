@@ -199,8 +199,8 @@ class QuizsController < ApplicationController
 					@title = "Index Powers"
           @contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2FMath1.png?alt=media&token=be79edee-c361-4e17-913b-7bf2802b0f06"], 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.1.2.png?alt=media&token=1a8095f7-d3de-4799-8914-4a437788f770"] 
+                ["img", "maths/year7/number_algebra/index.1.png"], 
+                ["img", "maths/year7/number_algebra/index.2.png"] 
               ], 
 							
               ["FIB", "What is 4[sup]2[/sup]?", "@16"],
@@ -239,10 +239,10 @@ class QuizsController < ApplicationController
 					@title = "Prime Numbers 1"
           @contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.2.1.png?alt=media&token=902f045d-cd5c-4674-a5b1-663d5cf1470f"],
+                ["img", "maths/year7/number_algebra/primenumber.1.png"],
               ], 
 							["TH",
-								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.2.2.png?alt=media&token=6ad4b7b5-f942-431e-851d-ebaeb485fd45"]
+								["img", "maths/year7/number_algebra/primenumber.2.png"]
 							],
 							
               ["TF", "17 is a Prime Number"],
@@ -280,10 +280,9 @@ class QuizsController < ApplicationController
 					@title = "Prime Factors 1"
           @contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.3.1.png?alt=media&token=3f477da7-1716-447b-825a-de9c7ef2bbfe"],
-              ], 
+                ["img", "maths/year7/number_algebra/primefactor.1.png"], 
 							["TH",
-								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F7%2Fnumber%20and%20algebra%2F7.3.2.png?alt=media&token=7853e92a-25b6-4d45-9ba9-cb8173272555"]
+								["img", "maths/year7/number_algebra/primefactor.2.png"]
 							],
 						
 							["OV", "For the following questions; represent the whole numbers as products of powers of prime numbers:"],
@@ -346,11 +345,11 @@ class QuizsController < ApplicationController
 					@title = "Rational numbers"
           @contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.1.png?alt=media&token=091ba272-44d4-430d-bb2c-099ffc1326fc"],
+                ["img", "maths/year8/number_algebra/rational.1.png"],
               ], 
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/maths%2F8%2FNumber%20and%20Algebra%2FRational%20numbers%2F8.1.2.png?alt=media&token=a61ba89a-2759-4ed3-9dbd-21ed3d19e849"],
-              ],
+                ["img", "maths/year8/number_algebra/rational.2.png"],
+							],
 							["OV", "Answer the following questions without a calculator:"],
               ["FIB", "What is 4 x 5?", "@20"],
 							["FIB", "What is 2 + -9?", "@-7"],
@@ -435,7 +434,7 @@ class QuizsController < ApplicationController
               ["SC", "Which sentence is correct?", "earthquakes shake Japan regularly.", "Earthquakes shake japan regularly.", "Earthquakes shake Japan regularly."],
 						
               ["TH",
-								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/english%2F7%2Fpunctuation%2F7.1.1.png?alt=media&token=0d6b7d4e-18ba-4b31-a1f2-97f2ead4d7a9"]
+								["img", "english/year7/punctuation/punctuation.1.png"],
 							],
 							["OV", "Practice 2: Correct the following sentences with proper grammar and punctuation:"],
 							
@@ -508,16 +507,16 @@ class QuizsController < ApplicationController
 						@title = "Environmental Resources"
           	@contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2F7.1.1.png?alt=media&token=20c2381b-f767-4734-bb8f-1826a0efee09"],
+                ["img", "hass/year7/geography/enviro.1.png"],
               ], 
 							["TF", "Resources are things that can be used to sustain and improve life."],
               ["TF", "Anything man made or built by humans is not considered a ‘natural’ resource."],
 							["SC", "What is NOT a major category of resource?", "a. Natural", "b. Relgious", "c. Political", "d. b and c"],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2Fenviro%20resources%2F7.1.2.png?alt=media&token=32d5f73a-8820-4b4f-b4ba-836c51e05536"],
+                ["img", "hass/year7/geography/enviro.2.png"],
               ],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2Fenviro%20resources%2F7.1.3.png?alt=media&token=85a5e0cd-a95a-435e-834d-dbd7f04de8e4"],
+                ["img", "hass/year7/geography/enviro.3.png"],
               ],
               ["TF", "Examples of ‘flow’ resources include mined minerals."], 
               ["SC", "Gold is only available in certain regions of earth. What resource would gold be?", "Cyclic", "Localised", "Flow", "Biotic"],
@@ -527,7 +526,7 @@ class QuizsController < ApplicationController
 							["SC", "Sand can be considered as:", "a. Something that has an organic chemical composition", "b. Of biotic origin", "c. a and b",
 							"d. None of the above"],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2Fenviro%20resources%2F7.1.4.png?alt=media&token=596801f6-e528-453d-9f48-7e5b38e85b46"],
+                ["img", "hass/year7/geography/enviro.4.png"],
               ],
 							["TF", "All resources on earth ARE renewable."],
 							["DL", "Fossil Fuels are", "finite", "infinite", "perpetual", "None of the above"],
@@ -543,7 +542,7 @@ class QuizsController < ApplicationController
 							"They renew every season"],
 							["DD", "Order the following in order of: Renewable, Potentially Renewable, Non-Renewable", "Fossil Fuels", "Sun light", "Trees"],
 							["TH", 
-								["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fgeography%2Fenviro%20resources%2F7.1.5.png?alt=media&token=e600f236-8919-467c-bd04-c1baff061691"],
+								["img", "hass/year7/geography/enviro.5.png"],
 							],
 							["FIB", "Based on the theory you just read, it can be assumed that people in the past thought that environmental resources were:",
 							"@infinite", "in their amount."],
@@ -597,10 +596,10 @@ class QuizsController < ApplicationController
 						@title = "Government and Democracy"
           	@contents = [
               ["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.1.png?alt=media&token=42659873-b77f-4b2f-8a84-3a9350951c07"],
+                ["img", "hass/year7/geography/gov1.png"],
               ],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.2.png?alt=media&token=ec287686-3396-4d1d-a034-f18178a08382"],
+                ["img", "hass/year7/geography/gov2.png"],
               ],
 							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governor-General"],
               ["FIB", "The separation of powers creates a system of b", "@alances", "and c", "@hecks"],
@@ -611,16 +610,16 @@ class QuizsController < ApplicationController
 							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
 							
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.3.png?alt=media&token=d0a50312-8a68-496e-8a4c-eda45d0bfd8a"],
+                ["img", "hass/year7/geography/gov3.png"],
               ],
 							
 							["CLP", "Click the box that interprets the Law", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
 							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.5.png?alt=media&token=b1a0f944-9c6f-4b08-8d0a-b6f63ca962f3"],
+                ["img", "hass/year7/geography/gov5.png"],
 							],
 							["TH", 
-                ["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.6.png?alt=media&token=41e5c233-e27a-469f-acff-7093a1301264"],
+                ["img", "hass/year7/geography/gov6.png"],
 							],
 							["SC", "The Executive consists of the Governor-General and the", "Federal Executive Council", "Lower House", "Senate"],
 							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],
