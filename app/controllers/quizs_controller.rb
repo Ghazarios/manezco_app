@@ -280,9 +280,10 @@ class QuizsController < ApplicationController
 					@title = "Prime Factors 1"
           @contents = [
               ["TH", 
-                ["img", "maths/year7/number_algebra/primefactor.1.png"], 
+                ["img", "maths/year7/number_algebra/primefactor.1.png"],
+							],
 							["TH",
-								["img", "maths/year7/number_algebra/primefactor.2.png"]
+								["img", "maths/year7/number_algebra/primefactor.2.png"],
 							],
 						
 							["OV", "For the following questions; represent the whole numbers as products of powers of prime numbers:"],
@@ -309,7 +310,7 @@ class QuizsController < ApplicationController
 							"d.	It is an  ancient  algorithm to find Prime Numbers that uses abacus"]
 							]
           @answer = ["False", "2<sup>2</sup> x 3", "4<sup>2</sup>", "2^2 x 7", "True", ["2", "3"],"61", ["2", "17"],
-										"False", "101",["3", "13"], "2 x 3 x 5<sup>3</sup>", "2<sup>3</sup> x 5<sup>3</sup>", "7", ["2<sup>4</sup>", "3", "5<sup>3</sup>"]]        
+										"False", "101", ["3", "13"], "2 x 3 x 5<sup>3</sup>", "2<sup>3</sup> x 5<sup>3</sup>", "7", ["2<sup>4</sup>", "3", "5<sup>3</sup>"],]        
           @question = [
               ["TF", "8 as a prime factor would be 4<sup>2</sup>"],
               ["SC", "12 as a prime factor would be:"],
