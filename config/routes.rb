@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get 'welcome/profile'
   get '/user/notifications' => 'users#notifications'
   get '/user/support' => 'users#support'
   get '/user/profile' => 'users#profile'

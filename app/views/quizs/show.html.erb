@@ -1,19 +1,89 @@
-<div class='container'>
-    <h1>Your Quiz Scores</h1>
-    <div class='container'>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Score</th>
-            <th>Date Taken</th>
-        </tr>
-        <% @score.each do |mark| %>
-        <tr>
-            <td><%= mark.quiz %></td>
-            <td><%= mark.mark %></td>
-            <td><%= mark.created_at %></td>
-        </tr>
-        <% end %>
-    </table>
-    </div>
+<%= content_for :js_libs, "modernizr gmaps flot chartjs demo-dashboard demo-chartjs demo-sparklines demo-easypiechart" %>
+<div style="width: 100%">
+	<%= render partial: 'content_blocks/app_navs/4' %>
 </div>
+<br>
+<div class="container-fluid">
+  <div class="row equal-rows">
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card d-flex card-full-height">
+        <div class="card-header">
+          <h6>Term completion</h6>
+        </div>
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <div class="quota-alert">
+            <div class="js-pie-chart pie-chart" data-percent="90" data-line-width="4" data-size="120" data-bar-color="green" data-track-color="#e9e9e9">
+              <div class="pie-chart-value">
+                <span>90%</span>
+              </div>
+            </div>
+            <p>You've nearly finished the entire term!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card card-full-height m-0">
+        <div class="card-header">
+          <h6>Subject performance</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex align-items-center">
+            <div class="mr-auto d-flex align-items-center">
+              <%= theme_icon_tag "user", class: "m-0 mr-4 h4 text-muted" %> English
+            </div>
+            <span class="spark-bar-1" sparkBarHeight="40" sparkBarColor="green">12,23,19,18,12,2,33,12</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="mr-auto d-flex align-items-center">
+              <%= theme_icon_tag "power-off", class: "m-0 mr-4 h4 text-muted" %> Maths
+            </div>
+            <span class="spark-bar-1" sparkBarHeight="40" sparkBarColor="red">100,23,231,18,12,2,33,12</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <div class="mr-auto d-flex align-items-center">
+              <%= theme_icon_tag "heart", class: "m-0 mr-4 h4 text-muted" %> HaSS
+            </div>
+            <span class="spark-bar-1" sparkBarHeight="40" sparkBarColor="lightblue">1,3,9,8,2,2,3,1</span>
+          </li>
+
+          <li class="list-group-item d-flex align-items-center">
+            <div class="mr-auto d-flex align-items-center">
+              <%= theme_icon_tag "pulse", class: "m-0 mr-4 h4 text-muted" %> Science
+            </div>
+            <span class="spark-bar-1" sparkBarHeight="40" sparkBarColor="orange">5,4,4,3,6,7,4,4</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 d-flex flex-column justify-content-between mb-3">
+      <div class="card card-tile-hero inspectable">
+        <div class="card-header text-center">
+          <i class="ti-crown display-3 text-brand-primary-lightest"></i>
+        </div>
+        <div class="card-body text-center">
+          <small>BADGES EARNED</small>
+          <h3 class="m-0 leading-normal">4</h3>
+        </div>
+      </div>
+      <div class="card card-tile-hero mb-0 inspectable">
+        <div class="card-header text-center">
+          <i class="ti-book display-3 text-brand-primary-lightest"></i>
+        </div>
+        <div class="card-body text-center">
+          <small>QUIZZES COMPLETED THIS MONTH</small>
+          <h3 class="m-0 leading-normal">8</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+	<br>
+	<h4>
+		Your Quiz Scores
+	</h4>
+	<%= render partial: 'partials/most_active_users' %>	
+</div>
+
+
