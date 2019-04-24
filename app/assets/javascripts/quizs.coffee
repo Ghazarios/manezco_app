@@ -53,9 +53,13 @@ $(document).ready ->
     else if type instanceof Array #Multiple FIBs
       fib = []
       $.each type, (key, value) ->
-        content = $("#"+type[key]).val()
+        texts = $('#' + value + ', ' + '#' + type[key+1]).map(->
+          @previousSibling.nodeValue
+        )
+        char = texts[0].replace(/\s+/g, '').slice(-1)
+        content = $('#' + value).val()
         if content.length != 0
-          fib.push content
+          fib.push char + content
       if type.length == fib.length
         answer.push(fib)
       else
@@ -78,7 +82,6 @@ $(document).ready ->
       input = $('.' + type).find('input')
       $.each input, (key, value) ->
         array.push($(value).val())
-      console.log array
       if array.indexOf('') != -1
         unanswered.push location
         answer.push ""
@@ -95,12 +98,24 @@ $(document).ready ->
       else
         unanswered.push location
         answer.push ""
+    #else if type.indexOf('word') >= 0 #Capitalized words
     else #True or false, dropdown
-      if typeof $("#"+type).val() == 'undefined' or $("#"+type).val() == ""
-        unanswered.push location
-        answer.push ""
-      else
-        answer.push($("#"+type).val())
+      content = $("#"+type).val()
+      if (type.indexOf('fib') >= 0)#Single FIB
+        string = ($('#' + type).parent().html().replace(/\s+/g, ''))
+        location = string.indexOf('<')
+        char = string.charAt(location - 1)
+        if typeof content == 'undefined' or content == ""
+          unanswered.push location
+          answer.push ""
+        else
+          answer.push(char + content)
+      else 
+        if typeof content == 'undefined' or content == ""
+          unanswered.push location
+          answer.push ""
+        else
+          answer.push(content)
   highlightUnanswered(unanswered)
   return unanswered.length == 0
 
