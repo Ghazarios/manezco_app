@@ -2,7 +2,52 @@
 <div style="width: 100%">
 	<%= render partial: 'content_blocks/app_navs/4' %>
 </div>
-<div class="profile-header jumbotron  d-flex align-items-center justify-content-center flex-column pb-0">
-<img src="<%=asset_path('profile_placeholder.png')%>" alt="manezco character" style="width:525px;height:750px;">  <h2 class="m-0 mb-2">User <%= current_user.email %></h2>
+<br>
+<br>
+<div class="d-flex align-items-center justify-content-center  pb-0">
+<h2 class="m-0 mb-2">User <%= current_user.email %></h2>
 </div>
+
+<div class="d-flex align-items-center justify-content-center  pb-0">
+<img src="<%=asset_path('profile_placeholder.png')%>" alt="manezco character" style="width:525px;height:750px;">
+    <div class="col-10 col-md-2 d-flex flex-column justify-content-between mb-3">
+      <div class="card card-tile-hero inspectable">
+        <div class="card-header text-center">
+          <i class="ti-crown display-3 text-brand-primary-lightest"></i>
+        </div>
+        <div class="card-body text-center">
+          BADGES EARNED
+          <h3 class="m-0 leading-normal">4</h3>
+        </div>
+      </div>
+      <div class="card card-tile-hero inspectable">
+        <div class="card-header text-center">
+          <i class="ti-book display-3 text-brand-primary-lightest"></i>
+        </div>
+        <div class="card-body text-center">
+          QUIZZES COMPLETED 
+          <h3 class="m-0 leading-normal">8</h3>
+        </div>
+      </div>
+			<div class="card card-tile-hero inspectable">
+       <div class="card-header text-center">
+         <i class="ti-shine display-3 text-brand-primary-lightest"></i>
+       </div>
+       <div class="card-body text-center">
+        ELEMENT
+         <h3 class="m-0 leading-normal">FIRE</h3>
+       </div>
+      </div>
+			<div class="card card-tile-hero inspectable">
+       <div class="card-header text-center">
+         <i class="ti-key display-3 text-brand-primary-lightest"></i>
+       </div>
+       <div class="card-body text-center">
+         EQUIPPED ITEM 
+         <h3 class="m-0 leading-normal">Oak Wand</h3>
+       </div>
+      </div>
+    </div>
+</div>
+
 

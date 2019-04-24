@@ -240,7 +240,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #e3f0fc;
 }
 
 div.tab-pane.fade {
