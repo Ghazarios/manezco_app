@@ -208,6 +208,12 @@
           <div id="<%=drag%>" class="drag"><%=drag%></div>
         <% end %>
         <% question_list.push("drag#{j}") %>
+      <% when "WORD"%>
+        <p><%=index[1]%></p>
+        <% words = "words" %>
+        <% words = "multi_words" if index[3] == "multi" %>
+        <p class='<%=words%>'><%=index[2]%></p>  
+        <% question_list.push("word#{j}") %>
       <% end %>
 
         <!-- Back and Next Buttons -->
@@ -300,6 +306,15 @@
         ui.helper.data('dropped', true);
         ui.draggable.data( "area", area );
       }
+    });
+    
+    $(".words, .multi_words").lettering('words');
+    $(".words span").click(function(){
+      $(this).addClass('selected');
+      $(this).siblings().removeClass('selected');
+    });
+    $(".multi_words span").click(function() {
+      $(this).toggleClass( 'selected' );
     });
   });
 </script>
