@@ -77,15 +77,15 @@ class QuizsController < ApplicationController
               ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
               ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png",
 								"117,9,175,237", "365,15,413,240"], 
-              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed", ", and c", "@reated"],
+              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "https://i.ibb.co/5nKDQcG/FIBImage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
-							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]],
-							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
-          		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
+							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]]
+							#["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
+          		#["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
           @answer = ["True", "Vibrations", "medium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
-						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed", "created"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", "I, Tom"]        
+						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", "I, Tom"]        
           @question = [
               ["TF", "Sound cannot travel through a vacuum. True or False?"],
               ["DL", "Sound is an effect caused by _______."], 

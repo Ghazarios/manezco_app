@@ -19,7 +19,10 @@
     $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><p id='correct_answer_" + index + "'></p></div>");
   });
   $("div.card").append("<a id='redo_test' href=''>Redo Test </a>")
-  $("div.card").append("<a id='scores' href=''> See Scores</a>")
+  $("div.card").append("<a id='scores' href='/welcome/score'> See Scores</a>")
+  
+  console.log(sessvars.myAnswer.userAnswer);
+  
   if (Array.prototype.equals) {
     console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.');
   }
@@ -37,36 +40,40 @@
     while (i < l) {
       if (this[i] instanceof Array && array[i] instanceof Array) {
         j = 0;
-        if (this[i].length !== array[i].length) {
+        if (this[i].length !== array[i].length) { //Check length of user answer is same with correct answer
           wrong_answer.push(i + 1);
           output = array[i].join(', ')
           $('#user_answer_' + (i + 1)).html(output);
           $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
           correct = false;
-        } else {
+        } 
+        else 
+        {
           while (j < this[i].length) {
             if (this[i][j] !== array[i][j]) {
-              if (jQuery.inArray(i + 1, "wrong_answer")) {
-                wrong_answer.push(i + 1);
-              }
               correct = false;
               output = array[i].join(', ');
               $('#user_answer_' + (i + 1)).html(output);
               $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
-            } else {
-              output = array[i].join(', '); 
-              $('#user_answer_' + (i + 1)).html(output);
-              $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
             }
             j++;
           }
+          if (correct) {
+            output = array[i].join(', ');
+            $('#user_answer_' + (i + 1)).html(output);
+            $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
+          }
         }
-      } else if (this[i] !== array[i]) {
+      } 
+      else if (this[i] !== array[i])
+      { 
         $('#user_answer_' + (i + 1)).html(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='incorrect'>Unlucky!</span>");
         wrong_answer.push(i + 1);
         correct = false;
-      } else {
+      } 
+      else 
+      {
         $('#user_answer_' + (i + 1)).html(array[i]);
         $('#user_answer_' + (i + 1)).append(" <span class='correct'>Correct!</span>");
       }
@@ -112,14 +119,10 @@
        alert('Error');
       }
     });
-  }
+  };
+  
   $('#redo_test').click(function() {
     sessvars.$.clearMem();
-    window.history.back();
-  });
-  
-  $('#scores').click(function() {
-    sessvars.$.clearMem();
-    window.location.href = "/welcome/score";
+    window.location.href = document.referrer;
   });
 </script>

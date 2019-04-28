@@ -93,11 +93,9 @@ $(document).ready ->
       $.each drags, (key, value) ->
         if $(this).data('dropped')
           array.push($(this).data('area'))
-      if drags.length == array.length
-        answer.push array
-      else
+      answer.push array
+      if drags.length != array.length
         unanswered.push location
-        answer.push ""
     #else if type.indexOf('word') >= 0 #Capitalized words
     else #True or false, dropdown
       content = $("#"+type).val()

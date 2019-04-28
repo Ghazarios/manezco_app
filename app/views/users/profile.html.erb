@@ -2,7 +2,8 @@
 <div style="width: 100%">
 	<%= render partial: 'content_blocks/app_navs/4' %>
 </div>
-<div class="profile-header jumbotron  d-flex align-items-center justify-content-center flex-column pb-0">
-<img src="<%=asset_path('profile_placeholder.png')%>" alt="manezco character" style="width:525px;height:750px;">  <h2 class="m-0 mb-2">User <%= current_user.email %></h2>
+<div class="profile-header d-flex flex-column pb-0">
+<img src="<%=asset_path('profile_placeholder.png')%>" alt="manezco character" style="float:right; width:525px;height:750px;">  
+<h2 class="m-0 mb-2" style="float:left">User <%= current_user.email %></h2>
 </div>
 
