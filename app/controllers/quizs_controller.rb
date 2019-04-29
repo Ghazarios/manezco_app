@@ -49,11 +49,11 @@ class QuizsController < ApplicationController
 							and other things that would help us understand them better."],
               ["TH", "Many forms of energy travel in waves, which have different wavelength, amplitude, and frequency. Light and sound both travel in waves.
 							Below is a diagram outlining the properties of waves:", 
-                ["img", "https://i.ibb.co/Yj6NPxN/Theory1.png"], 
+                ["img", "science/physics/sound/theory1.png"], 
                 "As you can see, Amplitude is the length of the ‘peak’ from the middle point, whereas the Wavelength is the distance between wave ‘peaks’.
 								Frequency measures how many ‘peaks’ pass through a point over 1 second, so shorter wavelengths would have more peaks passing through than
 								longer waves.",
-                ["img", "https://i.ibb.co/pRNFbMc/Theory2.png"],
+                ["img", "science/physics/sound/theory2.png"],
                 "Sound is a form of kinetic energy produced by vibrations, these vibrations cause a chain reaction of more vibrations, carrying the
 								soundwaves away from the source – until all the initial energy is gone. If you whack a hammer on a piece of metal,
 								the metal is going to vibrate, the air around the metal will also start to vibrate, eventually the air around your ears will vibrate
@@ -73,13 +73,13 @@ class QuizsController < ApplicationController
 							"Form of Electrical Energy", "Wave-like", "Requires a medium", "Unable to travel through space", "Never-ending"],
               ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength,
 							Acceleration, Frequent"],
-              ["SCP", "Click the wave that has a low Frequency:", "https://image.ibb.co/ekLEaV/picture1.png", "https://image.ibb.co/jzOp9q/picture2.png"],
-              ["CLP", "Click the colored line that is measuring the Amplitude:","https://i.ibb.co/87F7HCV/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
-              ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "https://i.ibb.co/F4zvqjM/picture-question.png",
+              ["SCP", "Click the wave that has a low Frequency:", "science/physics/sound/picture1.png", "science/physics/sound/picture2.png"],
+              ["CLP", "Click the colored line that is measuring the Amplitude:","science/physics/sound/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
+              ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "science/physics/sound/picture-question.png",
 								"117,9,175,237", "365,15,413,240"], 
               ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
-              ["PIC", "Fill in the blanks: ", "https://i.ibb.co/5nKDQcG/FIBImage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
+              ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
 							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]]
 							#["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
           		#["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
@@ -599,10 +599,10 @@ class QuizsController < ApplicationController
 						@title = "Government and Democracy"
           	@contents = [
               ["TH", 
-                ["img", "hass/year7/geography/gov1.png"],
+                ["img", "hass/year7/civics/gov1.png"],
               ],
 							["TH", 
-                ["img", "hass/year7/geography/gov2.png"],
+                ["img", "hass/year7/civics/gov2.png"],
               ],
 							["SC", "Which of the following outlines the separation of powers in Australia?", "The Constitution", "Royal Assent", "The Governor-General"],
               ["FIB", "The separation of powers creates a system of b", "@alances", "and c", "@hecks"],
@@ -613,16 +613,16 @@ class QuizsController < ApplicationController
 							["TF", "Having shadow ministers analyse and critique proposed laws is an example of the system of 'Checks'"],
 							
 							["TH", 
-                ["img", "hass/year7/geography/gov3.png"],
+                ["img", "hass/year7/civics/gov3.png"],
               ],
 							
 							["CLP", "Click the box that interprets the Law", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/hass%2F7%2Fcivics%20and%20citizenship%2F7.1.4.png?alt=media&token=65b96e9f-e87d-41f3-9f3f-9cc034406295",
 							"58,329,233,393", "356,329,536,390", "659,485,899,549"],
 							["TH", 
-                ["img", "hass/year7/geography/gov5.png"],
+                ["img", "hass/year7/civics/gov5.png"],
 							],
 							["TH", 
-                ["img", "hass/year7/geography/gov6.png"],
+                ["img", "hass/year7/civics/gov6.png"],
 							],
 							["SC", "The Executive consists of the Governor-General and the", "Federal Executive Council", "Lower House", "Senate"],
 							["TF", "The Governor-General appoints members of the Federal Executive Council, True or False?"],

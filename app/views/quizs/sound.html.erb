@@ -151,7 +151,7 @@
         <% until m == index.count do %>
           <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
                 <input type="radio" value="Answer <%=answer_num%>" name="answer<%=j%>">
-                <img src="<%=index[m]%>" alt="Answer <%=answer_num%>">      
+                <img src="<%=asset_path(index[m])%>" alt="Answer <%=answer_num%>">      
           </div>
           <% m+=1 %>
           <% answer_num+=1 %>
@@ -160,7 +160,7 @@
         <% question_list.push("answer#{j}") %>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
+        <img src="<%=asset_path(index[2])%>" usemap="#image-map<%=j%>" class="map">
         <map name="image-map<%=j%>">
           <% m = 3 %>
           <% option_num = 1 %>
@@ -181,7 +181,7 @@
             <input type="text" style="z-index:101; position:absolute; top:<%=coords[1]%>px; left:<%=coords[0]%>px; width:<%=width%>px;"/>
             <% m+=1 %>
           <% end %>
-          <img src="<%=index[2]%>"/>
+          <img src="<%=asset_path(index[2])%>"/>
         </div>
         <% question_list.push("pic#{j}") %>
       <% when "DD"%>
