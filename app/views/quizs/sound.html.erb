@@ -61,7 +61,7 @@
           <% if index[array_count].kind_of?(Array)%>
              <% case index[array_count][0]%>
              <% when "img" %>
-              <img src="<%=index[array_count][1]%>" alt="Theory <%=array_count%>"> 
+              <img src="<%=asset_path(index[array_count][1])%>" alt="Theory <%=array_count%>"> 
              <% when "li" %>
               <% count = 0 %>
               <ul>
