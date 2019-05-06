@@ -81,11 +81,11 @@ class QuizsController < ApplicationController
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
 							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]]
-							#["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
-          		#["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
+							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
+          		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
           @answer = ["True", "Vibrations", "medium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
-						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", "I, Tom"]        
+						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I, Tom"]]        
           @question = [
               ["TF", "Sound cannot travel through a vacuum. True or False?"],
               ["DL", "Sound is an effect caused by _______."], 
@@ -98,7 +98,9 @@ class QuizsController < ApplicationController
               ["FIB", "Sound can be r______ and a________"],
               ["DD", "Order the following from fastest to slowest Sound speed:"],
 							["PIC", "Fill in the blanks in the picture below"],
-							["DRAG", "Drag the boxes to the correct areas"]
+							["DRAG", "Drag the boxes to the correct areas"],
+              ["WORD", "Click on the word/s that needs to be capitalized"],
+              ["WORD", "Click on the word/s that needs to be capitalized"]
           ]
       end
 

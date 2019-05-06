@@ -96,7 +96,18 @@ $(document).ready ->
       answer.push array
       if drags.length != array.length
         unanswered.push location
-    #else if type.indexOf('word') >= 0 #Capitalized words
+    else if type.indexOf('word') >= 0 #Capitalized words
+      if $('#' + type).hasClass('multi_words')
+        array = []
+        $('#' + type + ' span.selected').each (index, multi_words) ->
+          string = $(this).text()
+          array.push string.charAt(0).toUpperCase() + string.slice(1)
+      else
+        text = $('#' + type + ' span.selected').text()
+        array = text.charAt(0).toUpperCase() + text.slice(1);
+      answer.push array
+      if array == "" or array.length == 0
+        unanswered.push location
     else #True or false, dropdown
       content = $("#"+type).val()
       if (type.indexOf('fib') >= 0)#Single FIB
