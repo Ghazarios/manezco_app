@@ -80,7 +80,7 @@ class QuizsController < ApplicationController
               ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
-							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]]
+							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]],
 							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
           		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]

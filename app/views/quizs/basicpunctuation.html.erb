@@ -212,7 +212,7 @@
         <p><%=index[1]%></p>
         <% words = "words" %>
         <% words = "multi_words" if index[3] == "multi" %>
-        <p class='<%=words%>'><%=index[2]%></p>  
+        <p id='word<%=j%>' class='<%=words%>'><%=index[2]%></p>  
         <% question_list.push("word#{j}") %>
       <% end %>
 
