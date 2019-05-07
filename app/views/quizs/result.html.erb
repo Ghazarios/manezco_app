@@ -121,8 +121,11 @@
     });
   };
   
-  $('#redo_test').click(function() {
+  $('a').click(function() {
     sessvars.$.clearMem();
+  });
+
+  $('#redo_test').click(function() {
     window.location.href = document.referrer;
   });
 </script>

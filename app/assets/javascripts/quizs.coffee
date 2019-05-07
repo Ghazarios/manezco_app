@@ -16,7 +16,6 @@ $(document).ready ->
       }, 500
     return
   
-      
 @mark = (question_list) ->
   if check(question_list)
       sessvars.myAnswer = {userAnswer: answer}
