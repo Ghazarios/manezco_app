@@ -271,3 +271,8 @@ div.tab-pane.fade {
 span.selected{
   color: #f00;
 }
+
+.form-control {
+  width:auto;
+  display:inline-block;
+}

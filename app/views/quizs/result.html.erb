@@ -108,18 +108,22 @@
     
     var name = sessvars.Header.header;
     var result = mark;
-    $.ajax({
-      url: "/mark",
-      type: "POST",
-      data: {quiz: name, mark: result},
-      success: function (data) {
-        console.log('Saved Successfully');
-      },
-      error:function(){
-       alert('Error');
-      }
-    });
+//     $.ajax({
+//       url: "/mark",
+//       type: "POST",
+//       data: {quiz: name, mark: result},
+//       success: function (data) {
+//         console.log('Saved Successfully');
+//       },
+//       error:function(){
+//        alert('Error');
+//       }
+//     });
+    console.log("Not yet deleted");
+    console.log(sessvars.Header.header);
     sessvars.$.clearMem();
+    console.log("Deleted");
+    console.log(sessvars.Header.header);
   };
 
   $('#redo_test').click(function() {
