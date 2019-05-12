@@ -52,13 +52,9 @@ $(document).ready ->
     else if type instanceof Array #Multiple FIBs
       fib = []
       $.each type, (key, value) ->
-        texts = $('#' + value + ', ' + '#' + type[key+1]).map(->
-          @previousSibling.nodeValue
-        )
-        char = texts[0].replace(/\s+/g, '').slice(-1)
-        content = $('#' + value).val()
+        content = $("#"+type[key]).val()
         if content.length != 0
-          fib.push char + content
+          fib.push content
       if type.length == fib.length
         answer.push(fib)
       else

@@ -81,8 +81,8 @@ class QuizsController < ApplicationController
 							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
           		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
-          @answer = ["True", "Vibrations", "medium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
-						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed", "created"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I", "Tom"]]        
+          @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
+						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed", "reated"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I", "Tom"]]        
           @question = [
               ["TF", "Sound cannot travel through a vacuum. True or False?"],
               ["DL", "Sound is an effect caused by _______."], 

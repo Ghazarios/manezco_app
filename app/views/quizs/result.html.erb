@@ -16,9 +16,9 @@
   $( "#header" ).prepend(sessvars.Header.header);
   $("div.card").prepend("<h3>You got: <span id='mark'></span> out of " + sessvars.Questions.questionList.length + "</h3>");
   sessvars.Questions.questionList.forEach(function (question, index){
-    $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><p id='correct_answer_" + index + "'></p></div>");
+    $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><br></div>");
   });
-  $("div.card").append("<a id='redo_test' href=''>Redo Test </a>")
+  $("div.card").append("<br><a id='redo_test' href=''>Redo Test </a>")
   $("div.card").append("<a id='scores' href='/welcome/score'> See Scores</a>")
   
   console.log(sessvars.myAnswer.userAnswer);
@@ -87,22 +87,7 @@
   
   var i;
   if (sessvars.myAnswer) {
-    sessvars.Answer.correctAnswer.equals(sessvars.myAnswer.userAnswer)
-    i = 0;
-    while (i < sessvars.Answer.correctAnswer.length) {
-      if ($("#user_answer_" + (i + 1)).text().indexOf('Unlucky!') > -1) {
-        if (sessvars.Answer.correctAnswer[i] instanceof Array)
-        {
-          output = sessvars.Answer.correctAnswer[i].join(', ');
-          $('#correct_answer_' + (i + 1)).html("Correct Answer: " + output);
-        }
-        else
-        {
-          $('#correct_answer_' + (i + 1)).html("Correct Answer: " + sessvars.Answer.correctAnswer[i]);
-        }
-      }
-      i++;
-    }
+    sessvars.Answer.correctAnswer.equals(sessvars.myAnswer.userAnswer);
     var mark = $("div.card").html().match(/correct!/gi).length;
     $("#mark").text(mark);
     
