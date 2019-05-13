@@ -5,13 +5,10 @@ class QuizsController < ApplicationController
       #2.Answer, which contains the answers in order
       #3.Question, which contains questions to be shown on the results page without overview and theory
       #4.Title which tells the quiz name
-    #The first 3 things above needs to be in an array
-
-
-  
-
-    def show #Show only current_user's scores
-        @score = Score.where(user: current_user)
+		#The first 3 things above needs to be in an array
+		
+    def show
+			@score = Score.where(user: current_user)
     end
   
   
@@ -24,9 +21,9 @@ class QuizsController < ApplicationController
     end
     
   
-     def result
-       @title = "Quiz Results"     
-     end
+		def result
+			@title = "Quiz Results"     
+		end
   
   
       #*SCIENCE*
@@ -77,15 +74,16 @@ class QuizsController < ApplicationController
               ["CLP", "Click the colored line that is measuring the Amplitude:","science/physics/sound/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
               ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "science/physics/sound/picture-question.png",
 								"117,9,175,237", "365,15,413,240"], 
-              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
+              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed", ", and c", "@reated"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
+
 							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]],
 							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
           		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
-          @answer = ["True", "Vibrations", "medium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
-						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["reflected", "absorbed"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I, Tom"]]        
+          @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
+						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed", "reated"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I", "Tom"]]        
           @question = [
               ["TF", "Sound cannot travel through a vacuum. True or False?"],
               ["DL", "Sound is an effect caused by _______."], 
@@ -99,9 +97,10 @@ class QuizsController < ApplicationController
               ["DD", "Order the following from fastest to slowest Sound speed:"],
 							["PIC", "Fill in the blanks in the picture below"],
 							["DRAG", "Drag the boxes to the correct areas"],
-              ["WORD", "Click on the word/s that needs to be capitalized"],
-              ["WORD", "Click on the word/s that needs to be capitalized"]
-          ]
+							["WORD", "Click on the word/s that needs to be capitalized"],
+							["WORD", "Click on the word/s that needs to be capitalized"]
+					]
+					render "sound"
       end
 
 		def earthscience
@@ -145,7 +144,8 @@ class QuizsController < ApplicationController
 						The Nazca and Arabian Plates are minor.", "The Australian, Nazca, and Pacific Plates are major.
 						The Caribbean and South American Plates are minor."],
 						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
-						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"]
+						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"],
+						["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
           @answer = ["c.	Large slabs of Crust rock that float on the Mantle", "False", "Crust", "option-2", "Continental and Oceanic",
 										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Antarctic, and Pacific Plates are major.
@@ -166,7 +166,8 @@ class QuizsController < ApplicationController
 						["DL", "Which of the following is true?"],
 						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
 						is touching any Plate boundaries/borders?"]
-          ]
+					]
+					render "sound"
 			end
       
   
@@ -236,7 +237,8 @@ class QuizsController < ApplicationController
 							["SC", "125 written as a power would be:"],	
 							["MC", "64 can be written as a power in a few different ways. Select all that apply:"],
 							["FIB", "3<sup>4</sup> is:"]              
-         		  ]
+							 ]
+					render "sound"
 				end
 	
 					def primenumbers1
@@ -276,7 +278,8 @@ class QuizsController < ApplicationController
 							["SC", "51 is:"],
 							["TF", "61 is a Prime Number"],
 							["MC", "63 isn't a Prime Number as it can be divided by:"]
-         		  ]
+							 ]
+					render "sound"
 				end
 	
 
@@ -333,7 +336,7 @@ class QuizsController < ApplicationController
 							["MC", "Click the prime factors that multiply with each other to form 6000"],
 							["SC", "What is the Sieve of Erastosthenes?"]
 							]
-         							
+					render "sound"						
 				end
 		
 		def year8
@@ -405,7 +408,7 @@ class QuizsController < ApplicationController
 							["FIB", "What is a a tenth of half? (answer in decimals)"],
 							["FIB", "What is Five times the product of two and three"],
 							]
-         							
+					render "sound"					
 				end
 #*ENGLISH*
 
@@ -481,7 +484,7 @@ class QuizsController < ApplicationController
 							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
 							["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'"]
          		  ]
-
+					render "sound"
 				end
 		
 
@@ -590,6 +593,7 @@ class QuizsController < ApplicationController
 							["TF", "Short term gains made by using up natural resources until depletion will positively effect the long term natural resources supply."],
 							["MC", "What will be the best plan for a country concerned with resource conservation and economic growth?"]
 							]
+						render "sound"
 					end
 				
 				def civics
@@ -663,19 +667,13 @@ class QuizsController < ApplicationController
 							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
 							["CLP", "Click the box that represents the Legislature"],
 							]
+						render "sound"
 					end
 						
 		
-  
-  
-  
-
-
 end  
   
     private 
         def score_params
             params.permit(:quiz, :mark)
 				end
-		
-

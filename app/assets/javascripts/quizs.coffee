@@ -52,13 +52,9 @@ $(document).ready ->
     else if type instanceof Array #Multiple FIBs
       fib = []
       $.each type, (key, value) ->
-        texts = $('#' + value + ', ' + '#' + type[key+1]).map(->
-          @previousSibling.nodeValue
-        )
-        char = texts[0].replace(/\s+/g, '').slice(-1)
-        content = $('#' + value).val()
+        content = $("#"+type[key]).val()
         if content.length != 0
-          fib.push char + content
+          fib.push content
       if type.length == fib.length
         answer.push(fib)
       else
@@ -107,23 +103,12 @@ $(document).ready ->
       answer.push array
       if array == "" or array.length == 0
         unanswered.push location
-    else #True or false, dropdown
-      content = $("#"+type).val()
-      if (type.indexOf('fib') >= 0)#Single FIB
-        string = ($('#' + type).parent().html().replace(/\s+/g, ''))
-        location = string.indexOf('<')
-        char = string.charAt(location - 1)
-        if typeof content == 'undefined' or content == ""
-          unanswered.push location
-          answer.push ""
-        else
-          answer.push(char + content)
-      else 
-        if typeof content == 'undefined' or content == ""
-          unanswered.push location
-          answer.push ""
-        else
-          answer.push(content)
+    else #True or false, dropdown, single FIB
+      if typeof $("#"+type).val() == 'undefined' or $("#"+type).val() == ""
+        unanswered.push location
+        answer.push ""
+      else
+        answer.push($("#"+type).val())
   highlightUnanswered(unanswered)
   return unanswered.length == 0
 
