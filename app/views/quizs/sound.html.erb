@@ -60,7 +60,8 @@
         <% until index[array_count+=1].nil? %>
           <% if index[array_count].kind_of?(Array)%>
              <% case index[array_count][0]%>
-             <% when "img" %> 
+             <% when "img" %>
+              <img src="<%=asset_path(index[array_count][1])%>" alt="Theory <%=array_count%>"> 
              <% when "li" %>
               <% count = 0 %>
               <ul>
@@ -77,7 +78,7 @@
         <p><%= index[1]%></p>
         <div class="form-group">
             <label for="true_false<%=j%>">True or False?</label>
-            <select class="form-control" id="true_false<%=j%>">
+            <select class="form-control quiz" id="true_false<%=j%>">
             <option>True</option>
             <option>False</option>
             </select>
@@ -87,7 +88,7 @@
         <p><%= index[1]%>______</p>
         <div class="form-group">
             <label for="drop_down<%=j%>">Choose from the list below</label>
-            <select class="form-control" id="drop_down<%=j%>">
+            <select class="form-control quiz" id="drop_down<%=j%>">
             <% counter = 1 %>
             <% until index[counter+=1].nil? %>
               <option><%= index[counter]%></option>
@@ -150,7 +151,7 @@
         <% until m == index.count do %>
           <div class="col-5 col-md-5 col-lg-5 m-2 rounded">
                 <input type="radio" value="Answer <%=answer_num%>" name="answer<%=j%>">
-                <img src="<%=index[m]%>" alt="Answer <%=answer_num%>">      
+                <img src="<%=asset_path(index[m])%>" alt="Answer <%=answer_num%>">      
           </div>
           <% m+=1 %>
           <% answer_num+=1 %>
@@ -159,7 +160,7 @@
         <% question_list.push("answer#{j}") %>
       <% when "CLP"%>
         <p> <%=index[1]%> </p>
-        <img src="<%=index[2]%>" usemap="#image-map<%=j%>" class="map">
+        <img src="<%=asset_path(index[2])%>" usemap="#image-map<%=j%>" class="map">
         <map name="image-map<%=j%>">
           <% m = 3 %>
           <% option_num = 1 %>
@@ -180,7 +181,7 @@
             <input type="text" style="z-index:101; position:absolute; top:<%=coords[1]%>px; left:<%=coords[0]%>px; width:<%=width%>px;"/>
             <% m+=1 %>
           <% end %>
-          <img src="<%=index[2]%>"/>
+          <img src="<%=asset_path(index[2])%>"/>
         </div>
         <% question_list.push("pic#{j}") %>
       <% when "DD"%>
@@ -315,5 +316,7 @@
     $(".multi_words span").click(function() {
       $(this).toggleClass( 'selected' );
     });
+    
+    $.cookie("previousUrl", window.location.href, {path:"/"});
   });
 </script>

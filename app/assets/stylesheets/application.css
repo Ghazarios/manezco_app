@@ -207,6 +207,10 @@ button[type=submit].shake{
   7% {left: 0}
 }
 
+a.back {
+  margin-right: 5px;
+}
+
 .popover {
   font-size: 15px;
   background-color: #d9534f;
@@ -272,7 +276,7 @@ span.selected{
   color: #f00;
 }
 
-.form-control {
+.form-control.quiz{
   width:auto;
   display:inline-block;
 }

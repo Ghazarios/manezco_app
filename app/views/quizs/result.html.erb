@@ -18,7 +18,7 @@
   sessvars.Questions.questionList.forEach(function (question, index){
     $("div.card").append("<div><h6>Question " + ++index + "</h6><p>" + question[1] + "</p>Your answer: <span id='user_answer_" + index + "'></span><br></div>");
   });
-  $("div.card").append("<br><a id='redo_test' href=''>Redo Test </a>")
+  $("div.card").append("<br><a id='redo_test' href=''>Redo Test </a> ")
   $("div.card").append("<a id='scores' href='/welcome/score'> See Scores</a>")
   
   console.log(sessvars.myAnswer.userAnswer);
@@ -50,6 +50,7 @@
         else 
         {
           while (j < this[i].length) {
+            var correct = true;
             if (this[i][j] !== array[i][j]) {
               correct = false;
               output = array[i].join(', ');
@@ -93,25 +94,21 @@
     
     var name = sessvars.Header.header;
     var result = mark;
-//     $.ajax({
-//       url: "/mark",
-//       type: "POST",
-//       data: {quiz: name, mark: result},
-//       success: function (data) {
-//         console.log('Saved Successfully');
-//       },
-//       error:function(){
-//        alert('Error');
-//       }
-//     });
-    console.log("Not yet deleted");
-    console.log(sessvars.Header.header);
-    sessvars.$.clearMem();
-    console.log("Deleted");
-    console.log(sessvars.Header.header);
+    $.ajax({
+      url: "/mark",
+      type: "POST",
+      data: {quiz: name, mark: result},
+      success: function (data) {
+        console.log('Saved Successfully');
+      },
+      error:function(){
+       alert('Error');
+      }
+    });
   };
-
+  console.log($.cookie('previousUrl'));
   $('#redo_test').click(function() {
-    window.location.href = document.referrer;
+    window.location.href = $.cookie('previousUrl');
   });
+  $.removeCookie('previousUrl', { path: '/' });
 </script>
