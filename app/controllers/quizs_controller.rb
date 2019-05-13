@@ -111,30 +111,30 @@ class QuizsController < ApplicationController
 				  @title = "Tectonic Plates"
           @contents = [
           	["TH",
-							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.1png.png?alt=media&token=65fb51f0-0c3f-4c9e-af95-1dcad6e7458c"]
+							["img", "science/earthscience/tectonic/9.1.1png.png"]
 						],
 						["TH",
-							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.2png.png?alt=media&token=6c314275-0150-4c7a-86f3-390d717baaa8"]
+							["img", "science/earthscience/tectonic/9.1.2png.png"]
 						],
 						["TH",
-							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.3png.png?alt=media&token=d9e36cec-abc8-4a05-af71-07b097055ca5"]
+							["img", "science/earthscience/tectonic/9.1.3png.png"]
 						],
 						["TH",
-							["img", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.4png.png?alt=media&token=3479dc92-2a23-4930-8c95-9503113b1729"]
+							["img", "science/earthscience/tectonic/9.1.4png.png"]
 						],
 						
 						["SC", "What are Tectonic Plates?", "a.	Large countries that border each other", "b.	Continents ",
 						"c.	Large slabs of Crust rock that float on the Mantle"],
 						["TF", "All Tectonic Plates are moving into each other."], 
 						["SC", "Tectonic Plates are generally located within the:", "Outer Core", "Lower Mantle", "Crust"], 
-						["CLP", "Click the box that represents the Mantle", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+						["CLP", "Click the box that represents the Mantle", "science/earthscience/tectonic/9.1.6.png",
 							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
 						["SC", "What are the two varieties of Tectonic Plates?", "Country and Ocean", "Continental and Oceanic", "Crustal and Orogenic"],
-						["CLP", "Click the box that represents the Inner Core", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+						["CLP", "Click the box that represents the Inner Core", "science/earthscience/tectonic/9.1.6.png",
 							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
 						["FIB", "How many major/main Tectonic Plates are there?", "@8"],
 						["TF", "Continental plates have no oceans on them."],
-						["CLP", "Click the box that represents the Crust", "https://firebasestorage.googleapis.com/v0/b/manezco.appspot.com/o/science%2F9%2FEarth%20Science%2Ftectonic%20plates%2F9.1.6.png?alt=media&token=ff70202f-6caf-4866-b6d1-66569a8a3a6d",
+						["CLP", "Click the box that represents the Crust", "science/earthscience/tectonic/9.1.6.png",
 							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
 						["FIB", "The Major Tectonic Plates are the Australian, South American, Eurasian, Indian, North American,
 						Antarctic, African, and", "@Pacific", "plates. Make sure to capitalize the first letter."],
