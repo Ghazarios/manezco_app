@@ -71,19 +71,18 @@ class QuizsController < ApplicationController
               ["SC", "What are the three main properties of Waves?", "a. Amplitude, Frequency, Wavelength", "b. Width, Amps, Length", "c. Wavelength,
 							Acceleration, Frequent"],
               ["SCP", "Click the wave that has a low Frequency:", "science/physics/sound/picture1.png", "science/physics/sound/picture2.png"],
-              ["CLP", "Click the colored line that is measuring the Amplitude:","science/physics/sound/image-map.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
-              ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "science/physics/sound/picture-question.png",
+              ["CLP", "Click the colored line that is measuring the Amplitude:","science/physics/sound/image-map1.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
+              ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "science/physics/sound/image-map2.png",
 								"117,9,175,237", "365,15,413,240"], 
-              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed", ", and c", "@reated"],
+              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
-
 							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]],
 							["WORD", "Single Word. Click on the word/s that needs to be capitalized", "the wind blew through the open window", "single"],
           		["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
           ]
           @answer = ["True", "Vibrations", "edium", ["Form of Kinetic Energy", "Wave-like", "Requires a medium", "Unable to travel through space"],
-						"a. Amplitude, Frequency, Wavelength", "Answer 1", "option-1", "option-1", ["eflected", "bsorbed", "reated"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I", "Tom"]]        
+						"a. Amplitude, Frequency, Wavelength", "Answer 2", "option-1", "option-1", ["eflected", "bsorbed"], ["Steel", "Water", "Air"], ["Gas", "Solid", "Liquid"], ["Convection", "Radiation", "Convection", "Conduction"], "The", ["I", "Tom"]]        
           @question = [
               ["TF", "Sound cannot travel through a vacuum. True or False?"],
               ["DL", "Sound is an effect caused by _______."], 
@@ -138,17 +137,16 @@ class QuizsController < ApplicationController
 						["CLP", "Click the box that represents the Crust", "science/earthscience/tectonic/9.1.6.png",
 							"37,105,141,153", "105,303,231,358", "761,105,878,197", "756,274,874,366"],
 						["FIB", "The Major Tectonic Plates are the Australian, South American, Eurasian, Indian, North American,
-						Antarctic, African, and", "@Pacific", "plates."],
+						Antarctic, African, and", "@Pacific", "plates. Make sure to capitalize the first letter."],
 						["TF", "The Nazca Plate is a Minor Plate."],
-						["DL", "Which of the following is true?", "The Australian, Antarctic, and Pacific Plates are major.
-						The Nazca and Arabian Plates are minor.", "The Australian, Nazca, and Pacific Plates are major.
+						["DL", "Which of the following is true?", "The Australian, Antarctic, and Pacific Plates are major. The Nazca and Arabian Plates are minor.", "The Australian, Nazca, and Pacific Plates are major.
 						The Caribbean and South American Plates are minor."],
 						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
-						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"],
-						
+						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"]
           ]
           @answer = ["c.	Large slabs of Crust rock that float on the Mantle", "False", "Crust", "option-2", "Continental and Oceanic",
-										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Nazca, and Pacific Plates are major. The Caribbean and South American Plates are minor.", "No"]        
+										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Antarctic, and Pacific Plates are major. The Nazca and Arabian Plates are minor.", "No"]        
+
           @question = [
 						["SC", "What are Tectonic Plates?"],
 						["TF", "All Tectonic Plates are moving into each other."], 
