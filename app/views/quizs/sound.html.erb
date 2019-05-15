@@ -1,7 +1,3 @@
-<% content_for :head do %>
-  <%= javascript_include_tag "https://www.thomasfrank.se/sessvars.js" %>
-<% end %>
-
 <div style="width: 100%">
 	<%= render partial: 'content_blocks/app_navs/4' %>
 </div>	
@@ -243,14 +239,16 @@
 <script>
   $(document).ready(function() {
     
-    $.getScript("https://www.thomasfrank.se/sessvars.js", function(){
-      sessvars.Answer = {correctAnswer: $('#answers').data('data')};
-      $('#answers').remove();
-      sessvars.Questions = {questionList: $('#question').data('data')};
-      $('#question').remove();
-      sessvars.Header = {header: $('#header').data('data')};
-      $('#header').remove();
-    });
+    sessvars.$.clearMem();
+    sessvars.Answer = {correctAnswer: $('#answers').data('data')};
+    $('#answers').remove();
+    sessvars.Questions = {questionList: $('#question').data('data')};
+    $('#question').remove();
+    sessvars.Header = {header: $('#header').data('data')};
+    $('#header').remove();
+    sessvars.Page = {prevPage: window.location.href};
+    console.log(sessvars.Header.header);
+    console.log(sessvars.Page.prevPage);
     
     var replace = $("div.container").html().replace(/\[sup\]/g,'<sup>').replace(/\[\/sup\]/g,'</sup>');
     $("div.container").html(replace);
@@ -317,7 +315,5 @@
     $(".multi_words span").click(function() {
       $(this).toggleClass( 'selected' );
     });
-    
-    $.cookie("previousUrl", window.location.href, {path:"/"});
   });
 </script>
