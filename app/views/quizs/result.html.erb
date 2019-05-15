@@ -1,6 +1,3 @@
-<% content_for :head do %>
-  <%= javascript_include_tag "https://www.thomasfrank.se/sessvars.js" %>
-<% end %>	
 <div class='container'>
     <div class="col-12 animate-fade-in-1000 container">
     <h1 id="header"> Quiz Results</h1>
@@ -84,10 +81,22 @@
     enumerable: false
   });
   
+  var backPage = sessvars.Page.prevPage;
+  $('#redo_test').click(function() {
+    window.location.href = backPage;
+  });
+  
   var i;
   if (sessvars.myAnswer) {
     sessvars.Answer.correctAnswer.equals(sessvars.myAnswer.userAnswer);
-    var mark = $("div.card").html().match(/correct!/gi).length;
+    var mark;
+    if ($("div.card").html().match(/correct!/gi).length == null){
+      mark = 0;
+    }
+    else 
+    {
+      mark = $("div.card").html().match(/correct!/gi).length;
+    };
     $("#mark").text(mark);
     
     var name = sessvars.Header.header;
@@ -103,10 +112,6 @@
        alert('Error');
       }
     });
+    sessvars.$.clearMem();
   };
-  console.log($.cookie('previousUrl'));
-  $('#redo_test').click(function() {
-    window.location.href = $.cookie('previousUrl');
-  });
-  $.removeCookie('previousUrl', { path: '/' });
 </script>
