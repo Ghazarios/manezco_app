@@ -146,6 +146,7 @@ class QuizsController < ApplicationController
           ]
           @answer = ["c.	Large slabs of Crust rock that float on the Mantle", "False", "Crust", "option-2", "Continental and Oceanic",
 										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Antarctic, and Pacific Plates are major. The Nazca and Arabian Plates are minor.", "No"]        
+
           @question = [
 						["SC", "What are Tectonic Plates?"],
 						["TF", "All Tectonic Plates are moving into each other."], 
