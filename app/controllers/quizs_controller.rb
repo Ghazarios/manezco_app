@@ -145,11 +145,10 @@ class QuizsController < ApplicationController
 						The Caribbean and South American Plates are minor."],
 						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
 						is touching any Plate boundaries/borders?", "Yes", "No", "Plate boundaries don't exist"],
-						["WORD", "Multiple Words. Click on the word/s that needs to be capitalized", "i met tom on the weekend", "multi"]
+						
           ]
           @answer = ["c.	Large slabs of Crust rock that float on the Mantle", "False", "Crust", "option-2", "Continental and Oceanic",
-										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Antarctic, and Pacific Plates are major.
-										The Nazca and Arabian Plates are minor.", "No"]        
+										"option-4", "8", "False", "option-1", "Pacific", "True", "The Australian, Nazca, and Pacific Plates are major. The Caribbean and South American Plates are minor.", "No"]        
           @question = [
 						["SC", "What are Tectonic Plates?"],
 						["TF", "All Tectonic Plates are moving into each other."], 
