@@ -222,7 +222,7 @@
         </li>
         </div>
       <%end %>
-      <button class="btn btn-primary" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="You haven't answered all questions" type="submit" onclick="mark(<%=question_list%>)" disabled="disabled">Submit</button>
+      <button class="btn btn-primary" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="You haven't answered all questions" type="submit" data-questions="<%=question_list%>" disabled="disabled">Submit</button>
       </div>
     </div>
   </div>
@@ -238,7 +238,6 @@
 
 <script>
   $(document).ready(function() {
-    document.location.reload();
     sessvars.$.clearMem();
     sessvars.Answer = {correctAnswer: $('#answers').data('data')};
     $('#answers').remove();
