@@ -1,6 +1,8 @@
 answer = []
 
 $(document).ready ->
+  $(document).on 'click', 'button[type="submit"]', ->
+    mark()
   $(document).on 'click', 'ul.nav-tabs a', ->
     $(this).animate {
       backgroundColor: 'transparent'
@@ -15,19 +17,20 @@ $(document).ready ->
         color: '#4173a7'
       }, 500
     return
-  
-@mark = (question_list) ->
+
+@mark = () ->
+  question_list = $('button[type="submit"]').data("questions")
   if check(question_list)
-      sessvars.myAnswer = {userAnswer: answer}
-      window.location.replace("/result")
+    sessvars.myAnswer = {userAnswer: answer}
+    window.location.replace("/result")
   else
-      $('button[type=submit]').effect 'shake'
-      $('button[type="submit"]').popover 'show'
-      setTimeout (->
-        $('button[type="submit"]').popover 'hide'
-        return
-      ), 3000
-      answer = []
+    $('button[type=submit]').effect 'shake'
+    $('button[type="submit"]').popover 'show'
+    setTimeout (->
+      $('button[type="submit"]').popover 'hide'
+      return
+    ), 3000
+    answer = []
 
 @check = (question_list) -> #Check if questions are all answered
   unanswered = []
