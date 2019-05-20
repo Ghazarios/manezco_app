@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   	get 'english/year7english' => 'quizs#year7english'
 			get 'year7english/punctuation' => 'quizs#punctuation'
 				get 'punctuation/basicpunctuation' => 'quizs#basicpunctuation'
+				get 'punctuation/semicolon' => 'quizs#semicolon'
 	
   get 'hass' => 'quizs#hass'
 		get 'hass/year7hass' => 'quizs#year7hass'

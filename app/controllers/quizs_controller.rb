@@ -421,7 +421,7 @@ class QuizsController < ApplicationController
     end
 	
 			def punctuation
-				@subjects = ["Basic Punctuation"]
+				@subjects = ["Basic Punctuation" , "Semicolon"]
 				@title = "Punctuation"
 			end
 				
@@ -432,10 +432,10 @@ class QuizsController < ApplicationController
 							The start of a sentence needs a capital letter so the reader knows a new
 							sentence has begun. Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
 							
-              ["FIB", "the wind blew through the open window.", "@The wind blew through the open window."],
+              ["WORD", "Click on the word that needs to be capitalized", "the wind blew through the open window.", "single"],
               ["SC", "Which sentence is correct?", "Water pushed its way across the land.", "water pushed its way across the land.", "water Pushed its way across the land."],
-							["FIB", "sunshine warmed the old man's room.", "@Sunshine warmed the old man's room."],
-							["FIB", "my husband cooked a big Sunday lunch.", "@My husband cooked a big Sunday lunch."],
+          		["WORD", "Click on the word/s that needs to be capitalized", "sunshine warmed the old man's room.", "single"],
+							["WORD", "Click on the word/s that needs to be capitalized", "my husband cooked a big sunday lunch.", "multi"],
               ["SC", "Which sentence is correct?", "earthquakes shake Japan regularly.", "Earthquakes shake japan regularly.", "Earthquakes shake Japan regularly."],
 						
               ["TH",
@@ -446,44 +446,122 @@ class QuizsController < ApplicationController
               ["FIB", "i met tom on the weekend.", "@I met Tom on the weekend."],
               ["DL", "The following sentence is correct:", "my dad drives a Ford, but I like Holden.", "My dad drives a ford, but I like Holden.",
 							"My dad drives a ford, but I like holden.", "My dad drives a Ford, but I like Holden."],
-							["FIB", "jessica thinks yamaha make the best motorbikes.", "@Jessica thinks Yamaha make the best motorbikes."],
+							["WORD", "Click on the word/s that needs to be capitalized", "jessica thinks yamaha make the best motorbikes.", "multi"],
 							["SC", "Which sentence is correct?", "On the summer holiday, I visited Harry in Brisbane.", "on the summer holiday, I visited Harry in brisbane.", "On the Summer Holiday, I visited Harry in Brisbane."],
-              ["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill.", "@Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill."],
+							["WORD", "Click on the word/s that needs to be capitalized", "Last wednesday, I went swimming at bondi beach with my friends nick and bill.", "multi"],
 							
 							["OV", "The following sentences have capital letter errors.
 							Practice 3: Correct each of the following sentences:"],
 							["FIB", "monday is my first day at a new school in perth.", "@Monday is my first day at a new school in Perth."],
-              ["FIB", "I really like annie. I hope she comes to bill's party on friday.", "@I really like Annie. I hope she comes to Bill's party on Friday."],
+							["WORD", "Click on the word/s that needs to be capitalized", "I really like annie. I hope she comes to bill's party on friday.", "multi"],
 							["FIB", "where are you going for the summer holiday in december?", "@Where are you going for the summer holiday in December?"],
 							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
-              ["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'",
-							"the", "traffic", "was", "really", "bad", "on", "the", "albany", "highway", "on","thursday"]
+              ["WORD", "Click on the word/s that needs to be capitalized", "the traffic was really bad on albany highway on thursday.", "multi"],
+
 							
 							]
-          @answer = ["The wind blew through the open window.", "Water pushed its way across the land.", "Sunshine warmed the old man's room.", "My husband cooked a big Sunday lunch.",
-					"Earthquakes shake Japan regularly.", "I met Tom on the weekend.", "My dad drives a Ford, but I like Holden.", "Jessica thinks Yamaha make the best motorbikes.",
-					"On the summer holiday, I visited Harry in Brisbane.", "Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill.", "Monday is my first day at a new school in Perth.",
-					"I really like Annie. I hope she comes to Bill's party on Friday.", "Where are you going for the summer holiday in December?", "False", ["the", "albany", "highway", "thursday"] ]        
+          @answer = ["The", "Water pushed its way across the land.", "Sunshine", ["My", "Sunday"],
+					"Earthquakes shake Japan regularly.", "I met Tom on the weekend.", "My dad drives a Ford, but I like Holden.", ["Jessica", "Yamaha"],
+					"On the summer holiday, I visited Harry in Brisbane.", ["Wednesday,", "Bondi", "Beach", "Nick", "Bill."], "Monday is my first day at a new school in Perth.",
+					["Annie.", "Bill's", "Friday."], "Where are you going for the summer holiday in December?", "False", ["The", "Albany", "Highway", "Thursday."] ]        
           @question = [
-              ["FIB", "the wind blew through the open window."],
+              ["WORD", "the wind blew through the open window."],
               ["SC", "Which sentence is correct?"],
-							["FIB", "sunshine warmed the old man's room."],
-							["FIB", "my husband cooked a big Sunday lunch."],
+							["WORD", "sunshine warmed the old man's room."],
+							["WORD", "my husband cooked a big Sunday lunch."],
 							["SC", "Which sentence is correct?"],
 							["FIB", "i met tom on the weekend."],
 							["DL", "The following sentence is correct:"],
-							["FIB", "jessica thinks yamaha make the best motorbikes."],
+							["WORD", "jessica thinks yamaha make the best motorbikes."],
 							["SC", "Which sentence is correct?"],
-							["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill."],
+							["WORD", "Last wednesday, I went swimming at bondi beach with my friends nick and bill."],
 							["FIB", "monday is my first day at a new school in perth."],
-							["FIB", "I really like annie. I hope she comes to bill's party on friday."],
+							["WORD", "I really like annie. I hope she comes to bill's party on friday."],
 							["FIB", "where are you going for the summer holiday in december?"],
 							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
-							["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'"]
+							["WORD", "Which words should be capitalised in the following sentence: 'the traffic was really bad on albany highway on thursday.'"]
          		  ]
 					render "sound"
 				end
 		
+				def semicolon
+					@title = "Semicolon"
+          @contents = [
+              ["TH",
+								["img", "english/year7/punctuation/semicolon/9.1.png"],
+							],
+							["TH",
+								["img", "english/year7/punctuation/semicolon/9.2.png"],
+							],
+							
+              ["SC", "Which sentence has the semi-colon in the correct location?", "I’m hungry I will get; Doritos.", "I’m hungry; I will get Doritos.", "I’m hungry I will; get Doritos."],
+          		["SC", "Which sentence has the semi-colon in the correct location?", "I can’t go out tonight; I have an exam tomorrow morning.", "I can’t go out; tonight I have an exam tomorrow morning.", "I can’t go out tonight I have an exam; tomorrow morning."],
+							["TF", "This sentence has its semi-colon in the correct location: We can practice cricket on Tuesday; the practice nets are not busy then."],
+              ["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:", "Jenny has gone to netball training Paul has gone to volleyball training.", "single"],
+	            ["DL", "The following sentence is correct:", "I spent all my money on the weekend I wanted; to celebrate my brother’s birthday.", "I spent all my money on the weekend; I wanted to celebrate my brother’s birthday.",
+							"I spent all my money; on the weekend I wanted to celebrate my brother’s birthday."],
+							
+							["OV", "Practice 2: Signaling the beginning of a list in a sentence."],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:", "Mum went car shopping on the weekend and she looked at a Toyota Corolla, a Honda Jazz, a Mazda CX 3, and a Ford Festiva.", "single"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:", "I pigged-out at McDonald’s. I ate a Big Mac, a Cheese Burger, two large Fries, and chicken nuggets.", "single"],
+							["SC", "Which sentence has the semi-colon in the correct location?", "I did a lot of homework last night. I finished; Geography, English, Maths, and History.",
+							"I did a lot of homework; last night. I finished Geography, English, Maths, and History.", "I did a lot of homework last night. I finished Geography, English, Maths; and History."],
+							["TF", "This sentence is correct: I binged on movies last weekend; and I watched ‘The Little Mermaid’, ‘The Emoji Movie,’ and ‘Star Trek.’"],
+							["DL", "The following sentence uses the semi-colon correctly", "We’re going fishing this weekend and Dad asked me to pack the fishing rods, the esky with two ice bricks, the tackle box, and bait.",
+							"We’re going fishing this weekend and Dad asked me to pack; the fishing rods, the esky with two ice bricks, the tackle box, and bait.",
+							"We’re going fishing this weekend; and Dad asked me to pack the fishing rods, the esky with two ice bricks, the tackle box, and bait."],
+							
+							["OV", "Practice 3: Connect clauses that contain coordinating conjunctions."],
+              ["SC", "Which sentence is correct?", "I went to the supermarket, and I bought yoghurt but I forgot to buy muesli, so we can’t have our regular yoghurt and muesli for breakfast.",
+	"I went to the supermarket, and I bought yoghurt; but I forgot to buy muesli, so we can’t have our regular yoghurt and muesli for breakfast.",
+	"I went to the supermarket, and I bought; yoghurt but I forgot to buy muesli, so we can’t have our regular yoghurt and muesli for breakfast."],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:", "I wanted to play football, but I hurt my ankle yet John played football even though he hurt his leg.", "single"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:", "It was really cold today, so I put on my jacket but Tammy didn’t have a jacket, so I gave her mine.", "single"],
+							["TF", "The following sentence is incorrect: 'I had trouble understanding ‘Romeo and Juliet,’ so I asked my teacher for help but she only told me to check Spark Notes.'"],
+              ["SC", "Which sentence has the correct punctuation?", "I wanted to watch the AFL, but my sister wanted to watch a movie; so we had a fight, and Mum got angry at me.",
+"I wanted to watch the AFL, but my sister wanted to watch a movie so we had a fight, and Mum got angry at me.",
+"I wanted to watch the AFL, but my sister wanted to watch; a movie so we had a fight, and Mum got angry at me."],
+
+							["OV", "Practice 4: Comma splicing"],
+							["TF", "The following sentence uses comma splicing: 'Jacqueline went to Sydney, she visited the Opera House.'"],
+							["SC", "Which sentence has the comma splice?", "Dad was really tired; I washed the dishes for him.", "Dad was really tired, I washed the dishes for him.",
+							"Dad was really tired so I washed the dishes for him."],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:",
+							"I’m going to the pool I have a swimming meet next weekend.", "single"],
+							["FIB", "Fix the grammar: I came to school late", "@;", "I overslept."],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:",
+							"I feel sleepy the log fire is so warm.", "single"],
+
+							
+							]
+          @answer = ["I’m hungry; I will get Doritos.", "I can’t go out tonight; I have an exam tomorrow morning.", "True", "Training", "I spent all my money on the weekend; I wanted to celebrate my brother’s birthday.",
+						"At", "Ate", "I did a lot of homework last night. I finished; Geography, English, Maths, and History.", "False", "We’re going fishing this weekend and Dad asked me to pack; the fishing rods, the esky with two ice bricks, the tackle box, and bait.",
+						"I went to the supermarket, and I bought yoghurt; but I forgot to buy muesli, so we can’t have our regular yoghurt and muesli for breakfast.", "Ankle", "Jacket", "True", "I wanted to watch the AFL, but my sister wanted to watch a movie; so we had a fight, and Mum got angry at me.",
+						"True", "Dad was really tired, I washed the dishes for him.", "Pool", ";", "Sleepy"]        
+          @question = [
+              ["SC", "Which sentence has the semi-colon in the correct location?"],
+          		["SC", "Which sentence has the semi-colon in the correct location?"],
+							["TF", "This sentence has its semi-colon in the correct location: We can practice cricket on Tuesday; the practice nets are not busy then."],
+              ["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+	            ["DL", "The following sentence is correct:"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+							["SC", "Which sentence has the semi-colon in the correct location?"],
+							["TF", "This sentence is correct: I binged on movies last weekend; and I watched ‘The Little Mermaid’, ‘The Emoji Movie,’ and ‘Star Trek.’"],
+							["DL", "The following sentence uses the semi-colon correctly"],
+              ["SC", "Which sentence is correct?"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+							["TF", "The following sentence is incorrect: 'I had trouble understanding ‘Romeo and Juliet,’ so I asked my teacher for help but she only told me to check Spark Notes.'"],
+              ["SC", "Which sentence has the correct punctuation?"],
+							["TF", "The following sentence uses comma splicing: 'Jacqueline went to Sydney, she visited the Opera House.'"],
+							["SC", "Which sentence has the comma splice?"],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+							["FIB", "Fix the grammar: I came to school late", "@;", "I overslept."],
+							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
+         		  ]
+					render "sound"
+				end
 
   
       
