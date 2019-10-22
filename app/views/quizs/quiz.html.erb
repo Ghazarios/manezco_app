@@ -8,7 +8,6 @@
 
   <h1 align="center"><%= @title %> Quiz</h1>
 	
-
   <!-- Question Nav -->
   <div class="card card-default inspectable">
     <div class="card-header d-flex align-items-center justify-content-between">
@@ -39,7 +38,7 @@
       <% k = 0%>
       <% b = 0%>
       <% n = 2%>
-			<% fib = 0 %>
+      <% fib = 0 %>
       <% question_list = [] %>
       <div class="tab-content container">
       <% @contents.each do |index| %>
@@ -94,7 +93,7 @@
         </div>
         <% question_list.push("drop_down#{j}") %>
       <% when "FIB"%>
-        <p id="fill_in_blanks">
+        <p class="fill_in_blanks">
         <% array_count = 0 %>
         <% answer = [] %>
         <% until index[array_count+=1].nil? %>
@@ -192,7 +191,7 @@
 	      </ul>
         <% question_list.push("sortable") %>
       <% when "DRAG"%>
-      <p> <%=index[1]%> </p>
+        <p> <%=index[1]%> </p>
         <% m = 2 %>
         <% size = (index.count-3)/12 %>
         <div id="drag<%=j%>" class="row justify-content-around">
@@ -305,7 +304,6 @@
         ui.draggable.data( "area", area );
       }
     });
-    
     $(".words, .multi_words").lettering('words');
     $(".words span").click(function(){
       $(this).addClass('selected');
