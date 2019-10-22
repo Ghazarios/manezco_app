@@ -8,10 +8,9 @@ class QuizsController < ApplicationController
 		#The first 3 things above needs to be in an array
 		
     def show
-			@score = Score.where(user: current_user)
+		@score = Score.where(user: current_user)
     end
-  
-  
+
     def mark 
       quiz = params[:quiz]
       mark = params[:mark]
@@ -20,22 +19,28 @@ class QuizsController < ApplicationController
       @score.save
     end
     
+	def result
+		@title = "Quiz Results"     
+	end
   
-		def result
-			@title = "Quiz Results"     
-		end
   
-  
-      #*SCIENCE*
+#*SCIENCE*
 
   def science
       @subjects = ["Physics", "Earth Science", "Chemistry"]     
-      @title = "Science"
-  end
+			@title = "Science"
+			render "subjects"
+	end
+	
+		def chemistry
+			@title = "Chemistry"
+			render "subjects"
+		end
     
     def physics
         @subjects = ["Sound"]
-        @title = "Physics"
+			@title = "Physics"
+			render "subjects"
     end
   
       def sound
@@ -74,7 +79,7 @@ class QuizsController < ApplicationController
               ["CLP", "Click the colored line that is measuring the Amplitude:","science/physics/sound/image-map1.png", "126,16,139,128", "233,21,402,38", "12,120,540,135"],
               ["CLP", "In the diagram below, click the area that contains the highest sound energy if the drum was being played:", "science/physics/sound/image-map2.png",
 								"117,9,175,237", "365,15,413,240"], 
-              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed"],
+              ["FIB", "Sound can be r", "@eflected", " and a", "@bsorbed", ", and c", "@reated"],
               ["DD", "Order the following from fastest to slowest Sound speed:", "Water", "Air", "Steel"],
               ["PIC", "Fill in the blanks: ", "science/physics/sound/fibimage.png", "14,61,122,86", "14,160,121,185", "14,260,120,285"],
 							["DRAG", "Drag the boxes to the correct areas", "Radiation", "Convection", "Conduction", ["Kettle", "Sun", "Balloon", "Stove"]],
@@ -99,12 +104,13 @@ class QuizsController < ApplicationController
 							["WORD", "Click on the word/s that needs to be capitalized"],
 							["WORD", "Click on the word/s that needs to be capitalized"]
 					]
-					render "sound"
+					render "quiz"
       end
 
 		def earthscience
 			@subjects = ["Tectonic Plates"]
-			@title = ["Earth Science"]
+			@title = "Earth Science"
+			render "subjects"
 		end
 	
 			def tectonicplates
@@ -164,7 +170,7 @@ class QuizsController < ApplicationController
 						["SC", "From the map of the Tectonic Plates shown previously; does it look like Australia (the country)
 						is touching any Plate boundaries/borders?"]
 					]
-					render "sound"
+					render "quiz"
 			end
       
   
@@ -178,23 +184,27 @@ class QuizsController < ApplicationController
   
   def maths
     @subjects = ["Year 7", "Year 8", "Year 9"]
-    @title = "Maths"
+		@title = "Mathematics"
+		@note = "Year 7 & 8 currently available"
+		render "subjects"
   end
-	
   
     def year7
-      @subjects = ["Geometry", "Number and Algebra", "Statistics and Probability"]
-      @title = "Year 7"
+			@title = "Year 7 Maths"
+			@note = "Number & Algebra currently available"
+			@subjects = ["Geometry", "Number and Algebra", "Statistics and Probability"]
+			render "subjects"
     end
   
       def geometry
-        @subjects = []
-        @title = "Geometry"
+				@title = "Geometry"
+				render "subjects"
       end
       
       def numberandalgebra
-        @subjects = ["Index Powers", "Prime numbers 1", "Prime Factors 1"]
-        @title = "Number & Algebra"
+        @subjects = ["Index Powers", "Prime Numbers 1", "Prime Factors 1"]
+				@title = "Number & Algebra"
+				render "subjects"
 			end
 				
 				def indexpowers
@@ -235,7 +245,7 @@ class QuizsController < ApplicationController
 							["MC", "64 can be written as a power in a few different ways. Select all that apply:"],
 							["FIB", "3<sup>4</sup> is:"]              
 							 ]
-					render "sound"
+					render "quiz"
 				end
 	
 					def primenumbers1
@@ -276,7 +286,7 @@ class QuizsController < ApplicationController
 							["TF", "61 is a Prime Number"],
 							["MC", "63 isn't a Prime Number as it can be divided by:"]
 							 ]
-					render "sound"
+					render "quiz"
 				end
 	
 
@@ -333,17 +343,24 @@ class QuizsController < ApplicationController
 							["MC", "Click the prime factors that multiply with each other to form 6000"],
 							["SC", "What is the Sieve of Erastosthenes?"]
 							]
-					render "sound"						
+					render "quiz"						
 				end
-		
+
+			def statisticsandprobability
+				@title = "Statistics and Probability"
+				render "subjects"
+			end
+
 		def year8
 			@subjects = ["Number Algebra"]
 			@title = "Year 8 Maths"
+			render "subjects"
 		end
 	
 			def numberalgebra
 				@subjects = ["Rational numbers"]
 				@title = "Number and Algebra"
+				render "subjects"
 			end 
 	
 				def rationalnumbers
@@ -405,24 +422,34 @@ class QuizsController < ApplicationController
 							["FIB", "What is a a tenth of half? (answer in decimals)"],
 							["FIB", "What is Five times the product of two and three"],
 							]
-					render "sound"					
+					render "quiz"					
 				end
+			
+		def year9
+			@title = "Year 9 Maths"
+			render "subjects"
+		end
 #*ENGLISH*
 
 
   def english
-    @subjects = ["Year 7 English", "Year 8 English", "Year 9 English"]
-    @title = "English"
+		@subjects = ["Year 7 English", "Year 8 English", "Year 9 English"]
+		@note = "Year 7 currently available"
+		@title = "English"
+		render "subjects"
   end
     
     def year7english
       @subjects = ["Punctuation", "Grammar", "Language Devices", "Writing", "Reading"]
-      @title = "Year 7"
+			@title = "Year 7"
+			@note = "Click Punctuation"
+			render "subjects"
     end
 	
 			def punctuation
-				@subjects = ["Basic Punctuation" , "Semicolon"]
+				@subjects = ["Basic Punctuation", "Semicolon"]
 				@title = "Punctuation"
+				render "subjects"
 			end
 				
 				def basicpunctuation
@@ -432,10 +459,10 @@ class QuizsController < ApplicationController
 							The start of a sentence needs a capital letter so the reader knows a new
 							sentence has begun. Practice 1: Correct the following sentences on the next few pages (make sure to add full-stops!):"],
 							
-              ["WORD", "Click on the word that needs to be capitalized", "the wind blew through the open window.", "single"],
+              ["FIB", "the wind blew through the open window.", "@The wind blew through the open window."],
               ["SC", "Which sentence is correct?", "Water pushed its way across the land.", "water pushed its way across the land.", "water Pushed its way across the land."],
-          		["WORD", "Click on the word/s that needs to be capitalized", "sunshine warmed the old man's room.", "single"],
-							["WORD", "Click on the word/s that needs to be capitalized", "my husband cooked a big sunday lunch.", "multi"],
+							["FIB", "sunshine warmed the old man's room.", "@Sunshine warmed the old man's room."],
+							["FIB", "my husband cooked a big Sunday lunch.", "@My husband cooked a big Sunday lunch."],
               ["SC", "Which sentence is correct?", "earthquakes shake Japan regularly.", "Earthquakes shake japan regularly.", "Earthquakes shake Japan regularly."],
 						
               ["TH",
@@ -446,47 +473,47 @@ class QuizsController < ApplicationController
               ["FIB", "i met tom on the weekend.", "@I met Tom on the weekend."],
               ["DL", "The following sentence is correct:", "my dad drives a Ford, but I like Holden.", "My dad drives a ford, but I like Holden.",
 							"My dad drives a ford, but I like holden.", "My dad drives a Ford, but I like Holden."],
-							["WORD", "Click on the word/s that needs to be capitalized", "jessica thinks yamaha make the best motorbikes.", "multi"],
+							["FIB", "jessica thinks yamaha make the best motorbikes.", "@Jessica thinks Yamaha make the best motorbikes."],
 							["SC", "Which sentence is correct?", "On the summer holiday, I visited Harry in Brisbane.", "on the summer holiday, I visited Harry in brisbane.", "On the Summer Holiday, I visited Harry in Brisbane."],
-							["WORD", "Click on the word/s that needs to be capitalized", "Last wednesday, I went swimming at bondi beach with my friends nick and bill.", "multi"],
+              ["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill.", "@Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill."],
 							
 							["OV", "The following sentences have capital letter errors.
 							Practice 3: Correct each of the following sentences:"],
 							["FIB", "monday is my first day at a new school in perth.", "@Monday is my first day at a new school in Perth."],
-							["WORD", "Click on the word/s that needs to be capitalized", "I really like annie. I hope she comes to bill's party on friday.", "multi"],
+              ["FIB", "I really like annie. I hope she comes to bill's party on friday.", "@I really like Annie. I hope she comes to Bill's party on Friday."],
 							["FIB", "where are you going for the summer holiday in december?", "@Where are you going for the summer holiday in December?"],
 							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
-              ["WORD", "Click on the word/s that needs to be capitalized", "the traffic was really bad on albany highway on thursday.", "multi"],
-
+              ["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'",
+							"the", "traffic", "was", "really", "bad", "on", "the", "albany", "highway", "on","thursday"]
 							
 							]
-          @answer = ["The", "Water pushed its way across the land.", "Sunshine", ["My", "Sunday"],
-					"Earthquakes shake Japan regularly.", "I met Tom on the weekend.", "My dad drives a Ford, but I like Holden.", ["Jessica", "Yamaha"],
-					"On the summer holiday, I visited Harry in Brisbane.", ["Wednesday,", "Bondi", "Beach", "Nick", "Bill."], "Monday is my first day at a new school in Perth.",
-					["Annie.", "Bill's", "Friday."], "Where are you going for the summer holiday in December?", "False", ["The", "Albany", "Highway", "Thursday."] ]        
+          @answer = ["The wind blew through the open window.", "Water pushed its way across the land.", "Sunshine warmed the old man's room.", "My husband cooked a big Sunday lunch.",
+					"Earthquakes shake Japan regularly.", "I met Tom on the weekend.", "My dad drives a Ford, but I like Holden.", "Jessica thinks Yamaha make the best motorbikes.",
+					"On the summer holiday, I visited Harry in Brisbane.", "Last Wednesday, I went swimming at Bondi Beach with my friends Nick and Bill.", "Monday is my first day at a new school in Perth.",
+					"I really like Annie. I hope she comes to Bill's party on Friday.", "Where are you going for the summer holiday in December?", "False", ["the", "albany", "highway", "thursday"] ]        
           @question = [
-              ["WORD", "the wind blew through the open window."],
+              ["FIB", "the wind blew through the open window."],
               ["SC", "Which sentence is correct?"],
-							["WORD", "sunshine warmed the old man's room."],
-							["WORD", "my husband cooked a big Sunday lunch."],
+							["FIB", "sunshine warmed the old man's room."],
+							["FIB", "my husband cooked a big Sunday lunch."],
 							["SC", "Which sentence is correct?"],
 							["FIB", "i met tom on the weekend."],
 							["DL", "The following sentence is correct:"],
-							["WORD", "jessica thinks yamaha make the best motorbikes."],
+							["FIB", "jessica thinks yamaha make the best motorbikes."],
 							["SC", "Which sentence is correct?"],
-							["WORD", "Last wednesday, I went swimming at bondi beach with my friends nick and bill."],
+							["FIB", "Last wednesday, I went swimming at bondi beach with my friends nick and bill."],
 							["FIB", "monday is my first day at a new school in perth."],
-							["WORD", "I really like annie. I hope she comes to bill's party on friday."],
+							["FIB", "I really like annie. I hope she comes to bill's party on friday."],
 							["FIB", "where are you going for the summer holiday in december?"],
 							["TF", "The following sentence is correct: 'Tim rides a Honda, but I ride a kawasaki.'"],
-							["WORD", "Which words should be capitalised in the following sentence: 'the traffic was really bad on albany highway on thursday.'"]
+							["MC", "Which words should be capitalised in the following sentence: 'the traffic was really bad on the albany highway on thursday.'"]
          		  ]
-					render "sound"
+					render "quiz"
 				end
-		
-				def semicolon
-					@title = "Semicolon"
-          @contents = [
+
+			def semicolon
+			@title = "Semicolon"
+          	@contents = [
               ["TH",
 								["img", "english/year7/punctuation/semicolon/9.1.png"],
 							],
@@ -560,30 +587,71 @@ class QuizsController < ApplicationController
 							["FIB", "Fix the grammar: I came to school late", "@;", "I overslept."],
 							["WORD", "Click on the word that should be followed by a semi-colon to fix the sentence:"],
          		  ]
-					render "sound"
-				end
+				render "quiz"
+			end
 
+		def grammar
+			@title = "Grammar"
+			@contents = []
+			render "quiz"
+		end
+		
+		def languagedevices
+			@title = "Language Devices"
+			@contents = []
+			render "quiz"
+		end
+
+		def year8english
+			@title = "Year 8 English"
+			render "subjects"
+		end
+
+		def year9english
+			@title = "Year 9 English"
+			render "subjects"
+		end
   
-      
-  
-  
-  
-  
+		
+
  #*HASS*
 
     def hass
 			@subjects = ["Year 7 HaSS", "Year 8 HaSS", "Year 9 HaSS"]
-    	@title = "Humanities and Social Sciences"
-    end
+			@title = "Humanities and Social Science"
+			render "subjects"
+		end
+
+			def year9hass
+				@title = "Year 9 Hass"
+				render "subjects"
+			end
+
+			def year8hass
+				@title = "Year 8 Hass"
+				render "subjects"
+			end
 	
 			def year7hass
 				@subjects = ["Geography", "History", "Civics", "Economics"]
 				@title = "Year 7"
+				render "subjects"
 			end
-	
+
+				def history
+					@title = "History"
+					render "subjects"
+				end
+
+				def economics
+					@title = "History"
+					render "subjects"
+				end
+
 				def geography
 					@subjects = ["Environmental Resources"]
 					@title = "Geography"
+					render "subjects"
 				end
 	
 					def environmentalresources
@@ -668,12 +736,13 @@ class QuizsController < ApplicationController
 							["TF", "Short term gains made by using up natural resources until depletion will positively effect the long term natural resources supply."],
 							["MC", "What will be the best plan for a country concerned with resource conservation and economic growth?"]
 							]
-						render "sound"
+						render "quiz"
 					end
 				
 				def civics
 					@subjects = ["Government and Democracy"]
 					@title = "Civics and Citizenship"
+					render "subjects"
 				end
 				
 					def governmentanddemocracy
@@ -742,13 +811,11 @@ class QuizsController < ApplicationController
 							["TF", "The Federal Executive Council has ministers from the House of Representatives and the Senate. True or False?"],
 							["CLP", "Click the box that represents the Legislature"],
 							]
-						render "sound"
+						render "quiz"
 					end
-						
-		
 end  
   
     private 
         def score_params
             params.permit(:quiz, :mark)
-				end
+		end

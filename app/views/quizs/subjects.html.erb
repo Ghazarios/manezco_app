@@ -11,15 +11,14 @@ h1 {
 </div>	
 <br>
 <div class="container">
-	
-	
-
-
 	<div class="row container">
-	<h1>Year 7 English</h1>
-		<h6 class= "m-0 text-muted">
-		 Click Punctuation
-		</h6>
+	<h1><%= @title %></h1>
+	<% if @note %>
+	<h6 class= "m-0 text-muted">
+		<%= @note %>
+	</h6>
+	<% end %>
+	<% if @subjects %>
 	<% @subjects.each do |subject| %>
 		<div class="col-12 col-md-12 col-lg-12 animate-drop-fade">
 			<div class="card card-mini  inspectable">
@@ -27,17 +26,21 @@ h1 {
 					<div class="media">
 						<div class="d-flex align-self-center mr-3">
 						</div>
-						<a href="/year7english/<%= subject.downcase.gsub(/\s+/, "") %>">
+						<%= link_to action: subject.downcase.gsub(/\s+/, "") do %>
 						<div class="media-body text-left">
 							<h4 class="m-0 text-muted"><%= subject%></h4>
 						</div>
-						</a>
+						<% end %>
 					</div>
 				</div>
 			</div>
 		</div>
 	<% end %>
+	<% else %>
+		<h2 class= "mx-2 text-muted"> Coming Soon!</h2>
+	<% end %>
 		<div class="container-fluid">
+			<br>
 			<%= image_tag "background.png" %> 
 		</div>
 	</div>
