@@ -18,10 +18,10 @@
 
                 <%= f.error_notification %>
 
-                <%= f.form_group :email, class:"row" do |f| %>
-                  <%= f.label :email, class: "col-sm-4 col-form-label" %>
+                <%= f.form_group :username, class:"row" do |f| %>
+                  <%= f.label :username, class: "col-sm-4 col-form-label" %>
                   <div class="col-md-8">
-                    <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
+                    <%= f.text_field :username, required: true, autofocus: true, class: "form-control" %>
                     <%= f.error_messages %>
                   </div>
                 <% end %>
