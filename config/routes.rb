@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'welcome/profile'
   get '/user/notifications' => 'users#notifications'
   get '/user/support' => 'users#support'

@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'activeadmin'
+gem 'tinymce-rails'
+gem 'activeadmin_quill_editor'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -68,8 +70,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'rrt', '~>1.2.10', source: 'https://gems.kiso.io/'
-
+source "https://gems.kiso.io/" do
+  gem "rrt", "~> 1.2.10"
+end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
