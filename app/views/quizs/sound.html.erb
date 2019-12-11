@@ -223,10 +223,18 @@
         </div>
       <%end %>
       <button class="btn btn-primary" data-toggle="popover" data-trigger="manual" data-placement="top" data-content="You haven't answered all questions" type="submit" data-questions="<%=question_list%>" disabled="disabled">Submit</button>
+
+      <%if @audio_link%>
+        <audio id="audio" src="<%=@audio_link%>"></audio>
+        <img src='<%=image_path("play_btn.png")%>' onclick="document.getElementById('audio').play();" style="float: right; height: 50px; margin-bottom: 20px;"/>
+      <% end %>
+      
       </div>
     </div>
   </div>
 </div>
+
+
 <%= content_tag :div, id: "question_list", data: {data: question_list} do %>
 <% end %>
 <%= content_tag :div, id: "answers", data: {data: @answer} do %>
