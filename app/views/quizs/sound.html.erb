@@ -226,14 +226,28 @@
 
       <%if @audio_link%>
         <audio id="audio" src="<%=@audio_link%>"></audio>
-        <img src='<%=image_path("play_btn.png")%>' onclick="document.getElementById('audio').play();" style="float: right; height: 50px; margin-bottom: 20px;"/>
+        <img src='<%=image_path("play_btn.png")%>' id="play_audio" style="float: right; height: 50px; margin-bottom: 20px;"/>
+        <img src='<%=image_path("pause_btn.jpg")%>' id="pause_audio" style="float: right; height: 50px; margin-bottom: 20px; display: none;"/>
       <% end %>
-      
       </div>
     </div>
   </div>
 </div>
 
+
+<script type="text/javascript">
+  $(document).on("click", '#play_audio', function(){
+    document.getElementById('audio').play();
+    $(this).css('display', 'none');
+    $('#pause_audio').css('display', 'block');
+  })
+
+  $(document).on("click", '#pause_audio', function(){
+    document.getElementById('audio').pause();
+    $(this).css('display', 'none');
+    $('#play_audio').css('display', 'block');
+  })
+</script>
 
 <%= content_tag :div, id: "question_list", data: {data: question_list} do %>
 <% end %>
