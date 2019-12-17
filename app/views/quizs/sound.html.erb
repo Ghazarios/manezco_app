@@ -237,7 +237,7 @@
 <% end %>
 
 <script>
-  $(document).ready(function() {
+  (function() {
     sessvars.$.clearMem();
     sessvars.Answer = {correctAnswer: $('#answers').data('data')};
     $('#answers').remove();
@@ -314,5 +314,5 @@
     $(".multi_words span").click(function() {
       $(this).toggleClass( 'selected' );
     });
-  });
+  })();
 </script>
