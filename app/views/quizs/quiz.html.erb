@@ -235,6 +235,7 @@
 <%= content_tag :div, id: "header", data: {data: @title} do %>
 <% end %>
 
+<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js" %>
 <script>
   $(document).ready(function() {
     sessvars.$.clearMem();
