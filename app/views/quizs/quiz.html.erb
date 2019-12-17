@@ -237,7 +237,7 @@
 
 <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js" %>
 <script>
-  $(document).ready(function() {
+   (function() {
     sessvars.$.clearMem();
     sessvars.Answer = {correctAnswer: $('#answers').data('data')};
     $('#answers').remove();
@@ -305,6 +305,7 @@
         ui.draggable.data( "area", area );
       }
     });
+    
     $(".words, .multi_words").lettering('words');
     $(".words span").click(function(){
       $(this).addClass('selected');
@@ -313,5 +314,5 @@
     $(".multi_words span").click(function() {
       $(this).toggleClass( 'selected' );
     });
-  });
+  })();
 </script>
