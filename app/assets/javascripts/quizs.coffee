@@ -1,6 +1,6 @@
 answer = []
 
-$(document).ready ->
+document.addEventListener 'DOMContentLoaded', (event) ->
   $(document).on 'click', 'button[type="submit"]', ->
     mark()
   $(document).on 'click', 'ul.nav-tabs a', ->
@@ -125,4 +125,4 @@ $(document).ready ->
 
 @change = (number) ->
   $('.nav-item').children().removeClass "active"
-  $('#change'+number).addClass "active"
+	$('#change'+number).addClass "active"
