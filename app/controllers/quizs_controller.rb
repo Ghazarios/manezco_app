@@ -239,6 +239,7 @@ class QuizsController < ApplicationController
 				end
 	
 					def primenumbers1
+					@audio_link = ActionController::Base.helpers.asset_path("interlude.mp3")
 					@title = "Prime Numbers 1"
           @contents = [
               ["TH", 
