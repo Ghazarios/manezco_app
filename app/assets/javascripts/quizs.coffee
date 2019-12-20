@@ -18,7 +18,7 @@ document.addEventListener 'DOMContentLoaded', (event) ->
       }, 500
     return
 
-@mark = () ->
+mark = () ->
   question_list = $('button[type="submit"]').data("questions")
   if check(question_list)
     sessvars.myAnswer = {userAnswer: answer}
@@ -125,4 +125,4 @@ document.addEventListener 'DOMContentLoaded', (event) ->
 
 @change = (number) ->
   $('.nav-item').children().removeClass "active"
-	$('#change'+number).addClass "active"
+	 $('#change'+number).addClass "active"

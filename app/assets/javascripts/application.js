@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require rrt
 //= require_self
+//= require sessvars
 //= require jquery-ui
+//= require clipboard
+//= require mark
 //= require_tree .
