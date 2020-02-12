@@ -108,10 +108,11 @@ class QuizsController < ApplicationController
 		end
 	
 			def tectonicplates
+					@audio_link = ActionController::Base.helpers.asset_path("tectonic_plates.mp3")
 				  @title = "Tectonic Plates"
           @contents = [
           	["TH",
-							["img", "science/earthscience/tectonic/9.1.1png.png"]
+							["img", "science/earthscience/tectonic/earth_layers.png"]
 						],
 						["TH",
 							["img", "science/earthscience/tectonic/9.1.2png.png"]
@@ -239,7 +240,6 @@ class QuizsController < ApplicationController
 				end
 	
 					def primenumbers1
-					@audio_link = ActionController::Base.helpers.asset_path("interlude.mp3")
 					@title = "Prime Numbers 1"
           @contents = [
               ["TH", 
